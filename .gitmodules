@@ -1,0 +1,3 @@
+[submodule "mwxml"]
+	path = mwxml
+	url = https://github.com/mediawiki-utilities/python-mwxml.git
