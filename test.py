@@ -6,11 +6,11 @@ import pprint
 from pywiktionary import Wiktionary
 
 if __name__ == "__main__":
-	pageNum = 10
+	pageNum = 100
 	dumpFile = "../enwiktionary-latest-pages-articles-multistream.xml"
 
 	dump = mwxml.Dump.from_file((open(dumpFile, "rb")))
-	wikt = Wiktionary(lang="English", CMUBET=True, phoneme_only=False)
+	wikt = Wiktionary(lang=["English", "French"], CMUBET=True, phoneme_only=False)
 	stdout = open(sys.stdout.fileno(), "w", encoding="utf-8", closefd=False)
 
 	entryno = 0

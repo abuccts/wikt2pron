@@ -27,9 +27,18 @@ class Wiktionary(object):
 		lang = self.lang if lang is None else lang
 		CMUBET = self.CMUBET if CMUBET is None else CMUBET
 		phoneme_only = self.phoneme_only if phoneme_only is None else phoneme_only
-		if lang != "English":
-			CMUBET = False
-		parser = Parser(lang=lang, CMUBET=CMUBET, phoneme_only=phoneme_only)
+		result = {}
+		if isinstance(lang, list):
+			for eachlang in lang:
+				if eachlang != "English":
+					CMUBET = False
+				parser = Parser(lang=eachlang, CMUBET=CMUBET, phoneme_only=phoneme_only)
+				result[eachlang] = parser.parse(text)[eachlang]
+		else:
+			if lang != "English":
+				CMUBET = False
+			parser = Parser(lang=lang, CMUBET=CMUBET, phoneme_only=phoneme_only)
+			result[lang] = parser.parse(text)[lang]
 
-		return parser.parse(text)
+		return result #parser.parse(text)
 		
