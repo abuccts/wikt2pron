@@ -1,4 +1,5 @@
-# -*- coding: utf-8  -*-
+"""phoneme.py
+"""
 
 from __future__ import unicode_literals
 
@@ -48,10 +49,13 @@ PHONEME_CODES_2 = {
     "ɔɪ": "OY"
 }
 
-def IPA2CMUBET(ipa_pronun):
+
+def ipa2cmubet(ipa_pronun):
+    """ipa2cmubet
+    """
     pronun = []
     i = 0
-    ipa_pronun += ' '
+    ipa_pronun += " "
     while i < len(ipa_pronun) - 1:
         if ipa_pronun[i:i+2] in PHONEME_CODES_2.keys():
             pronun.append(PHONEME_CODES_2[ipa_pronun[i:i+2]])
@@ -59,6 +63,5 @@ def IPA2CMUBET(ipa_pronun):
         elif ipa_pronun[i] in PHONEME_CODES_1.keys():
             pronun.append(PHONEME_CODES_1[ipa_pronun[i]])
         i += 1
-    pronun.append('.')
-    return ' '.join(pronun)
-
+    pronun.append(".")
+    return " ".join(pronun)
