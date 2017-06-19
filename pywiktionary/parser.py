@@ -72,8 +72,8 @@ class Parser(object):
         """parse_detail
         """
         parse_result = []
-        detail_lst = self.regex["h" + str(depth)].findall(text)
-        detail_split = self.regex["h" + str(depth)].split(text)
+        detail_lst = self.regex["h" + str(depth)].findall(wiki_text)
+        detail_split = self.regex["h" + str(depth)].split(wiki_text)
         i = 0
         while i < len(detail_split):
             if detail_split[i] in detail_lst:
@@ -125,6 +125,6 @@ class Parser(object):
         if self.x_sampa:
             for item in parse_result:
                 item.update({
-                    "X-SAMPA": ipa2xsampa(parse_result[i]["IPA"]),
+                    "X-SAMPA": ipa2xsampa(item["IPA"]),
                 })
         return parse_result
