@@ -14,24 +14,15 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.request import urlopen
 
-from pywiktionary.phoneme import ipa2cmubet
-
-
-POS = [
-    "noun", "verb", "adjective", "adverb", "determiner", "abbreviation",
-    "article", "preposition", "conjunction", "proper noun", "letter",
-    "character", "phrase", "proverb", "idiom", "symbol", "syllable",
-    "numeral", "initialism", "interjection",
-]
+from pywiktionary.phoneme import ipa2xsampa
 
 
 class Parser(object):
     """Parser
     """
-    def __init__(self, lang=None, cmubet=None, phoneme_only=None):
+    def __init__(self, lang=None, x_sampa=False):
         self.lang = lang
-        self.cmubet = cmubet
-        self.phoneme_only = phoneme_only
+        self.x_sampa = x_sampa
         self.api = "https://en.wiktionary.org/w/api.php"
         self.param = {
             "action": "expandtemplates",
@@ -58,157 +49,82 @@ class Parser(object):
         html = content["expandtemplates"]["wikitext"]
         return self.regex["ipa"].findall(html)
 
-    def parse_details(self, text, depth=3):
-        """parse_details
-        """
-        result = {}
-        details_lst = self.regex["h" + str(depth)].findall(text)
-        details_split = self.regex["h" + str(depth)].split(text)
-        pronun_result = {}
-        pos_result = []
-        # etymology_result = details_split[0] if depth == 4 else ""
-        i = 0
-        while i < len(details_split):
-            if details_split[i] in details_lst:
-                name = details_split[i].lower()
-                if name == "pronunciation":
-                    pronun_result = self.parse_pronun(details_split[i + 1])
-                elif name in POS:
-                    pos_result.append(details_split[i])
-                elif "etymology" in name:
-                    if name == "etymology":
-                        # etymology_result = details_split[i + 1]
-                        pass
-                    else:
-                        result[details_split[i]] = \
-                            self.parse_details(
-                                details_split[i + 1],
-                                depth=4
-                            )
-                i += 1
-            i += 1
-        if pronun_result:
-            result["Pronunciation"] = pronun_result
-        if pos_result:
-            result["Part of Speech"] = pos_result
-        # if len(etymology_result) > 0:
-        #     result["Etymology"] = etymology_result
-        return result
-
-    def parse_pronun(self, text):
-        """parse_pronun
-        """
-        result = []
-        pronun_lst = self.regex["pronun"].findall(text)
-        for each in pronun_lst:
-            item = {}
-            accent_result = []
-            enpr_result = []
-            ipa_result = []
-            audio_result = []
-            node_lst = self.regex["node"].findall(each)
-            for node in node_lst:
-                node_detail = node.split("|")
-                if node_detail[0] == "a":
-                    accent_result += node_detail[1:]
-                elif node_detail[0] == "enpr":
-                    enpr_result += node_detail[1:]
-                elif "ipa" in node_detail[0]:
-                    if node_detail[0] == "ipa":
-                        lang = re.sub(self.regex["lang"], "", node_detail[-1])
-                        ipa_result.append((node_detail[1:-1], lang))
-                    else:
-                        ipa_key = node_detail[0].split("-")
-                        if len(ipa_key) == 2 and ipa_key[1] == "ipa":
-                            ipa_result.append(
-                                (self.expand_template("{{%s}}" % node),
-                                 ipa_key[0])
-                            )
-                        else:
-                            ipa_result.append(
-                                (["Unknown ipa."],
-                                 "null")
-                            )
-                elif node_detail[0] == "audio":
-                    lang = re.sub(self.regex["lang"], "", node_detail[-1])
-                    audio_result.append(tuple(node_detail[1:-1]) + (lang,))
-            if accent_result:
-                if len(accent_result) == 1:
-                    item["Accent"] = accent_result[0]
-                else:
-                    item["Accent"] = accent_result
-            if enpr_result:
-                if len(enpr_result) == 1:
-                    item["enpr"] = enpr_result[0]
-                else:
-                    item["enpr"] = enpr_result
-            if ipa_result:
-                if len(ipa_result) == 1:
-                    item["ipa"] = ipa_result[0]
-                else:
-                    item["ipa"] = ipa_result
-                if self.cmubet:
-                    cmubet_result = []
-                    for ipa_lst, _ in ipa_result:
-                        cmubet_lst = []
-                        for ipa_pronun in ipa_lst:
-                            cmubet_pronun = ipa2cmubet(ipa_pronun)
-                            cmubet_lst.append(cmubet_pronun)
-                        cmubet_result.append(cmubet_lst)
-                    if len(cmubet_result) == 1:
-                        item["cmubet"] = cmubet_result[0]
-                    else:
-                        item["cmubet"] = cmubet_result
-            if audio_result:
-                if len(audio_result) == 1:
-                    item["Audio"] = audio_result[0]
-                else:
-                    item["Audio"] = audio_result
-            if item:
-                result.append(item)
-        return result
-
-    def parse(self, text):
+    def parse(self, wiki_text):
         """parse
         """
-        result = {}
-        h2_lst = self.regex["h2"].findall(text)
-        if self.lang not in h2_lst:
-            return {self.lang: "language not found"}
-        h2_split = self.regex["h2"].split(text)
+        parse_result = {}
+        h2_lst = self.regex["h2"].findall(wiki_text)
+        if self.lang and self.lang not in h2_lst:
+            parse_result = {self.lang: "Language not found."}
+            return parse_result
+        h2_split = self.regex["h2"].split(wiki_text)
         i = 0
         while i < len(h2_split):
             if h2_split[i] in h2_lst:
-                if h2_split[i] == self.lang:
-                    result[h2_split[i]] = self.parse_details(h2_split[i + 1])
+                if not self.lang or h2_split[i] == self.lang:
+                    parse_result[h2_split[i]] = \
+                        self.parse_detail(h2_split[i+1])
                 i += 1
             i += 1
+        return parse_result
 
-        if self.phoneme_only:
-            pronunciations = []
-            for header3 in sorted(result[self.lang].keys()):
-                if header3 == "Pronunciation":
-                    pronunciations += result[self.lang][header3]
-                elif "Etymology" in header3:
-                    for header4 in result[self.lang][header3]:
-                        if header4 == "Pronunciation":
-                            pronunciations += \
-                                result[self.lang][header3][header4]
-            ipa_lst, cmubet_lst = [], []
-            for pronun in pronunciations:
-                if "ipa" in pronun.keys():
-                    if isinstance(pronun["ipa"], list):
-                        for each in pronun["ipa"]:
-                            ipa_lst += each[0]
+    def parse_detail(self, wiki_text, depth=3):
+        """parse_detail
+        """
+        parse_result = []
+        detail_lst = self.regex["h" + str(depth)].findall(text)
+        detail_split = self.regex["h" + str(depth)].split(text)
+        i = 0
+        while i < len(detail_split):
+            if detail_split[i] in detail_lst:
+                header_name = detail_split[i].lower()
+                if header_name == "pronunciation":
+                    parse_result += \
+                        self.parse_pronunciation(detail_split[i+1])
+                elif ("etymology" in header_name and
+                      header_name != "etymology"):
+                    parse_result += \
+                        self.parse_detail(detail_split[i+1], depth=4)
+                i += 1
+            i += 1
+        if not parse_result:
+            parse_result = "Pronunciation not found."
+        return parse_result
+
+    def parse_pronunciation(self, wiki_text):
+        """parse_pronunciation
+        """
+        parse_result = []
+        pronun_lst = self.regex["pronun"].findall(wiki_text)
+        for each in pronun_lst:
+            node_lst = self.regex["node"].findall(each)
+            for node in node_lst:
+                node_detail = node.split("|")
+                if "IPA" in node_detail[0]:
+                    if node_detail[0] == "IPA":
+                        lang = re.sub(self.regex["lang"], "", node_detail[-1])
+                        for each_ipa in node_detail[1:-1]:
+                            parse_result.append({
+                                "IPA": each_ipa,
+                                "lang": lang,
+                            })
                     else:
-                        ipa_lst += pronun["ipa"][0]
-                    if self.cmubet:
-                        if isinstance(pronun["cmubet"][0], list):
-                            cmubet_lst += pronun["cmubet"]
+                        ipa_key = node_detail[0].split("-")
+                        if len(ipa_key) == 2 and ipa_key[1] == "IPA":
+                            for each_ipa in \
+                                self.expand_template("{{%s}}" % node):
+                                parse_result.append({
+                                    "IPA": each_ipa,
+                                    "lang": ipa_key[0],
+                                })
                         else:
-                            cmubet_lst += [pronun["cmubet"]]
-            cmubet_lst = [x for l in cmubet_lst for x in l]
-            if self.cmubet:
-                return {"ipa": ipa_lst, "cmubet": cmubet_lst}
-            return {"ipa": ipa_lst}
-        return result
+                            parse_result.append({
+                                "IPA": "Unknown IPA.",
+                                "lang": "null",
+                            })
+        if self.x_sampa:
+            for item in parse_result:
+                item.update({
+                    "X-SAMPA": ipa2xsampa(parse_result[i]["IPA"]),
+                })
+        return parse_result

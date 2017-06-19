@@ -11,42 +11,34 @@ from pywiktionary.parser import Parser
 class Wiktionary(object):
     """Wiktionary
     """
-    def __init__(self, lang="English", cmubet=True, phoneme_only=False):
+    def __init__(self, lang=None, x_sampa=False):
         self.lang = lang
-        self.cmubet = cmubet
-        self.phoneme_only = phoneme_only
+        self.x_sampa = x_sampa
+        self.set_parser()
 
     def set_lang(self, lang):
         """set_lang
         """
         self.lang = lang
+        self.set_parser()
 
-    def pronun(self, text, lang=None, cmubet=None, phoneme_only=None):
-        """pronun
+    def set_x_sampa(self, x_sampa):
+        """set_x_sampa
         """
-        lang = lang if lang else self.lang
-        cmubet = cmubet if cmubet else self.cmubet
-        phoneme_only = phoneme_only if phoneme_only else self.phoneme_only
-        result = {}
-        if isinstance(lang, list):
-            for eachlang in lang:
-                if eachlang != "English":
-                    cmubet = False
-                parser = Parser(
-                    lang=eachlang,
-                    cmubet=cmubet,
-                    phoneme_only=phoneme_only
-                )
-                result[eachlang] = parser.parse(text)[eachlang]
-        else:
-            if lang != "English":
-                cmubet = False
-            parser = Parser(
-                lang=lang,
-                cmubet=cmubet,
-                phoneme_only=phoneme_only
-            )
-            result[lang] = parser.parse(text)[lang]
+        self.x_sampa = x_sampa
+        self.set_parser()
 
-        # return parser.parse(text)
-        return result
+    def set_parser(self):
+        """set_parser
+        """
+        self.parser = Parser(
+            lang=self.lang,
+            x_sampa=self.x_sampa,
+        )
+
+    def get_entry_pronunciation(self, wiki_text):
+        """get_entry_pronunciation
+        """
+        if self.lang:
+            return parser.parse(wiki_text)[self.lang]
+        return parser.parse(wiki_text)
