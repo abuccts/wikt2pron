@@ -137,5 +137,18 @@ IPA_PHONEME_CODEC = {
 def ipa2xsampa(ipa):
     """ipa2xsampa
     """
-    #TODO
-    return ipa
+    mapping = {}
+    for t in IPA_PHONEME_CODEC.keys():
+        for k in IPA_PHONEME_CODEC[t].keys():
+            mapping[k] = IPA_PHONEME_CODEC[t][k]
+    xsampa = ""
+    i = 0
+    while i < len(ipa):
+        if ipa[i] in mapping.keys():
+            xsampa += mapping[ipa[i]]
+        else:
+            #TODO
+            #oov handle
+            pass
+        i += 1
+    return xsampa
