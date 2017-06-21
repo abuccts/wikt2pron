@@ -62,8 +62,10 @@ class Parser(object):
         while i < len(h2_split):
             if h2_split[i] in h2_lst:
                 if not self.lang or h2_split[i] == self.lang:
-                    parse_result[h2_split[i]] = \
-                        self.parse_detail(h2_split[i+1])
+                    pronunciation = self.parse_detail(h2_split[i+1])
+                    if not pronunciation:
+                        pronunciation= "Pronunciation not found."
+                    parse_result[h2_split[i]] = pronunciation
                 i += 1
             i += 1
         return parse_result
@@ -87,8 +89,6 @@ class Parser(object):
                         self.parse_detail(detail_split[i+1], depth=4)
                 i += 1
             i += 1
-        if not parse_result:
-            parse_result = "Pronunciation not found."
         return parse_result
 
     def parse_pronunciation(self, wiki_text):

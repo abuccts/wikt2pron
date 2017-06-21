@@ -87,6 +87,39 @@ def get_word_list():
         json.dump(lst, f)
 
 
+def get_ipa():
+    """get_ipa
+    """
+    page_num = 10
+    dump_file = "../enwiktionary-latest-pages-articles-multistream.xml"
+    out_file = "./ipa.json"
+
+    wikt = Wiktionary(lang=None, x_sampa=False)
+    dump = mwxml.Dump.from_file((open(dump_file, "rb")))
+    stdout = open(sys.stdout.fileno(), "w", encoding="utf-8", closefd=False)
+
+    lst = []
+    entry_no = 0
+    for page in dump:
+        for revision in page:
+            if revision.page.namespace == 0:
+                pronunciation = wikt.get_entry_pronunciation(revision.text)
+                lst.append({
+                    "id": revision.page.id,
+                    "title": revision.page.title,
+                    "pronunciation": pronunciation,
+                })
+        print(entry_no)
+        entry_no += 1
+        if page_num and entry_no >= page_num:
+            break
+
+    #print(lst, file=stdout)
+    with open(out_file, "w") as f:
+        json.dump(lst, f)
+
+
 if __name__ == "__main__":
     #main()
-    get_word_list()
+    #get_word_list()
+    get_ipa()
