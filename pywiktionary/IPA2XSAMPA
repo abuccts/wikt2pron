@@ -1,0 +1,181 @@
+% CONSONANTS(PULMONIC)
+% IPA	X-SAMPA	ASCII
+p	p	112
+b	b	98
+t	t	116
+d	d	100
+ʈ	t`	116,96
+ɖ	d`	100,96
+c	c	99
+ɟ	J\	74,92
+k	k	107
+ɡ	g	103
+q	q	113
+ɢ	G\	71,92
+ʔ	?	63
+m	m	109
+ɱ	F	70
+n	n	110
+ɳ	n`	110,96
+ɲ	J	74
+ŋ	N	78
+ɴ	N\	78,92
+ʙ	B\	66,92
+r	r	114
+ʀ	R\	82,92
+ⱱ	v`	118,96
+ɾ	4	52
+ɽ	r`	114,96
+ɸ	p\	112,92
+β	B	66
+f	f	102
+v	v	118
+θ	T	84
+ð	D	68
+s	s	115
+z	z	122
+ʃ	S	83
+ʒ	Z	90
+ʂ	s`	115,96
+ʐ	z`	122,96
+ç	C	67
+ʝ	j\	106,92
+x	x	120
+ɣ	G	71
+χ	X	88
+ʁ	R	82
+ħ	X\	88,92
+ʕ	?\	63,92
+h	h	104
+ɦ	h\	104,92
+ɬ	K	75
+ɮ	K\	75,92
+ʋ	P	80
+ɹ	r\	114,92
+ɻ	r\`	114,92,96
+j	j	106
+ɰ	M\	77,92
+l	l	108
+ɭ	l`	108,96
+ʎ	L	76
+ʟ	L\	76,92
+% CONSONANTS(NON-PULMONIC)
+% IPA	X-SAMPA	ASCII	EX
+ʘ	O\	79,92
+ǀ	|\	124,92
+ǃ	!\	33,92
+ǂ	=\	61,92
+ǁ	|\|\	124,92,124,92
+ɓ	b_<	98,95,60
+ɗ	d_<	100,95,60
+ʄ	J\_<	74,92,95,60
+ɠ	g_<	103,95,60
+ʛ	G\_<	71,92,95,60
+ʼ	_>	95,62	tʼ t_>
+% VOWELS
+% IPA	X-SAMPA	ASCII
+i	i	105
+y	y	121
+ɨ	1	49
+ʉ	}	125
+ɯ	M	77
+u	u	117
+ɪ	I	73
+ʏ	Y	89
+ʊ	U	85
+e	e	101
+ø	2	50
+ɘ	@\	64,92
+ɵ	8	56
+ɤ	7	55
+o	o	112
+ə	@	64
+ɛ	E	69
+œ	9	57
+ɜ	3	51
+ɞ	3\	51,92
+ʌ	V	86
+ɔ	O	79
+æ	{	123
+ɐ	6	54
+a	a	97
+ɶ	&	38
+ɑ	A	65
+ɒ	Q	81
+% OTHER SYMBOLS
+% IPA	X-SAMPA	ASCII	EX
+ʍ	W	87
+ɕ	s\	115,92
+ʑ	z\	122,92
+w	w	119
+ɺ	l\	108,92
+ɥ	H	72
+ɧ	x\	120,92
+ʜ	H\	72,92
+ʢ	<\	60,92
+ʡ	>\	62,92
+‿	-\	45,92	t‿s	t-\s % Wrong
+͡	*	42	k͡p k*p % Uncertain
+% SUPRASEGMENTALS
+% IPA	X-SAMPA	ASCII	EX
+ˈ	"	34
+ˌ	%	37
+ː	:	58
+ˑ	:\	58,92
+̆	_X	95,88	ĕ e_X
+|	|	124
+‖	||	124,124
+.	.	46 % Uncertain
+‿	-\	45,92
+% DIACRITICS
+% IPA	X-SAMPA	ASCII	EX
+̥̥̥̥̥n̥	n_0	(110),95,48 % Use n as an example
+̤b̤	b_t	(98),95,116	% Use b as an example
+t̪	t_d	(116),95,100	% Use t as an example
+s̬	s_v	(115),95,118	% Use s as an example
+b̰	b_k	(98),95,107	% Use b as an example
+t̺	t_a	(116),95,97	% Use t as an example
+tʰ	t_h	(116),95,104	% Use t as an example
+t̼	t_N	(116),95,78	% Use t as an example
+t̻	t_m	(116),95,109	% Use t as an example
+ɔ̹	O_O	(79),95,79	% Use ɔ	as an example
+tʷ	t_w	(116),95,119	% Use t as an example
+ẽ	e~	(101),126	% Use e as an example
+ɔ̜	O_c	(79),95,99	% Use ɔ as an example
+tʲ	t'	(116),39	% Use t as an example
+dⁿ	d_n	(100),95,110	% Use d as an example
+u̟	u_+	(117),95,43	% Use u as an example
+tˠ	t_G	(116),95,71	% Use t as an example
+dˡ	d_l	(100),95,108	% Use d as an example
+e̠	e_-	(101),95,45	% Use e as an example
+tˤ	t_?\	(116),95,63,92	% Use t as an example
+d̚	d_}	(100),95,125	% Use d as an example
+ë	e_"	(101),95,34	% Use e as an example
+̴	_e	95,101	l̴ l_e % Uncertain
+e̽	e_x	(101),95,88	% Use e as an example
+e̝	e_r	(101),95,114	% Use e as an example
+n̩	n=	(110),61	% Use n as an example
+e̞	e_o	(101),95,111	% Use e as an example
+e̯	e_^	(101),95,94	% Use e as an example
+e̘	e_A	(101),95,65	% Use e as an example
+a˞	a`	(97),96 % Use a as an example
+e̙	e_q	(101),95,113	% Use e as an example
+% TONES AND WORD ACCENTS
+% LEVEL
+% IPA	X-SAMPA	ASCII
+e̋	e_T	(101),95,84	% Use e as an example
+é	e_H	(101),95,72	% Use e as an example
+ē	e_M	(101),95,77	% Use e as an example
+è	e_L	(101),95,76	% Use e as an example
+ȅ	e_B	(101),95,66	% Use e as an example
+ꜜ	!	33
+ꜛ	^	94
+% CONTOUR
+% IPA	X-SAMPA	ASCII
+ě	e_R	(101),95,82	% Use e as an example
+ê	e_F	(101),95,70	% Use e as an example
+e᷄	e_H_T	(101),95,72,95,84	% Use e as an example
+e᷅	e_B_L	(101),95,66,95,76	% Use e as an example
+e᷈	e_R_F	(101),95,82,95,70	% Use e as an example
+↗	<R>	60,82,62
+↘	<F>	60,70,62
