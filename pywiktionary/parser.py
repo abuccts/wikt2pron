@@ -14,6 +14,7 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.request import urlopen
 
+from bs4 import BeautifulSoup
 from pywiktionary.phoneme import ipa2xsampa
 
 
@@ -47,7 +48,11 @@ class Parser(object):
         res = urlopen(self.api, urlencode(self.param).encode()).read()
         content = json.loads(res.decode("utf-8"))
         html = content["expandtemplates"]["wikitext"]
-        return self.regex["ipa"].findall(html)
+        # Use BeautifulSoup instead of raw regex expr
+        # return self.regex["ipa"].findall(html)
+        soup = BeautifulSoup(html, "html.parser")
+        span = soup.find_all("span", {"class": "IPA"})
+        return list(map(lambda x: x.text, span))
 
     def parse(self, wiki_text):
         """parse
@@ -64,7 +69,7 @@ class Parser(object):
                 if not self.lang or h2_split[i] == self.lang:
                     pronunciation = self.parse_detail(h2_split[i+1])
                     if not pronunciation:
-                        pronunciation= "Pronunciation not found."
+                        pronunciation= "IPA not found."
                     parse_result[h2_split[i]] = pronunciation
                 i += 1
             i += 1
