@@ -16,6 +16,7 @@ for XSAMPA_symbol, IPA_data in m_XSAMPA.items():
         with_descender = IPA_data["with_descender"]
         i2x_lookup[with_descender] = XSAMPA_symbol
 
+
 def IPA_to_XSAMPA(text):
     text = text.replace('ːː', ':')
     text += " "

@@ -15,7 +15,7 @@ except ImportError:
     from urllib.request import urlopen
 
 from bs4 import BeautifulSoup
-from pywiktionary.phoneme import ipa2xsampa
+from .IPA import IPA
 
 
 class Parser(object):
@@ -69,7 +69,7 @@ class Parser(object):
                 if not self.lang or h2_split[i] == self.lang:
                     pronunciation = self.parse_detail(h2_split[i+1])
                     if not pronunciation:
-                        pronunciation= "IPA not found."
+                        pronunciation = "IPA not found."
                     parse_result[h2_split[i]] = pronunciation
                 i += 1
             i += 1
@@ -116,8 +116,8 @@ class Parser(object):
                     else:
                         ipa_key = node_detail[0].split("-")
                         if len(ipa_key) == 2 and ipa_key[1] == "IPA":
-                            for each_ipa in \
-                                self.expand_template("{{%s}}" % node):
+                            extend_lst = self.expand_template("{{%s}}" % node)
+                            for each_ipa in extend_lst:
                                 parse_result.append({
                                     "IPA": each_ipa,
                                     "lang": ipa_key[0],
@@ -130,6 +130,6 @@ class Parser(object):
         if self.x_sampa:
             for item in parse_result:
                 item.update({
-                    "X-SAMPA": ipa2xsampa(item["IPA"]),
+                    "X-SAMPA": IPA.IPA_to_XSAMPA(item["IPA"]),
                 })
         return parse_result

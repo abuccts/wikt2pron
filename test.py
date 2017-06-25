@@ -94,7 +94,7 @@ def get_ipa():
     dump_file = "../enwiktionary-latest-pages-articles-multistream.xml"
     out_file = "./ipa.json"
 
-    wikt = Wiktionary(lang=None, x_sampa=False)
+    wikt = Wiktionary(lang=None, x_sampa=True)
     dump = mwxml.Dump.from_file((open(dump_file, "rb")))
     stdout = open(sys.stdout.fileno(), "w", encoding="utf-8", closefd=False)
 

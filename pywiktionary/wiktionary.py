@@ -7,12 +7,12 @@ from __future__ import print_function
 
 import json
 try:
-	from urllib import urlencode, urlopen
+    from urllib import urlencode, urlopen
 except ImportError:
-	from urllib.parse import urlencode
-	from urllib.request import urlopen
+    from urllib.parse import urlencode
+    from urllib.request import urlopen
 
-from pywiktionary.parser import Parser
+from .parser import Parser
 
 
 class Wiktionary(object):
