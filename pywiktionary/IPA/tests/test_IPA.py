@@ -2,32 +2,70 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 try:
-	import unittest2 as unittest
+    import unittest2 as unittest
 except ImportError:
-	import unittest
+    import unittest
 from six import with_metaclass
 
 from .. import IPA
 
-TestData = [
+
+# https://en.wiktionary.org/wiki/Module:IPA/testcases
+TESTCASES = [
+    # (IPA, XSAMPA)
+
+    # en: [[dictionary]] https://en.wiktionary.org/wiki/dictionary
+    ("/ˈdɪkʃən(ə)ɹi/", "/\"dIkS@n(@)r\\i/"),
+    ("/ˈdɪkʃənɛɹi/", "/\"dIkS@nEr\\i/"),
+    # en: [[battleship]] https://en.wiktionary.org/wiki/battleship
+    ("[ˈbætl̩ʃɪp]", "[\"b{tl=SIp]"),
+    # en: [[murder]] https://en.wiktionary.org/wiki/murder
+    ("[ˈmɝdɚ]", "[\"m3`d@`]"),
+    # en: [[dazzle]] https://en.wiktionary.org/wiki/dazzle
+    ("/ˈdæzl̩/", "/\"d{zl=/"),
+    # en: [[change]] https://en.wiktionary.org/wiki/change
+    ("/t͡ʃeɪnd͡ʒ/", "/t__SeInd__Z/"),
+    # uk: [[Україна]] https://en.wiktionary.org/wiki/Україна
     ("/ukrɑˈjɪnɑ/", "/ukrA\"jInA/"),
+    # fa: [[نوروز]] https://en.wiktionary.org/wiki/نوروز
+    ("[næu̯ˈɾoːz]", "[n{u_^\"4o:z]"),
+    ("[nou̯ˈɾuːz]", "[nou_^\"4u:z]"),
+    ("[noːˈɾuːz]", "[no:\"4u:z]"),
+    ("[næu̯ˈɾɵːz]", "[n{u_^\"48:z]"),
+    # cmn: [[新年]] https://en.wiktionary.org/wiki/新年
+    ("[ɕɪn˥˥niɛn˧˥]", "[s\In__T__TniEn__M__T]"),
+    # yue: [[唔]] https://en.wiktionary.org/wiki/唔
+    ("[ŋ̍˩˨]", "[N=__B__L]"),
+    # ga: [[báid]] https://en.wiktionary.org/wiki/báid
+    #     [[bád]]  https://en.wiktionary.org/wiki/bád
+    ("[bˠɑːdʲ]", "[b_GA:d_j]"),
+    ("[bˠɑːd̪ˠ]", "[b_GA:d_d_G]"),
+    # nl: [[crème]] https://en.wiktionary.org/wiki/crème
+    ("/krɛ(ː)m/", "/krE(:)m/"),  
 ]
 
+
 class TestIPAMeta(type):
-	def __new__(mcs, name, bases, dict):
-	
-		def gen_test_IPA_to_XSAMPA(IPA_text, XSAMPA_text):
-			def test(self):
-				return self.assertEqual(IPA.IPA_to_XSAMPA(IPA_text), XSAMPA_text)
-			return test
-		
-		for i, (IPA_text, CMUBET_text) in enumerate(TestData):
-			test_IPA2CMUBET_name = "test_IPA_to_XSAMPA_%06d" % i
-			dict[test_IPA_to_XSAMPA_name] = gen_test_IPA_to_XSAMPA(IPA_text, CMUBET_text)
-		return type.__new__(mcs, name, bases, dict)
+    def __new__(mcs, name, bases, dict):
+
+        def gen_test_IPA_to_XSAMPA(IPA_text, XSAMPA_text):
+            def test(self):
+                return self.assertEqual(
+                    IPA.IPA_to_XSAMPA(IPA_text),
+                    XSAMPA_text
+                )
+            return test
+
+        for i, (IPA_text, XSAMPA_text) in enumerate(TESTCASES):
+            test_IPA_to_XSAMPA_name = "test_IPA_to_XSAMPA_%06d" % i
+            dict[test_IPA_to_XSAMPA_name] = \
+                gen_test_IPA_to_XSAMPA(IPA_text, XSAMPA_text)
+        return type.__new__(mcs, name, bases, dict)
+
 
 class TestIPA(with_metaclass(TestIPAMeta, unittest.TestCase)):
-	pass
+    pass
+
 
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()

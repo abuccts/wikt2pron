@@ -10,6 +10,9 @@ m_XSAMPA = XSAMPA.data
 # IPA <-> XSAMPA lookup tables
 i2x_lookup = {}
 for XSAMPA_symbol, IPA_data in m_XSAMPA.items():
+    # duplicate X-SAMPA mapping
+    if XSAMPA_symbol in ["v\\", "'", "_="]:
+        continue
     IPA_symbol = IPA_data["IPA_symbol"]
     i2x_lookup[IPA_symbol] = XSAMPA_symbol
     if "with_descender" in IPA_data.keys():
