@@ -62,7 +62,7 @@ class TestIPAMeta(type):
             ----------
             IPA_text : string
                 String of IPA text parsed from Wiktionary.
-            XSAMPA_text: string
+            XSAMPA_text : string
                 String of expected X-SAMPA text after conversion.
 
             Returns

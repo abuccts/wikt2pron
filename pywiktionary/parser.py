@@ -1,6 +1,6 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=too-many-locals, too-many-branches, too-many-statements
-"""parser.py
+"""Parser to extract IPA text from pronunciation section in wiki text.
 """
 
 from __future__ import absolute_import
@@ -19,7 +19,19 @@ from .IPA import IPA
 
 
 class Parser(object):
-    """Parser
+    """Wiktionary parser to extract IPA text from pronunciation section.
+
+    To extraction IPA for a certain language, specify `lang` parameter,
+    default is extracting IPA for all available languages.
+
+    To convert IPA text to X-SAMPA text, use `x_sampa` parameter.
+
+    Parameters
+    ----------
+    lang : string
+        String of language type.
+    x_sampa : boolean
+        Option for IPA to X-SAMPA conversion.
     """
     def __init__(self, lang=None, x_sampa=False):
         self.lang = lang
@@ -42,7 +54,26 @@ class Parser(object):
         }
 
     def expand_template(self, text):
-        """expand_template
+        """Expand IPA Template through Wiktionary API.
+
+        Used to expand {{*-IPA}} template in parser and return IPA list.
+
+        Parameters
+        ----------
+        text : string
+            String of template text inside "{{" and "}}".
+
+        Returns
+        -------
+        list of string
+            List of expanded IPA text.
+
+        Examples
+        --------
+        >>> parser = Parser()
+        >>> template = "{{la-IPA|eccl=yes|thēsaurus}}"
+        >>> parser.expand_template(template)
+        ['/tʰeːˈsau̯.rus/', '[tʰeːˈsau̯.rʊs]', '/teˈsau̯.rus/']
         """
         self.param["text"] = text.encode("utf-8")
         res = urlopen(self.api, urlencode(self.param).encode()).read()
@@ -55,7 +86,21 @@ class Parser(object):
         return list(map(lambda x: x.text, span))
 
     def parse(self, wiki_text):
-        """parse
+        """Parse Wiktionary wiki text.
+
+        Split Wiktionary wiki text into different langugaes and return
+        parseed IPA result.
+
+        Parameters
+        ----------
+        wiki_text : string
+            String of Wiktionary wiki text, from XML dump or Wiktionary API.
+
+        Returns
+        -------
+        dict
+            Dict of parsed IPA results.
+            Key: language name; Value: list of IPA text.
         """
         parse_result = {}
         h2_lst = self.regex["h2"].findall(wiki_text)
@@ -76,11 +121,27 @@ class Parser(object):
         return parse_result
 
     def parse_detail(self, wiki_text, depth=3):
-        """parse_detail
+        """Parse the section of a certain language in wiki text.
+
+        Parse pronunciation section of the certain language recursively.
+
+        Parameters
+        ----------
+        wiki_text : string
+            String of wiki text in a language section.
+        depth : int
+            Integer indicated depth of pronunciation section.
+
+        Returns
+        -------
+        list of dict
+            List of extracted IPA text in
+            {"IPA": "", "X-SAMPA": "", "lang": ""} format.
         """
         parse_result = []
         detail_lst = self.regex["h" + str(depth)].findall(wiki_text)
         detail_split = self.regex["h" + str(depth)].split(wiki_text)
+        # To avoid maximum recursion depth exceeded.
         if len(detail_split) > 99999:
             return "Maximum recursion depth exceeded in wiki text."
         i = 0
@@ -99,7 +160,20 @@ class Parser(object):
         return parse_result
 
     def parse_pronunciation(self, wiki_text):
-        """parse_pronunciation
+        """Parse pronunciation section in wiki text.
+
+        Parse IPA text from pronunciation section and convert to X-SAMPA.
+
+        Parameters
+        ----------
+        wiki_text : string
+            String of pronunciation section in wiki text.
+
+        Returns
+        -------
+        list of dict
+            List of extracted IPA text in
+            {"IPA": "", "X-SAMPA": "", "lang": ""} format.
         """
         parse_result = []
         pronun_lst = self.regex["pronun"].findall(wiki_text)

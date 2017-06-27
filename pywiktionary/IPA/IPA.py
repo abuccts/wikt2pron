@@ -42,9 +42,9 @@ def IPA_to_XSAMPA(text):
 
     Examples
     --------
-    >>>IPA_text = "/t͡ʃeɪnd͡ʒ/" # en: [[change]]
-    >>>XSAMPA_text = IPA_to_XSAMPA(IPA_text)
-    >>>XSAMPA_text
+    >>> IPA_text = "/t͡ʃeɪnd͡ʒ/" # en: [[change]]
+    >>> XSAMPA_text = IPA_to_XSAMPA(IPA_text)
+    >>> XSAMPA_text
     "/t__SeInd__Z/"
     """
     text = text.replace('ːː', ':')
