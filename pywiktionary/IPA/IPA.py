@@ -1,10 +1,15 @@
-# https://en.wiktionary.org/wiki/Module:IPA
+"""IPA and X-SAMPA related variables and functions.
+Modified from https://en.wiktionary.org/wiki/Module:IPA Lua module partially.
+"""
 
+from __future__ import print_function
+from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from .data import XSAMPA
 
 
+# X-SAMPA symbol set
 m_XSAMPA = XSAMPA.data
 
 # IPA <-> XSAMPA lookup tables
@@ -21,6 +26,27 @@ for XSAMPA_symbol, IPA_data in m_XSAMPA.items():
 
 
 def IPA_to_XSAMPA(text):
+    """Convert IPA to X-SAMPA.
+
+    Use IPA and X-SAMPA symbol sets used in Wiktionary.
+
+    Parameters
+    ----------
+    text : string
+        String of IPA text parsed from Wiktionary.
+
+    Returns
+    -------
+    string
+        Converted X-SAMPA text.
+
+    Examples
+    --------
+    >>>IPA_text = "/t͡ʃeɪnd͡ʒ/" # en: [[change]]
+    >>>XSAMPA_text = IPA_to_XSAMPA(IPA_text)
+    >>>XSAMPA_text
+    "/t__SeInd__Z/"
+    """
     text = text.replace('ːː', ':')
     text += " "
     XSAMPA_lst = []

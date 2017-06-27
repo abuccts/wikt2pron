@@ -1,3 +1,10 @@
+# pylint: disable=anomalous-backslash-in-string
+# pylint: disable=no-init, too-few-public-methods
+"""Unittest for IPA.py.
+Testcases modified from https://en.wiktionary.org/wiki/Module:IPA/testcases.
+"""
+
+from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
@@ -10,10 +17,9 @@ from six import with_metaclass
 from .. import IPA
 
 
-# https://en.wiktionary.org/wiki/Module:IPA/testcases
+# Testcases for IPA text and X-SAMPA text conversion
 TESTCASES = [
     # (IPA, XSAMPA)
-
     # en: [[dictionary]] https://en.wiktionary.org/wiki/dictionary
     ("/ˈdɪkʃən(ə)ɹi/", "/\"dIkS@n(@)r\\i/"),
     ("/ˈdɪkʃənɛɹi/", "/\"dIkS@nEr\\i/"),
@@ -41,15 +47,32 @@ TESTCASES = [
     ("[bˠɑːdʲ]", "[b_GA:d_j]"),
     ("[bˠɑːd̪ˠ]", "[b_GA:d_d_G]"),
     # nl: [[crème]] https://en.wiktionary.org/wiki/crème
-    ("/krɛ(ː)m/", "/krE(:)m/"),  
+    ("/krɛ(ː)m/", "/krE(:)m/"),
 ]
 
 
 class TestIPAMeta(type):
-    def __new__(mcs, name, bases, dict):
-
+    """TestIPA meta class
+    """
+    def __new__(mcs, name, bases, dicts):
         def gen_test_IPA_to_XSAMPA(IPA_text, XSAMPA_text):
+            """Generate IPA to X-SAMPA testcases.
+
+            Parameters
+            ----------
+            IPA_text : string
+                String of IPA text parsed from Wiktionary.
+            XSAMPA_text: string
+                String of expected X-SAMPA text after conversion.
+
+            Returns
+            -------
+            test: function
+                AssertEqual of two texts.
+            """
             def test(self):
+                """AssertEqual of IPA text and converted X-SAMPA text.
+                """
                 return self.assertEqual(
                     IPA.IPA_to_XSAMPA(IPA_text),
                     XSAMPA_text
@@ -58,12 +81,14 @@ class TestIPAMeta(type):
 
         for i, (IPA_text, XSAMPA_text) in enumerate(TESTCASES):
             test_IPA_to_XSAMPA_name = "test_IPA_to_XSAMPA_%06d" % i
-            dict[test_IPA_to_XSAMPA_name] = \
+            dicts[test_IPA_to_XSAMPA_name] = \
                 gen_test_IPA_to_XSAMPA(IPA_text, XSAMPA_text)
-        return type.__new__(mcs, name, bases, dict)
+        return type.__new__(mcs, name, bases, dicts)
 
 
 class TestIPA(with_metaclass(TestIPAMeta, unittest.TestCase)):
+    """TestIPA class
+    """
     pass
 
 
