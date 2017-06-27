@@ -395,7 +395,8 @@ data = {
         "with_descender": u"\u030D",
         "is_diacritic": True,
     },
-    # strident: not in official X-SAMPA; from http://www.kneequickie.com/kq/Z-SAMPA
+    # strident: not in official X-SAMPA;
+    # from http://www.kneequickie.com/kq/Z-SAMPA
     "_%\\": {
         "IPA_symbol": u"\u1DFD",
     },

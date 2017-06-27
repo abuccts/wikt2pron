@@ -69,6 +69,8 @@ class Wiktionary(object):
         try:
             val = list(content["query"]["pages"].values())
             wiki_text = val[0]["revisions"][0]["*"]
-        except:
+        except (KeyError, IndexError):
             return "Word not found."
+        else:
+            return
         return self.get_entry_pronunciation(wiki_text)

@@ -1,7 +1,6 @@
 """pywiktionary
 """
 
-from pywiktionary.wiktionary import Wiktionary
 
 __author__ = "Yifan Xiong"
 __version__ = "0.0.1"

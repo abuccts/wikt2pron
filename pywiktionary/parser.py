@@ -81,6 +81,8 @@ class Parser(object):
         parse_result = []
         detail_lst = self.regex["h" + str(depth)].findall(wiki_text)
         detail_split = self.regex["h" + str(depth)].split(wiki_text)
+        if len(detail_split) > 99999:
+            return "Maximum recursion depth exceeded in wiki text."
         i = 0
         while i < len(detail_split):
             if detail_split[i] in detail_lst:
