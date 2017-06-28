@@ -1,12 +1,14 @@
-"""setup.py for pywiktionary
+"""Setup for pywiktionary.
 """
 
+import sys
 from os import path
 from setuptools import setup, find_packages
 
+if sys.version_info[0] == 2:
+    raise RuntimeError("Python 3 needed.")
 
 here = path.abspath(path.dirname(__file__))
-
 with open(path.join(here, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
@@ -23,6 +25,12 @@ setup(
     author_email="abuccts@gmail.com",
 
     license="BSD-2-Clause",
+    
+    keywords="wiktionary cmudict IPA parser",
+    packages=find_packages(exclude=["contrib", "docs", "tests", "mwxml"]),
+    install_requires=["mwxml"],
+    tests_require = ["six"],
+    test_suite="nose.collector",
 
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
@@ -37,8 +45,4 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3 :: Only",
     ],
-
-    keywords="wiktionary cmudict IPA parser",
-    packages=find_packages(exclude=["contrib", "docs", "tests", "mwxml"]),
-    install_requires=["mwxml"],
 )
