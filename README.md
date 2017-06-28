@@ -60,6 +60,7 @@ The entry of word "present" is at https://en.wiktionary.org/wiki/present, and he
  'Middle French': 'IPA not found.',
  'Old French': 'IPA not found.',
  'Swedish': [{'IPA': '/preˈsent/', 'X-SAMPA': '/pre"sent/', 'lang': 'sv'}]}
+```
 
 To lookup a word in a certain language, specify the `lang` parameter:
 ```py
