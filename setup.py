@@ -29,7 +29,7 @@ setup(
     keywords="wiktionary cmudict IPA parser",
     packages=find_packages(exclude=["contrib", "docs", "tests", "mwxml"]),
     install_requires=["mwxml"],
-    tests_require = ["six"],
+    tests_require = ["nose", "pylint", "six"],
     test_suite="nose.collector",
 
     classifiers=[
