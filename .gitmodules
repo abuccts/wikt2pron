@@ -1,4 +1,3 @@
 [submodule "mwxml"]
 	path = mwxml
-	url = git@github.com:abuccts/python-mwxml.git
-	branch = dev
+	url = https://github.com/mediawiki-utilities/python-mwxml.git
