@@ -12,6 +12,7 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.request import urlopen
 
+import mwxml
 from .parser import Parser
 
 
@@ -93,6 +94,34 @@ class Wiktionary(object):
         if self.lang:
             return self.parser.parse(wiki_text)[self.lang]
         return self.parser.parse(wiki_text)
+
+    def extract_IPA(self, dump_file):
+        """Extraction IPA list from Wiktionary XML dump.
+
+        Parameters
+        ----------
+        dump_file : string
+            Path of Wiktionary XML dump file.
+
+        Returns
+        -------
+        list
+            List of extracted IPA results in
+            {"id": "", "title": "", "pronunciation": ""} format.
+        """
+        dump = mwxml.Dump.from_file((open(dump_file, "rb")))
+        lst = []
+        for page in dump:
+            for revision in page:
+                if revision.page.namespace == 0:
+                    pronunciation = \
+                        self.get_entry_pronunciation(revision.text)
+                    lst.append({
+                        "id": revision.page.id,
+                        "title": revision.page.title,
+                        "pronunciation": pronunciation,
+                    })
+        return lst
 
     def lookup(self, word):
         """Look up IPA of word through Wiktionary API.
