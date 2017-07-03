@@ -24,18 +24,18 @@ class Parser(object):
     To extraction IPA for a certain language, specify `lang` parameter,
     default is extracting IPA for all available languages.
 
-    To convert IPA text to X-SAMPA text, use `x_sampa` parameter.
+    To convert IPA text to X-SAMPA text, use `XSAMPA` parameter.
 
     Parameters
     ----------
     lang : string
         String of language type.
-    x_sampa : boolean
+    XSAMPA : boolean
         Option for IPA to X-SAMPA conversion.
     """
-    def __init__(self, lang=None, x_sampa=False):
+    def __init__(self, lang=None, XSAMPA=False):
         self.lang = lang
-        self.x_sampa = x_sampa
+        self.XSAMPA = XSAMPA
         self.api = "https://en.wiktionary.org/w/api.php"
         self.param = {
             "action": "expandtemplates",
@@ -50,7 +50,7 @@ class Parser(object):
             "h2": re.compile("(?:\A|\n)={2}([a-zA-Z0-9 -]+)={2}\n"),
             "h3": re.compile("\n={3}([a-zA-Z0-9 -]+)={3}\n"),
             "h4": re.compile("\n={4}([a-zA-Z0-9 -]+)={4}\n"),
-            "ipa": re.compile("<span[^>]*>([^<]+)<\/span>")
+            "IPA": re.compile("<span[^>]*>([^<]+)<\/span>")
         }
 
     def expand_template(self, text):
@@ -80,7 +80,7 @@ class Parser(object):
         content = json.loads(res.decode("utf-8"))
         html = content["expandtemplates"]["wikitext"]
         # Use BeautifulSoup instead of raw regex expr
-        # return self.regex["ipa"].findall(html)
+        # return self.regex["IPA"].findall(html)
         soup = BeautifulSoup(html, "html.parser")
         span = soup.find_all("span", {"class": "IPA"})
         return list(map(lambda x: x.text, span))
@@ -203,7 +203,7 @@ class Parser(object):
                                 "IPA": "Unknown IPA.",
                                 "lang": "null",
                             })
-        if self.x_sampa:
+        if self.XSAMPA:
             for item in parse_result:
                 item.update({
                     "X-SAMPA": IPA.IPA_to_XSAMPA(item["IPA"]),

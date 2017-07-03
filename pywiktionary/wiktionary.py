@@ -22,18 +22,18 @@ class Wiktionary(object):
     To extraction IPA for a certain language, specify `lang` parameter,
     default is extracting IPA for all available languages.
 
-    To convert IPA text to X-SAMPA text, use `x_sampa` parameter.
+    To convert IPA text to X-SAMPA text, use `XSAMPA` parameter.
 
     Parameters
     ----------
     lang : string
         String of language type.
-    x_sampa : boolean
+    XSAMPA : boolean
         Option for IPA to X-SAMPA conversion.
     """
-    def __init__(self, lang=None, x_sampa=False):
+    def __init__(self, lang=None, XSAMPA=False):
         self.lang = lang
-        self.x_sampa = x_sampa
+        self.XSAMPA = XSAMPA
         self.set_parser()
         self.api = "https://en.wiktionary.org/w/api.php"
         self.param = {
@@ -56,25 +56,25 @@ class Wiktionary(object):
         self.lang = lang
         self.set_parser()
 
-    def set_x_sampa(self, x_sampa):
+    def set_XSAMPA(self, XSAMPA):
         """Set X-SAMPA conversion option.
 
         Parameters
         ----------
-        x_sampa : boolean
+        XSAMPA : boolean
             Option for IPA to X-SAMPA conversion.
         """
-        self.x_sampa = x_sampa
+        self.XSAMPA = XSAMPA
         self.set_parser()
 
     def set_parser(self):
         """Set parser for Wiktionary.
 
-        Use the Wiktionary `lang` and `x_sampa` parameters.
+        Use the Wiktionary `lang` and `XSAMPA` parameters.
         """
         self.parser = Parser(
             lang=self.lang,
-            x_sampa=self.x_sampa,
+            XSAMPA=self.XSAMPA,
         )
 
     def get_entry_pronunciation(self, wiki_text):

@@ -101,10 +101,12 @@ argument-name-hint=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 argument-rgx=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 
 # Naming hint for attribute names
-attr-name-hint=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+# attr-name-hint=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+attr-name-hint=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 
 # Regular expression matching correct attribute names
-attr-rgx=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+# attr-rgx=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+attr-rgx=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
@@ -154,10 +156,12 @@ inlinevar-name-hint=[A-Za-z_][A-Za-z0-9_]*$
 inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
 
 # Naming hint for method names
-method-name-hint=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+# method-name-hint=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+method-name-hint=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 
 # Regular expression matching correct method names
-method-rgx=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+# method-rgx=(([a-z][a-z0-9_]{2,30})|(_[a-z0-9_]*))$
+method-rgx=(([a-zA-Z][a-zA-Z0-9_]{2,30})|(_[a-zA-Z0-9_]*))$
 
 # Naming hint for module names
 # module-name-hint=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
