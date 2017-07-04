@@ -14,7 +14,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="pywiktionary",
-    version="0.0.1.dev1",
+    version="0.0.2",
 
     description="Toolkit converting pronunciation in enwiktionary xml dump to cmudict format",
     long_description=long_description,
