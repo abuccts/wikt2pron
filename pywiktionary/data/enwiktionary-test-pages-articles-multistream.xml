@@ -1,0 +1,1023 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>Wiktionary</sitename>
+    <dbname>enwiktionary</dbname>
+    <base>https://en.wiktionary.org/wiki/Wiktionary:Main_Page</base>
+    <generator>MediaWiki 1.30.0-wmf.2</generator>
+    <case>case-sensitive</case>
+    <namespaces>
+      <namespace key="-2" case="case-sensitive">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="case-sensitive" />
+      <namespace key="1" case="case-sensitive">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="case-sensitive">Wiktionary</namespace>
+      <namespace key="5" case="case-sensitive">Wiktionary talk</namespace>
+      <namespace key="6" case="case-sensitive">File</namespace>
+      <namespace key="7" case="case-sensitive">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="case-sensitive">Template</namespace>
+      <namespace key="11" case="case-sensitive">Template talk</namespace>
+      <namespace key="12" case="case-sensitive">Help</namespace>
+      <namespace key="13" case="case-sensitive">Help talk</namespace>
+      <namespace key="14" case="case-sensitive">Category</namespace>
+      <namespace key="15" case="case-sensitive">Category talk</namespace>
+      <namespace key="90" case="case-sensitive">Thread</namespace>
+      <namespace key="91" case="case-sensitive">Thread talk</namespace>
+      <namespace key="92" case="case-sensitive">Summary</namespace>
+      <namespace key="93" case="case-sensitive">Summary talk</namespace>
+      <namespace key="100" case="case-sensitive">Appendix</namespace>
+      <namespace key="101" case="case-sensitive">Appendix talk</namespace>
+      <namespace key="102" case="case-sensitive">Concordance</namespace>
+      <namespace key="103" case="case-sensitive">Concordance talk</namespace>
+      <namespace key="104" case="case-sensitive">Index</namespace>
+      <namespace key="105" case="case-sensitive">Index talk</namespace>
+      <namespace key="106" case="case-sensitive">Rhymes</namespace>
+      <namespace key="107" case="case-sensitive">Rhymes talk</namespace>
+      <namespace key="108" case="case-sensitive">Transwiki</namespace>
+      <namespace key="109" case="case-sensitive">Transwiki talk</namespace>
+      <namespace key="110" case="case-sensitive">Wikisaurus</namespace>
+      <namespace key="111" case="case-sensitive">Wikisaurus talk</namespace>
+      <namespace key="114" case="case-sensitive">Citations</namespace>
+      <namespace key="115" case="case-sensitive">Citations talk</namespace>
+      <namespace key="116" case="case-sensitive">Sign gloss</namespace>
+      <namespace key="117" case="case-sensitive">Sign gloss talk</namespace>
+      <namespace key="118" case="case-sensitive">Reconstruction</namespace>
+      <namespace key="119" case="case-sensitive">Reconstruction talk</namespace>
+      <namespace key="828" case="case-sensitive">Module</namespace>
+      <namespace key="829" case="case-sensitive">Module talk</namespace>
+      <namespace key="2300" case="case-sensitive">Gadget</namespace>
+      <namespace key="2301" case="case-sensitive">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+      <namespace key="2600" case="first-letter">Topic</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>dictionary</title>
+    <ns>0</ns>
+    <id>16</id>
+    <revision>
+      <id>45923109</id>
+      <parentid>43018186</parentid>
+      <timestamp>2017-05-27T14:04:46Z</timestamp>
+      <contributor>
+        <username>Gamren</username>
+        <id>2622994</id>
+      </contributor>
+      <comment>/* Translations */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{{also|Dictionary}}
+==English==
+{{wikipedia|dab=Dictionary (disambiguation)|Dictionary}}
+
+===Etymology===
+{{PIE root|en|deyḱ}}
+{{bor|en|ML.|dictionarium}}, from {{der|en|la|dictionarius}}, from {{m|la|dictio||speaking}}, from {{m|la|dictus}}, perfect past participle of {{m|la|dīcō||speak}} + {{m|la|-arium||room, place}}.
+
+===Pronunciation===
+* {{a|RP}} {{IPA|/ˈdɪkʃ(ə)n(ə)ɹɪ/|lang=en}}
+* {{a|GenAm|Canada}} {{enPR|dĭk'shə-nĕr-ē}}, {{IPA|/ˈdɪkʃənɛɹi/|lang=en}}
+* {{audio|en-us-dictionary.ogg|Audio (US)|lang=en}}
+* {{audio|en-uk-dictionary.ogg|Audio (UK)|lang=en}}
+* {{hyphenation|dic|tion|ary|lang=en}}
+
+===Noun===
+{{en-noun|dictionaries}}
+
+# A [[reference work]] with a list of [[word]]s from one or more languages, normally ordered [[alphabetical]]ly, explaining each word's meaning, and sometimes containing information on its etymology, pronunciation, usage, translations, and other data.
+#* {{quote-book|year=1988|author=Andrew Radford|title=Transformational grammar: a first course|location=Cambridge, UK|publisher=Cambridge University Press|page=339|chapter=7|passage=But what other kind(s) of syntactic information should be included in Lexical Entries? Traditional '''dictionaries''' such as Hornby's (1974) ''Oxford Advanced Learner's '''Dictionary''' of Current English'' include not only ''categorial'' information in their entries, but also information about the range of ''Complements'' which a given item permits (this information is represented by the use of a number/letter code).}}
+#: {{syn|en|wordbook}}
+# By extension, any work that has a [[list]] of [[material]] organized alphabetically; e.g., [[biographic]]al dictionary, [[encyclopedic]] dictionary.
+# {{lb|en|computing}} An [[associative array]], a data structure where each value is referenced by a particular key, analogous to words and definitions in a physical dictionary.
+#* {{quote-book|year=2011|author=Jon Galloway, Phil Haack, Brad Wilson|title=Professional ASP.NET MVC 3|passage=User calls &lt;code&gt;RouteCollection.GetVirtualPath&lt;/code&gt;, passing in a &lt;code&gt;RequestContext&lt;/code&gt;, a '''dictionary''' of values, and an optional route name used to select the correct route to generate the URL.}}
+
+====Synonyms====
+For more, see [[Wikisaurus:dictionary]]
+
+====Derived terms====
+{{der-top3}}
+* {{l|en|dicktionary}}
+* {{l|en|dictionaric}}
+* {{l|en|dictionarily}}
+* {{l|en|encyclopedic dictionary}}
+* {{l|en|explanatory dictionary}}
+* {{l|en|fictionary}}
+* {{l|en|pedagogical dictionary}}
+{{der-mid3}}
+* {{l|en|Pictionary}}
+* {{l|en|pronunciation dictionary}}
+* {{l|en|rhyming dictionary}}
+* {{l|en|subdictionary}}
+{{der-mid3}}
+* {{l|en|translating dictionary}}
+* {{l|en|translationary}}
+* {{l|en|visual dictionary}}
+{{der-bottom}}
+
+====Related terms====
+* {{l|en|diction}}
+
+====See also====
+* {{l|en|lexicon}}
+* {{l|en|encyclopedia}}
+* {{l|en|vocabulary}}
+
+====Translations====
+{{trans-top|publication that explains the meanings of an ordered list of words}}
+* Abaza: {{t|abq|ажвар}}
+* Abkhaz: {{t|ab|ажәар|sc=Cyrl}}
+* Adyghe: {{t|ady|гущыӏалъ|sc=Cyrl}}
+* Afrikaans: {{t+|af|woordeboek}}
+* Akan: {{t-needed|ak}}
+* Albanian: {{t+|sq|fjalor|m}}
+* American Sign Language: {{t|ase|D@NearPalm-PalmDown-OpenB@CenterChesthigh-PalmUp CirclesMidlineContact}}
+* Amharic: {{t|am|መዝገበ ቃላት|sc=Ethi}}
+* Arabic: {{t+|ar|قَامُوس|m}}, {{t+|ar|مُعْجَم|m}}
+* Aragonese: {{t|an|diccionario|m}}
+* Armenian: {{t+|hy|բառարան|sc=Armn}}
+*: Old Armenian: {{t|xcl|բառգիրք|sc=Armn}}
+* Assamese: {{t|as|অভিধান|tr=ôbhidhan|sc=Beng}}
+* Asturian: {{t|ast|diccionariu|m}}
+* Avar: {{t|av|словарь|sc=Cyrl}}, {{t|av|къамус|sc=Cyrl}} {{qualifier|dated}}
+* Aymara: {{t|ay|aru pirwa}}
+* Azeri: {{t+|az|lüğət}}
+* Bashkir: {{t|ba|һүҙлек|sc=Cyrl}}
+* Basque: {{t+|eu|hiztegi}}
+* Belarusian: {{t|be|сло́ўнік|m|sc=Cyrl}}
+* Bengali: {{t+|bn|অভিধান|sc=Beng}}, {{t|bn|ডিকশনারী|sc=Beng}}, {{t|bn|ডিকশনারি|sc=Beng}}
+* Breton: {{t+|br|geriadur|m}}
+* Bulgarian: {{t+|bg|ре́чник|m}}, {{t|bg|слова́р|m}}
+* Burmese: {{t+|my|အဘိဓာန်|sc=Mymr}}
+* Buryat: {{t|bua|толи}}
+* Catalan: {{t+|ca|diccionari|m}}
+* Chakma: {{t|ccp|𑄇𑄧𑄙𑄖𑄢|tr=kadhātārā|sc=Cakm}}
+* Chechen: {{t|ce|словарь}}, {{t|ce|дошам}}, {{t|ce|лугӏат}}
+* Cherokee: {{t|chr|ᏗᏕᏠᏆᏍᏙᏗ|sc=Cher}}
+* Chinese:
+*: Cantonese: {{t|yue|字典|tr=zi6 din2|sc=Hani}}
+*: Dungan: {{t|dng|хуадян|tr=huadyan|sc=Cyrl}}
+*: Mandarin: {{t+|cmn|字典|tr=zìdiǎn|sc=Hani}} {{qualifier|character dictionary}}, {{t+|cmn|詞典|sc=Hani}}, {{t+|cmn|词典|tr=cídiǎn|sc=Hani}}, {{t+|cmn|辭典|sc=Hani}}, {{t+|cmn|辞典|tr=cídiǎn|sc=Hani}} {{qualifier|alternative forms}}
+* Chuvash: {{t|cv|словарь|sc=Cyrl}}, {{t|cv|сӑмахсен кӗнеки|sc=Cyrl}}, {{t|cv|сӑмахсар|sc=Cyrl}}
+* Cornish: {{t|kw|gerlyver|m}}
+* Crimean Tatar: {{t|crh|luğat}}
+* Czech: {{t+|cs|slovník|m}}
+* Danish: {{t+|da|ordbog|c}}
+* Dargwa: {{t|dar|словарь}}
+* Dhivehi: {{t|dv|ބަސްފޮތް|sc=Thaa}}
+* Dutch: {{t+|nl|woordenboek|n}}
+* Eastern Mari: {{t|chm|мутер}}, {{t|chm|словарь}}
+* Erzya: {{t|myv|валкс}}
+* Esperanto: {{t+|eo|vortaro}}
+* Estonian: {{t+|et|sõnaraamat}}, {{t|et|sõnastik}}
+* Evenki: {{t|evn|турэ̄рук}}
+* Faroese: {{t+|fo|orðabók|f}}
+* Finnish: {{t+|fi|sanakirja}}
+* French: {{t+|fr|dictionnaire|m}}, {{t+|fr|dico|m}} {{qualifier|informal}}
+*: Middle French: {{t|frm|dictionnaire|m}}
+* Fula: {{t|ff|saggitorde}}
+* Gagauz: {{t|gag|sözlük}}, {{t|gag|laflık}}
+* Galician: {{t+|gl|dicionario|m}}
+* Georgian: {{t+|ka|ლექსიკონი|sc=Geor}}
+* German: {{t+|de|Wörterbuch|n}}, {{t+|de|Diktionär|n|m}}
+* Greek: {{t+|el|λεξικό|n}}
+*: Ancient: {{t|grc|λέξεις|f-p|sc=polytonic}}, {{t|grc|λεξικόν|n|alt=λεξῐκόν|sc=polytonic}}, {{t|grc|γλῶσσαι|f-p|sc=polytonic}}
+* Greenlandic: {{t+|kl|ordbogi}}
+* Guerrero Amuzgo: {{t|amu|tzoⁿ 'tzítyui' jñ'o}}
+* Gujarati: {{t|gu|શબ્દકોશ|sc=Gujr}}
+* Haitian Creole: {{t|ht|diksyonè}}
+* Hausa: {{t+|ha|ƙamus|m}}
+* Hawaiian: {{t|haw|puke wehewehe ‘ōlelo}}
+* Hebrew: {{t+|he|מילון|m|tr=milón|alt=מילון \ מִלּוֹן}}
+* Hiligaynon: {{t|hil|diksonaryo}}, {{t|hil|kapulungan}}
+* Hindi: {{t+|hi|शब्दकोश|m}}, {{t+|hi|कोश|m}}, {{t|hi|डिक्शनरी}}
+* Hopi: {{t|hop|lavaytutuveni}}
+* Hungarian: {{t+|hu|szótár}}
+* Icelandic: {{t+|is|orðabók|f}}
+* Ido: {{t+|io|vortaro}}
+* Igbo: {{t|ig|nkowaokwu}}
+* Indonesian: {{t+|id|kamus}}
+* Ingush: {{t|inh|словарь}}
+* Interlingua: {{t|ia|dictionario}}
+* Interlingue: {{t-needed|ie}}
+* Inuktitut: {{t|iu|ᕿᒥᕐᕈᐊᑦ ᐅᓐᓂᖅᑐᖅ ᒥᑦᓯ ᑐᑭᐊ|sc=Cans}}
+* Irish: {{t+|ga|foclóir|m}}
+* Italian: {{t+|it|dizionario|m}}
+* Japanese: {{t+|ja|辞書|tr=じしょ, jisho}}, {{t+|ja|字書|tr=じしょ, jisho}}, {{t+|ja|辞典|tr=じてん, jiten}}, {{t+|ja|字典|tr=じてん, jiten}} {{qualifier|character dictionary}}, {{t+|ja|字引|tr=じびき, jibiki}} {{qualifier|character dictionary}}
+* Javanese: {{t|jv|bausastra}}
+* Kabardian: {{t|kbd|словарь}}, {{t|kbd|слъэвар}}, {{t|kbd|псалъалъэ}}
+* Kalmyk: {{t|xal|толь}}
+* Kannada: {{t+|kn|ನಿಘಂಟು|sc=Knda}}, {{t+|kn|ಅರ್ಥಕೋಶ|sc=Knda}}
+* Kapampangan: {{t|pam|talabaldugan}}
+* Karachay-Balkar: {{t|krc|сёзлюк}}
+* Karakalpak: {{t|kaa|soʻzlik}}
+* Karelian: {{t|krl|šanalo}}
+* Kashubian: {{t|csb|słowôrz|m}}
+* Kazakh: {{t+|kk|сөздік|sc=Cyrl}}
+* Khakas: {{t|kjh|сӧстік|tr=söstík}}
+* Khmer: {{t+|km|វចនានុក្រម|tr=wachanānūgrom|sc=Khmr}}
+* Kikuyu: {{t|ki|kamusi}}
+* Komi-Permyak: {{t|koi|кывчукӧр}}
+* Korean: {{t+|ko|사전}} ({{t+|ko|辭典|sc=Hani}}), {{t+|ko|자서}} ({{t+|ko|字書|sc=Hani}}), {{t+|ko|자전|sc=Kore}} ({{t+|ko|字典|sc=Kore}}) {{qualifier|character dictionary}}
+* Kumyk: {{t|kum|сёзлюк|tr=syozlyuk}}
+* Kurdish:
+*: Kurmanji: {{t+|ku|ferheng|f}}, {{t+|ku|peyvname|f}}, {{t+|ku|bêjename|f}}, {{t+|ku|qamûs|f}}
+*: Sorani: {{t|ckb|فەرھەنگ|tr=ferheng}}, {{t|ckb|وشەنامە|tr=wişename}}, {{t|ckb|وشەدان|tr=wişedan}}, {{t|ckb|قامووس|tr=qamûs}}
+* Kyrgyz: {{t+|ky|сөздүк|sc=Cyrl}}
+* Lak: {{t|lbe|словарь}}
+* Lao: {{t+|lo|ວັດຈະນານຸກົມ|sc=Laoo}} &lt;!-- {{t|lo|ປະທານຸກົມ|sc=Laoo}}) --&gt;
+* Latgalian: {{t|ltg|vuordineica|f}}
+* Latin: {{t|la|dictionarium|n}}
+* Latvian: {{t+|lv|vārdnīca|f}}
+* Lezgi: {{t|lez|гафарган}}
+* Ligurian: {{t|lij|dizionario|m}}
+* Limburgish: {{t+|li|diksjenaer}}, {{t|li|waordebook}}
+* Lithuanian: {{t+|lt|žodynas|m}}
+* Low German: {{t|nds|Wöörbook|n}}, {{t|nds|Weerderbook|n}}
+* Luhya: {{t|luy|ekamusi}}
+{{trans-mid}}
+* Luxembourgish: {{t+|lb|Dictionnaire|m}}, {{t+|lb|Wierderbuch|n}}
+* Macedonian: {{t+|mk|ре́чник|m}}
+* Malagasy: {{t+|mg|rakibolana}}
+* Malay: {{t+|ms|kamus}}
+* Malayalam: {{t+|ml|നിഘണ്ടു|sc=Mlym}}
+* Maltese: {{t+|mt|dizzjunarju|m}}
+* Manchu: (buleku bithe)
+* Manx: {{t|gv|fockleyr|m}}
+* Maori: {{t|mi|pukapuka taki kupu}}
+* Marathi: {{t|mr|शब्दकोष|m|sc=Deva}}, {{t|mr|विश्वकोष|m|sc=Deva}}
+* Mauritian Creole: {{t|mfe|diksioner}}
+* Meru: {{t|mer|kamusi}}
+* Middle Persian: {{t|pal|𐭯𐭥𐭧𐭭𐭢|tr=frahang}}
+* Moksha: {{t|mdf|валкс}}
+* Mongolian: {{t+|mn|толь бичиг|sc=Cyrl}}
+* Nahuatl: {{t+|nah|tlahtōltecpantiliztli}}
+* Navajo: {{t|nv|naaltsoos saad bee siʼánígíí}}
+* Neapolitan: {{t|nap|dezziunario}}
+* Nenets:
+*: Tundra Nenets: {{t|yrk|словарь}}
+* Nepali: {{t+|ne|शब्दकोश|tr=śabdkoś|sc=Deva}}
+* Nogai: {{t|nog|соьзлик|sc=Cyrl}}
+* Norman: {{t|nrf|dictionnaithe}}
+* Northern Sami: {{t|se|sátnegirji}}
+* Norwegian:
+*: Bokmål: {{t+|no|ordbok|m|f}}
+*: Nynorsk: {{t|nn|ordbok|f}}
+* Novial: {{t|nov|lexike}}
+* Occitan: {{t+|oc|diccionari|m}}
+* Ojibwe: {{t|oj|ikidowini-mazina'igan}}
+* Ossetian:
+*: Digor: {{t|os|дзурдуат|sc=Cyrl}}
+*: Iron: {{t|os|дзырдуат|sc=Cyrl}}
+* Papiamentu: {{t|pap|dikshonario}}
+* Pashto: {{t+|ps|قاموس|tr=qâmos|sc=ps-Arab}}, {{t|ps|وييپانګه|f|tr=wëyipânga}}
+* Persian: {{t|fa|لغت‌نامه|tr=loğat-nâme}}, {{t+|fa|فرهنگ|tr=farhang}}, {{t+|fa|واژه‌نامه|tr=vâže-nâme|sc=fa-Arab}}, {{t+|fa|لغت|tr=loğat}}
+* Plautdietsch: {{t|pdt|Weadbüak}}
+* Polish: {{t+|pl|słownik|m-in}}, {{t+|pl|leksykon|m}}
+* Portuguese: {{t+|pt|dicionário|m}}
+* Punjabi: {{t+|pa|ਸ਼ਬਦਕੋਸ਼|sc=Guru}}, {{t|pa|ਡਿਕਸ਼ਨਰੀ|sc=Guru}}
+* Quechua: {{t|qu|simi qullqa}}
+* Romanian: {{t+|ro|dicționar|n}}
+* Romansch: {{t|rm|pledari|m}}, {{t|rm|dicziunari|m}}, {{t|rm|vocabulari|m}}, {{t|rm|glossari|m}}
+* Russian: {{t+|ru|слова́рь|m}}
+* Rusyn: {{t|rue|сло́вник|m}}
+* Rwanda-Rundi: {{t-needed|rw}}
+* Sanskrit: {{t+|sa|शब्दकोश|m}}, {{t+|sa|निघण्टु|m}}, {{t+|sa|अभिधान|n}}
+* Sardinian: {{t|sc|dizionariu|m}}
+* Scots: {{t|sco|dictionar}}
+* Scottish Gaelic: {{t|gd|faclair|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|речник|m|sc=Cyrl}}, {{t|sh|рјечник|m|sc=Cyrl}}
+*: Roman: {{t+|sh|rečnik|m}}, {{t+|sh|rječnik|m}}
+* Shona: {{t|sn|duramahwi}}, {{t|sn|duramazwi}}
+* Shor: {{t|cjs|сӧстӱк|tr=söstük}}
+* Sicilian: {{t+|scn|dizziunariu|m}}, {{t|scn|vocabbulariu|m}}
+* Silesian: {{t|szl|dykcjůnoř|m}}
+* Sindhi: {{t-check|sd|لغت|alt=لُغَتُ|sc=sd-Arab}} &lt;!-- links didn't work for Sindhi--&gt;, {{t|sd|कोश|tr=koś|sc=Deva}}
+* Sinhalese: {{t|si|ශබ්ද කෝෂය|sc=Sinh}}, {{t|si|ශබ්දකෝෂය|sc=Sinh}}
+* Skolt Sami: {{t|sms|sää´nnǩerjj}}
+* Slovak: {{t+|sk|slovník|m}}
+* Slovene: {{t+|sl|slovar|m}}
+* Somali: {{t+|so|qaamuus}}, {{t|so|abwan-ka}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|słownik|m}}
+*: Upper Sorbian: {{t|hsb|słownik|m}}
+* Sotho: {{t+|st|bukantswe}}
+* Southern Altai: {{t|alt|сӧзлик|tr=sözlik}}
+* Southern Sami: {{t|sma|baakoegærja}}
+* Spanish: {{t+|es|diccionario|m}}
+* Swahili: {{t+|sw|kamusi|c5}}
+* Swedish: {{t+|sv|ordbok|c}}, {{t+|sv|lexikon|n}}
+* Tabasaran: {{t|tab|словарь}}
+* Tagalog: {{t+|tl|talatinigan}}, {{t+|tl|diksyunaryo}}, {{t+|tl|diksiyonaryo}}
+* Tajik: {{t+|tg|луғат|sc=Cyrl}}, {{t+|tg|фарҳанг|sc=Cyrl}}, {{t|tg|қомус|sc=Cyrl}}
+* Tamil: {{t+|ta|அகரமுதலி}}
+* Tatar: {{t+|tt|сүзлек|sc=Cyrl}}
+* Telugu: {{t+|te|నిఘంటువు}}, {{t+|te|పదకోశము}}
+* Thai: {{t+|th|พจนานุกรม}}, {{t|th|ดิกชันนารี}}, {{t|th|ดิก}}, {{t+|th|ปทานุกรม}}
+* Tibetan: {{t|bo|ཚིག་མཛོད}}
+* Tigrinya: {{t|ti|መዝገበ ቃላት|sc=Ethi}}
+* Tok Pisin: {{t+|tpi|dikseneri}}
+* Turkish: {{t+|tr|sözlük}}, {{t+|tr|lügat}} {{qualifier|obsolete}}
+* Turkmen: {{t|tk|sözlük}}
+* Tuvan: {{t|tyv|словарь}}, {{t|tyv|сөстүк}}
+* Udmurt: {{t|udm|словарь}}, {{t|udm|кыллюкам}}, {{t|udm|кылсузьет}}
+* Ukrainian: {{t+|uk|словни́к|m}}
+* Urdu: {{t+|ur|لغت|f|tr=luġat}}, {{t|ur|ڈکشنری|tr=ḍikśanrī}}, {{t|ur|فرہنگ|tr=farhang}}, {{t|ur|شبدکوش|m|tr=śabdkoś|sc=ur-Arab}}
+* Uyghur: {{t+|ug|لۇغەت|sc=ug-Arab}}
+* Uzbek: {{t+|uz|lugʻat}}
+*: Cyrillic: {{t+|uz|луғат|sc=Cyrl}}
+* Venda: {{t|ve|ṱhalusamaipfi}}
+* Veps: {{t|vep|vajehnik}}
+* Vietnamese: {{t+|vi|từ điển}}, {{t+|vi|tự điển}} ({{t+|vi|字典|sc=Hani}}) {{qualifier|dated, character dictionary}}
+* Volapük: {{t+|vo|vödabuk}}, {{t|vo|vödasbuk}} {{qualifier|older term, compare {{l|de|Wörterbuch}}}}
+* Võro: {{t|vro|sõnaraamat}}
+* Wallisian: {{t|wls|tikisionalio}}
+* Walloon: {{t+|wa|motî}}
+* Welsh: {{t+|cy|geiriadur|m}}
+* West Frisian: {{t+|fy|wurdboek|n}}
+* Wolof: {{t|wo|diksoneer}}
+* Xhosa: {{t|xh|idikshinari|c5}}
+* Yakut: {{t|sah|тылдьыт|sc=Cyrl}}
+* Yiddish: {{t+|yi|ווערטערבוך|n}}
+* Yoruba: {{t|yo|àtúmọ̀-èdè}}
+* Zazaki: {{t|zza|vatebend|m}}
+* Zhuang: {{t|za|sawloih}}
+* Zulu: {{t|zu|isichazimazwi|c4}}, {{t|zu|idikishaneli}}
+{{trans-bottom}}
+
+{{trans-top|an associative array}}
+* French: {{t+|fr|tableau associatif|m}}, {{t+|fr|dictionnaire|m}}, {{t|fr|table d'association|f}}
+* German: {{t|de|assoziatives Datenfeld|n}}
+* Japanese: {{t+|ja|辞書|tr=じしょ, jisho}}
+* Latin: {{t|la|glossarium|n}}, {{t|la|index verborum}}
+{{trans-mid}}
+* Polish: {{t+|pl|słownik|m-in}}
+* Portuguese: {{t+|pt|dicionário|m}}, {{t|pt|array associativo|m}}
+* Russian: {{t+|ru|слова́рь|m}}
+* Swahili: {{t+|sw|kamusi}}
+{{trans-bottom}}
+
+===Anagrams===
+* {{l|en|indicatory}}
+
+===Verb===
+{{en-verb|dictionar|ies}}
+
+# {{lb|en|transitive}} To look up in a dictionary.
+# {{lb|en|transitive}} To add to a dictionary.
+#* {{quote-book|year=1866|author=William Henry Ward|title=The international day, night, and fog signal telegraph|page=12|passage=By a reference to the following '''dictionaried''' abbreviations, the simplicity and harmony of each sentence will be manifestly apparent; although it does not embrace everything, and could not, as it would be far too voluminous for general use.}}
+#* {{quote-book|year=2001|title=The Michigan Alumnus|page=25|passage=Should I use a word that a lot of people use but isn't in the dictionary? Uncle Phil would rather get a root canal than say he was scrapbooking, because the word isn't '''dictionaried'''.}}
+# {{lb|en|intransitive|rare}} To [[compile]] a dictionary.
+#* {{quote-magazine|year=1864|magazine=Blackwood's Edinburgh Magazine|volume=96|page=334|passage=They [dictionary-makers] may have had their romance at home — may have been crossed in love, and thence driven to '''dictionarying'''; may have been involved in domestic tragedies — who can say?}}
+# {{lb|en|intransitive}} To appear in a dictionary.
+
+===Further reading===
+* {{R:OneLook}}
+
+[[Category:en:Dictionaries]]</text>
+      <sha1>80ai2xjccwel5uyf8qub1oj56iipskj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>battleship</title>
+    <ns>0</ns>
+    <id>65195</id>
+    <revision>
+      <id>42679856</id>
+      <parentid>42631550</parentid>
+      <timestamp>2017-04-21T18:13:41Z</timestamp>
+      <contributor>
+        <username>NadandoBot</username>
+        <id>394541</id>
+      </contributor>
+      <comment>Ordering / balancing t table</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{{also|battle ship}}
+==English==
+[[Image:HMS Royal Oak (08).jpg|thumb|right|A battleship.]]
+
+===Etymology===
+{{compound|en|battle|ship}}; shortened from ''[[line]]-of-[[battle]] [[ship]]'', attested 1794.
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|military}} Large [[capital]] [[warship]] displacing tens of thousands of tons, [[heavily]] [[armoured]] and [[arm]]ed with big [[gun]]s. Battleships are now [[obsolescent]], replaced by smaller [[vessel]]s with [[guided missile]]s. Types: [[dreadnought]], [[pre-dreadnought]].
+# Non-functional [[rocket]] [[stage]], used for configuration and integration tests.
+# A [[guessing game]] played on [[grid paper]], see {{w|Battleship (game)}}
+
+====Derived terms====
+{{der3|battleship curve|battleship gray|battleship grey|battleshippy|fast battleship|heavy battleship|light battleship|pocket battleship|super battleship|lang=en}}
+
+====Related terms====
+* {{l|en|battlecruiser}}
+
+====See also====
+* {{l|en|dreadnought}}
+* {{l|en|cruiser}}
+* {{l|en|destroyer}}
+* {{l|en|frigate}}
+* {{l|en|sloop}}
+* {{l|en|corvette}}
+* {{l|en|monitor}}
+* {{l|en|gunboat}}
+* {{l|en|aircraft carrier}}
+
+====Translations====
+{{trans-top|warship}}
+* Catalan: {{t+|ca|cuirassat|m}}
+* Chinese:
+*: Cantonese: {{t|yue|戰艦|sc=Hani}}, {{t|yue|战舰|tr=zin3 laam6|sc=Hani}}
+*: Hakka: {{t|hak|戰艦|sc=Hani}}, {{t|hak|战舰|tr=chan-kam|sc=Hani}}
+*: Mandarin: {{t+|cmn|戰艦|sc=Hani}}, {{t+|cmn|战舰|tr=zhànjiàn|sc=Hani}}
+*: Min Nan: {{t+|nan|戰艦|sc=Hani}}, {{t|nan|战舰|tr=chiàn-lām|sc=Hani}}
+* Czech: {{t+|cs|bitevní loď|f}}
+* Danish: {{t|da|slagskib|n}}
+* Dutch: {{t|nl|slagschip|n}}
+* Estonian: {{t|et|lahingulaev}}
+* Faroese: {{t|fo|herskip|n}}, {{t|fo|krígsskip|n}}
+* Finnish: {{t+|fi|taistelulaiva}}
+* French: {{t+|fr|cuirassé|m}}
+* Georgian: {{t|ka|საბრძოლო გემი}}, {{t|ka|საბრძოლო ხომალდი}}, {{t|ka|სახაზო გემი}}, {{t|ka|ჯავშნოსანი}}
+* German: {{t+|de|Schlachtschiff|n}}. ''Schlachtschiff'' is used for dreadnought battleships, ''[[Linienschiff]]'' is used for pre-dreadnought battleships.
+* Greek: {{t+|el|θωρηκτό|n}}
+* Hungarian: {{t+|hu|csatahajó}}
+* Ido: {{t+|io|kurasonavo}}
+* Italian: {{t+|it|corazzata|f}}, {{t|it|nave corazzata|f}}
+{{trans-mid}}
+* Japanese: {{t+|ja|戦艦|tr=[[せんかん]], senkan}}
+* Navajo: {{t|nv|tsin naaʼeeł bee daʼahijighánígíí}}
+* Norwegian:
+*: Bokmål: {{t|nb|slagskip|n}}
+*: Nynorsk: {{t|nn|slagskip|n}}
+* Persian: {{t+|fa|نبردناو|tr=nabard-nâv|sc=fa-Arab}}
+* Polish: {{t+|pl|pancernik}}
+* Portuguese: {{t|pt|couraçado|m}}, {{t|pt|encouraçado|m}}
+* Russian:
+*: Age of Sail: {{t+|ru|лине́йный кора́бль|m}}
+*: dreadnoughts and later designs: {{t+|ru|лине́йный кора́бль|m}}, {{t+|ru|линко́р|m}}
+*: pre-dreadnought designs: {{t+|ru|бронено́сец|m}}, {{t+|ru|эска́дренный бронено́сец|m}}
+* Slovak: {{t|sk|bitevná loď|f}}
+* Spanish: {{t+|es|acorazado|m}}
+* Swedish: {{t|sv|slagskepp|n}}
+* Tagalog: {{t|tl|bapor-pandigma}}
+* Turkish: {{t|tr|savaş gemisi}}
+* Volapük: {{t|vo|bländanaf}}, {{t|vo|lekomipanaf}}
+{{trans-bottom}}
+
+{{trans-top|non-functional rocket stage}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|guessing game}}
+* Chinese:
+*: Mandarin: {{t+|cmn|海戰|sc=Hani}}, {{t+|cmn|海战|tr=hǎizhàn|sc=Hani}}
+* Czech: {{t|cs|lodě|f-p}}
+* Dutch: {{t+|nl|zeeslag}}
+* Esperanto: {{t|eo|marbatalo}}
+* Finnish: {{t|fi|laivastopeli}}, {{t+|fi|laivanupotus}}
+* French: {{t+|fr|bataille navale|f}}
+* German: {{t|de|Schiffe versenken}}
+{{trans-mid}}
+* Greek: {{t+|el|ναυμαχία|f}}
+* Japanese: {{t|ja|海戦ゲーム|tr=kaisen gēmu|sc=Jpan}}
+* Korean: {{t|ko|배틀십|tr=baeteulsip|sc=Kore}}
+* Polish: {{t|pl|okręty}}
+* Portuguese: {{t|pt|batalha naval|m}}
+* Russian: {{t+|ru|морско́й бой|m}}
+* Swedish: {{t+|sv|sänka skepp}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* French: {{t-check|fr|cuirassé|m}}
+* Hindi: {{t-check|hi|युद्धपोत|tr=yud'dhapōta|sc=Deva}}, {{t-check|hi|रणपोत|tr=raṇapōta|sc=Deva}}, {{t-check|hi|जंगी जहाज|tr=jaṅgī jahāja|sc=Deva}}
+{{trans-mid}}
+* Swedish: {{t-check|sv|slagskepp}}
+* Telugu: {{t-check|te|యుద్ధనౌక|sc=Telu}}
+{{trans-bottom}}
+
+===References===
+* {{R:Online Etymology Dictionary}}
+
+[[Category:en:Warships]]
+
+[[ar:battleship]]
+[[cs:battleship]]
+[[de:battleship]]
+[[et:battleship]]
+[[eu:battleship]]
+[[fr:battleship]]
+[[ko:battleship]]
+[[io:battleship]]
+[[kn:battleship]]
+[[ku:battleship]]
+[[hu:battleship]]
+[[ml:battleship]]
+[[my:battleship]]
+[[ja:battleship]]
+[[uz:battleship]]
+[[pl:battleship]]
+[[ru:battleship]]
+[[sk:battleship]]
+[[fi:battleship]]
+[[ta:battleship]]
+[[vi:battleship]]
+[[zh:battleship]]</text>
+      <sha1>rk4l36xo53fim6zvi0xxz44tncd8orm</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>murder</title>
+    <ns>0</ns>
+    <id>39478</id>
+    <revision>
+      <id>44173851</id>
+      <parentid>42844480</parentid>
+      <timestamp>2017-05-24T23:40:41Z</timestamp>
+      <contributor>
+        <username>NadandoBot</username>
+        <id>394541</id>
+      </contributor>
+      <minor />
+      <comment>Lang section formatting (wrong order, missing dividers, remove interwikis, category placement)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">==English==
+{{wikipedia}}
+
+===Etymology===
+{{PIE root|en|mer|id=die}}
+From {{etyl|enm|en}} {{m|enm|murder}}, {{m|enm|murdre}}, {{m|enm|mourdre}} &quot;murder&quot;, alteration of earlier {{m|enm|murthre||murder}} (see {{l|en|murther}}) from {{etyl|ang|en}} {{m|ang|morþor||secret slaying, unlawful killing}} and {{cog|ang|myrþra||murder, homicide}}, both from {{etyl|gem-pro|en}} {{m|gem-pro|*murþrą||death, killing, murder}}, from {{etyl|ine-pro|en}} {{m|ine-pro|*mrtro-||killing}}, from {{etyl|ine-pro|en}} {{m|ine-pro|*mer-}}, {{m|ine-pro|*mor-}}, {{m|ine-pro|*mr-||to die}}. Akin to {{cog|got|𐌼𐌰𐌿𐍂𐌸𐍂||murder}}, {{cog|goh|mord||murder}}, {{cog|non|morð||murder}}, {{cog|ang|myrþrian||to murder}} and {{m|ang|morþ}}.
+
+The ''-d-'' in the {{etyl|enm|-}} form may have been influenced in part by {{cog|xno|murdre}}, from {{cog|ML.|murdrum}} from {{cog|fro|murdre}}, from {{cog|frk|*murþra||murder}}, from the same {{etyl|gem|en}} root, though this may also have wholly been the result of internal development (compare {{m|en|burden}}, from {{m|en|burthen}}).
+
+===Pronunciation===
+* {{a|RP}} {{IPA|/ˈmɜːdə(ɹ)/|lang=en}}
+* {{a|GA}} {{IPA|/ˈmɝ.dɚ/|lang=en}}
+* {{audio|en-us-murder.ogg|Audio (US)|lang=en}}
+* {{rhymes|ɜː(ɹ)də(ɹ)|lang=en}}
+
+===Noun===
+{{en-noun|~}}
+
+# {{lb|en|countable}} An act of [[deliberate]] [[killing]] of another being, especially a human.
+#: {{ux|en|There have been ten unsolved '''murders''' this year alone.}}
+#* {{quote-book|year=1927|author=[http://openlibrary.org/authors/OL2416183A F. E. Penny]
+|chapter=4|title=[http://openlibrary.org/works/OL16814587W Pulling the Strings]
+|passage=The case was that of a '''murder'''. It had an element of mystery about it, however, which was puzzling the authorities. A turban and loincloth soaked in blood had been found; also a staff.}}
+#* '''1984''', Humphrey Carpenter, Mari Prichard, ''The Oxford companion to children's literature'', page 275:
+#*: It may be guessed, indeed, that this was the original form of the story, the fairy being the addition of those who considered Jack's thefts from (and '''murder''' of) the giant to be scarcely justified without her.
+#* '''2003''', Paul Ruditis, ''Star Trek Voyager: Companion'' (ISBN 0743417518), page 131:
+#*: Captain Sulu, who served under the legendary James T. Kirk for many years, disobeys Starfleet orders in order to try and help Kirk and another old shipmate, Dr. McCoy, who have been imprisoned for the '''murder''' of the Klingon chancellor.
+#* '''2011''', Carlene Brennen, ''Hemingway's Cats'' (ISBN 1561644897), page 161:
+#*: Dr. Herrera also knew Hemingway had held Batista's army personally responsible for the brutal '''murders''' of his dogs, Blackie (Black Dog) and Machakos.
+# {{lb|en|uncountable}} The [[crime]] of [[deliberate]] [[killing]] of another human.
+#: {{ux|en|The defendant was charged with '''murder'''.}}
+#* {{quote-journal|date=21 August 2012|author=Ed Pilkington|newspaper=The Guardian
+|title=[http://www.guardian.co.uk/world/2012/aug/21/death-penalty-trial-reggie-clemons?newsfeed=true Death penalty on trial: should Reggie Clemons live or die?]
+|passage=Reggie Clemons has one last chance to save his life. After 19 years on death row in Missouri for the '''murder''' of two young women, he has been granted a final opportunity to persuade a judge that he should be spared execution by lethal injection.}}
+#* {{quote-magazine|date=2013-07-20|volume=408|issue=8845|magazine={{w|The Economist}}
+|title=[http://www.economist.com/news/science-and-technology/http://www.economist.com/news/science-and-technology/21581980-latest-research-suggests-humans-are-not-warriors-their-genes-after-all-old Old soldiers?]
+|passage=Whether modern, industrial man is less or more warlike than his hunter-gatherer ancestors is impossible to determine.{{...}}One thing that is true, though, is that '''murder''' rates have fallen over the centuries, as policing has spread and the routine carrying of weapons has diminished. Modern society may not have done anything about war. But peace is a lot more peaceful.}}
+# {{lb|en|uncountable|legal|in jurisdictions which use the felony murder rule}} The commission of an act which abets the commission of a crime the commission of which causes the death of a human.&lt;!--see Wikipedia's article on [[w:Ryan Holle]]--&gt;
+# {{lb|en|uncountable|used as a predicative noun}} Something [[terrible]] to [[endure]].
+#: {{ux|en|This headache is '''murder'''.}}
+# {{lb|en|countable|collective}} A group of [[crow]]s; {{non-gloss definition|the [[collective noun]] for [[crow]]s.}}
+#* {{quote-book|1995|{{w|Deepak Chopra}}|The Return of Merlin: A Novel|isbn=0517598493|page=108|passage=For his part, Melchior was growing unhappy with the '''murder''' of crows. They had been patiently following Arthur for hours, trailing him from town to country.}}
+#* {{quote-book|2001|{{w|Daniel Handler}}|The Vile Village|isbn=0064408655|page=76
+|passage=Without the '''murder''' of crows roosting in its branches, Nevermore Tree looked as bare as a skeleton.}}
+
+====Usage notes====
+* Adjectives often applied to &quot;murder&quot;: [[atrocious]], [[attempted]], [[brutal]], [[cold-blooded]], [[double]], [[heinous]], [[horrible]], [[premeditated]], [[triple]], [[terrible]], [[unsolved]].
+
+====Synonyms====
+* {{sense|act of deliberate killing}} {{l|en|homicide}}, {{l|en|manslaughter}}, {{l|en|assassination}}
+* {{sense|group of crows}} {{l|en|flock}}
+
+====Derived terms====
+{{der3|antimurder|archmurderer|axe murder|axe murderer|axe-murder|axe-murderer|capital murder|cried blue murder|cries blue murder|cry blue murder|crying blue murder|depraved-heart murder|first-degree murder|get away with murder|lust murder|mass murder|mass murderer|multimurder|murder by suicide|murder in the dark|murder in the first degree|murder in the second degree|murder one's darlings|murder one|murder-suicide|murderabilia|murderable|murderball|murderbot|murdered|murderee|murderer|murderess|murderest|murdereth|murderin'|murdering|murderless|murderment|murderous|murderously|murderousness|murdersome|murdery|muti murder|nonmurder|nonmurderer|scream bloody murder|scream blue murder|screamed bloody murder|screamed blue murder|screaming bloody murder|screaming blue murder|screams bloody murder|screams blue murder|second-degree murder|self-murder|self-murderer|unmurdered|unmurderous|wink murder|lang=en}}
+
+====Translations====
+{{trans-top|an act of deliberate killing}}
+* Arabic: {{t+|ar|قَتْل|m}}, {{t|ar|اِغْتِيَال|m}}
+* Armenian: {{t+|hy|սպանություն}}
+* Asturian: {{t|ast|asesinatu|m}}
+* Azeri: {{t+|az|cinayət}}, {{t+|az|öldürmək}}
+* Belarusian: {{t+|be|забо́йства|n}}
+* Bulgarian: {{t+|bg|уби́йство|n}}
+* Burmese: {{t+|my|လူသတ်မှု|sc=Mymr}}
+* Catalan: {{t|ca|assassinat|m}}
+* Chinese:
+*: Cantonese: {{t|yue|殺人|sc=Hani}}, {{t|yue|杀人|tr=saat3 jan4|sc=Hani}}, {{t|yue|謀殺|sc=Hani}}, {{t|yue|谋杀|tr=mau4 saat3|sc=Hani}}
+*: Mandarin: {{t+|cmn|殺人|sc=Hani}}, {{t+|cmn|杀人|tr=shārén|sc=Hani}}, {{t+|cmn|謀殺|sc=Hani}}, {{t+|cmn|谋杀|tr=móushā|sc=Hani}}
+*: Min Nan: {{t+|nan|殺人|sc=Hani}}, {{t|nan|杀人|tr=sat-jîn, sat-lîn|sc=Hani}}, {{t+|nan|謀殺|sc=Hani}}, {{t|nan|谋杀|tr=bô͘-sat|sc=Hani}}
+* Czech: {{t+|cs|vražda|f}}
+* Danish: {{t+|da|mord|n}}
+* Dutch: {{t+|nl|moord|f}}
+* Esperanto: {{t|eo|murdo}}
+* Estonian: {{t+|et|mõrv}}, {{t|et|roim}}
+* Finnish: {{t+|fi|murha}}
+* French: {{t+|fr|meurtre|m}}, {{t+|fr|homicide|m}}
+*: Old French: {{t|fro|murtre|m}}
+* Galician: {{t+|gl|asasinato|m}}
+* Georgian: {{t|ka|მკვლელობა}}
+* German: {{t+|de|Mord|m}}
+* Gothic: {{t|got|𐌼𐌰𐌿𐍂𐌸𐍂|n}}
+* Greek: {{t+|el|φόνος|m}}, {{t+|el|δολοφονία|f}}, {{t+|el|ανθρωποκτονία|f}}
+* Hebrew: {{t+|he|רֶצַח|m|tr=rétsakh}}
+* Hungarian: {{t+|hu|gyilkosság}}
+* Icelandic: {{t+|is|morð|n}}
+* Ido: {{t+|io|ocido}}
+* Indonesian: {{t+|id|pembunuhan}}
+* Irish: {{t+|ga|dúnmharú|m}}
+* Italian: {{t+|it|assassinio|m}}, {{t+|it|omicidio|m}}, {{t+|it|delitto|m}}, {{t+|it|uccisione|f}}
+* Japanese: {{t+|ja|殺人|tr=さつじん, satsujin}}
+* Korean: {{t+|ko|살인}} ({{t+|ko|殺人}})
+* Kurdish:
+*: Sorani: {{t|ckb|کوشتن|sc=ku-Arab}}
+{{trans-mid}}
+* Kyrgyz: {{t|ky|адам өлтүрүү}}
+* Lao: {{t+|lo|ຄາດຕະກຳ|sc=Laoo}}
+* Latin: [[interfectio|interfectiō]], {{t|la|homicīdium|n}}
+* Latvian: {{t|lv|slepkavība|f}}
+* Lithuanian: {{t|lt|nužudymas|m}}, {{t|lt|žmogžudystė|f}}
+* Macedonian: {{t|mk|убиство|n}}
+* Malay: {{t|ms|pembunuhan}}
+* Malayalam: {{t+|ml|കൊല|sc=Mlym}}, {{t+|ml|ഹത്യ|sc=Mlym}}
+* Maori: {{t|mi|kōhuru}}
+* Norman: {{t|nrf|meurtre|m}}
+* Norwegian: {{t|no|mord|n}}
+* Novial: {{t|nov|asasino}}
+* Persian: {{t+|fa|قتل|tr=qatl|sc=fa-Arab}}
+* Polish: {{t+|pl|morderstwo|n}}, {{t+|pl|zabójstwo|n}}
+* Portuguese: {{t+|pt|assassínio|m}} {{qualifier|Portugal}}, {{t+|pt|homicídio|m}}, {{t+|pt|assassinato|m}} {{qualifier|Brazil}}
+* Romanian: {{t+|ro|crimă|f}}, {{t+|ro|asasinat|n}}
+* Russian: {{t+|ru|уби́йство|n}}, {{t+|ru|мо́крое де́ло|f}} {{qualifier|slang}}, {{t+|ru|мокру́ха|f}} {{qualifier|slang}}
+* Scottish Gaelic: {{t|gd|mort|m}}, {{t|gd|murt|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|убиство|n|sc=Cyrl}}, {{t|sh|убојство|n|sc=Cyrl}}, {{t|sh|уморство|n|sc=Cyrl}}
+*: Roman: {{t+|sh|ubistvo|n}}, {{t+|sh|ùbōjstvo|n}}, {{t+|sh|umórstvo|n}}
+* Slovak: {{t|sk|vražda|f}}
+* Slovene: {{t+|sl|umor|m-in}}
+* Spanish: {{t+|es|asesinato|m}}
+* Swedish: {{t+|sv|mord|n}}
+* Tagalog: {{t|tl|pagpatay}}
+* Tajik: {{t|tg|қатл|sc=Cyrl}}, {{t|tg|одамкушӣ|sc=Cyrl}}, {{t+|tg|куштор|sc=Cyrl}}
+* Telugu: {{t+|te|హత్య}}
+* Thai: {{t+|th|ฆาตกรรม|tr=khâtakam}}
+* Turkish: {{t+|tr|cinayet}}, {{t+|tr|adam öldürme}}
+* Ukrainian: {{t|uk|вби́вство|n}}
+* Vietnamese: {{t+|vi|giết người}}, {{t|vi|vụ giết người}}, {{t+|vi|ám sát}}, {{t|vi|vụ ám sát}}
+* Welsh: {{t+|cy|llofruddiaeth|f}}
+* Yiddish: {{t|yi|מאָרד|m}}
+* Yoruba: {{t|yo|ìpànìyàn}}
+{{trans-bottom}}
+
+{{trans-top|the crime of deliberate killing}}
+* Afrikaans: {{t|af|moord}}
+* Armenian: {{t+|hy|սպանություն}}
+* Catalan: {{t|ca|assassinat}}, {{g|m}}
+* Chinese:
+*: Cantonese: {{t|yue|謀殺|sc=Hani}}
+*: Mandarin: {{t+|cmn|谋杀|sc=Hani}}， {{t+|cmn|謀殺|tr=móushā|sc=Hani}}
+* Czech: {{t+|cs|vražda|f}}
+* Danish: {{t+|da|mord|n}}
+* Dutch: {{t+|nl|moord|f}}
+* Estonian: {{t+|et|mõrv}}, {{t|et|roim}}
+* Finnish: {{t+|fi|murha}}
+* French: {{t+|fr|meurtre|m}}
+* Galician: {{t+|gl|asasinato|m}}
+* Georgian: {{t|ka|მკვლელობა}}
+* German: {{t+|de|Mord|m}}
+* Gothic: {{t|got|𐌼𐌰𐌿𐍂𐌸𐍂|n}}
+* Greek: {{t+|el|φόνος|m}}, {{t+|el|δολοφονία|f}}, {{t+|el|ανθρωποκτονία|f}}
+* Hebrew: {{t+|he|רצח|m|tr=retsach|sc=Hebr}}
+* Hungarian: {{t+|hu|gyilkosság}}
+* Icelandic: {{t+|is|morð|n}}
+* Irish: {{t+|ga|dúnmharú|m}}
+* Italian: {{t+|it|assassinio|m}}, {{t+|it|omicidio|m}}
+* Japanese: {{t+|ja|殺人|tr=さつじん, satsujin}}
+* Korean: {{t+|ko|살인죄|sc=Kore}}
+{{trans-mid}}
+* Kurdish:
+*: Sorani: {{t|ckb|کوشتن|sc=ku-Arab}}
+* Latvian: {{t|lv|slepkavība|f}}
+* Lithuanian: {{t|lt|nužudymas|m}}
+* Malayalam: {{t+|ml|കൊലപാതകം|sc=Mlym}}
+* Norman: {{t|nrf|meurtre|m}}
+* Norwegian: {{t|no|overlagt}} {{t|no|drap|n}}
+* Novial: {{t|nov|asasino}}
+* Polish: {{t+|pl|morderstwo|n}}, {{t+|pl|zabójstwo|n}}
+* Portuguese: {{t+|pt|assassínio|m}} {{qualifier|Portugal}}, {{t+|pt|homicídio|m}}, {{t+|pt|assassinato}} {{qualifier|Brazil}}
+* Russian: {{t+|ru|уби́йство|n}}
+* Scottish Gaelic: {{t|gd|mort|m}}, {{t|gd|murt|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|убиство|n|sc=Cyrl}}, {{t|sh|убоство|n|sc=Cyrl}}, {{t|sh|уморство|n|sc=Cyrl}}
+*: Roman: {{t+|sh|ubistvo|n}}, {{t+|sh|ùbōjstvo|n}}, {{t+|sh|umórstvo|n}}
+* Slovak: {{t|sk|vražda|f}}
+* Slovene: {{t+|sl|umor|m-in}}
+* Spanish: {{t+|es|asesinato|m}}
+* Swedish: {{t+|sv|mord|n}}
+* Tagalog: {{t|tl|pagpatay}}
+* Telugu: {{t+|te|హత్య}}
+* Turkish: {{t+|tr|cinayet}}, {{t+|tr|adam öldürme}}
+* Vietnamese: ([[tội]]) [[giết]] [[người]], (tội) [[ám sát]]
+{{trans-bottom}}
+
+{{trans-top|terrible to endure}}
+* Czech: {{t+|cs|porod|m}}
+* Dutch: {{t+|nl|moord|f}}
+* Finnish: {{t+|fi|murhaava}} {{qualifier|adjective}}
+* German: {{t+|de|Mord|m}}, {{t+|de|mörderisch}} {{qualifier|adjective}}
+{{trans-mid}}
+* Greek: {{t+|el|μαρτύριο|n}}
+* Hebrew: {{t+|he|סיוט|m|tr=si'ut|sc=Hebr}}
+* Portuguese: {{t+|pt|tortura|f}}
+* Slovak: {{t|sk|vražda|f}}
+{{trans-bottom}}
+
+{{trans-top|flock of crows}}
+* Czech: {{t+|cs|hejno|n}}
+* Finnish: {{t+|fi|parvi}}
+{{trans-mid}}
+* Hebrew: {{t|he|להקת עורבים}}
+* Serbo-Croatian: {{t|sh|vrane}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Albanian: {{t-check|sq|gjakësi}}
+* Arabic: {{t+check|ar|قَتْل|m}}
+* Azeri: {{t-check|az|qatillik}}
+* Bulgarian: {{t+check|bg|уби́йство|sc=Cyrl}}
+* Esperanto: {{t-check|eo|murdo}}
+* Georgian: {{t-check|ka|მკვლელობა}}
+* Indonesian: {{t+check|id|membunuh}}
+{{trans-mid}}
+* Lithuanian: {{t-check|lt|žmogžudystė}}
+* Romanian: {{t+check|ro|asasinat}}
+* Swahili: {{t-check|sw|mauaji}}
+* Ukrainian: {{t-check|uk|вби́вство|n|sc=Cyrl}}, {{t-check|uk|забиття|f|sc=Cyrl}}
+* Uyghur: {{t-check|ug|adem ötlürgen|sc=ug-Arab}}
+* Welsh: {{t-check|cy|galanas}}
+* {{ttbc|yi}}: (mord)
+{{trans-bottom}}
+
+===Verb===
+{{en-verb}}
+
+# To [[deliberately]] [[kill]] (a person or persons).
+#: ''The woman found dead in her kitchen was '''murdered''' by her husband.''
+# {{lb|en|transitive|sports|figuratively|colloquial}} To [[defeat]] [[decisive]]ly.
+#: ''Our team is going to '''murder''' them.''
+# To [[botch]] or [[mangle]].
+#* {{quote-book|1892|William Shepard Walsh|Handy-book of Literary Curiosities|url=http://books.google.com/books?id=1zo4AAAAMAAJ|page=293
+|passage=Dr. Caius, the Frenchman in the play, and Evans the Welshman, &quot;Gallia et Guallia,&quot; succeed pretty well in their efforts to '''murder''' the language.}}
+# {{lb|en|figuratively|colloquial}} To [[kick ass|kick someone's ass]] or [[chew out|chew someone out]] (used to express one’s anger at somebody).
+#: ''He's torn my best shirt. When I see him, I'll '''murder''' him!''
+# {{lb|en|figuratively|colloquial|British}} to [[devour]], [[ravish]].
+#: ''I could '''murder''' a [[hamburger]] right now.''
+
+====Synonyms====
+* {{sense|deliberately kill}} {{l|en|assassinate}}, {{l|en|kill}}, {{l|en|massacre}}, {{l|en|slaughter}}
+* {{sense|defeat decisively}} {{l|en|thrash}}, {{l|en|trounce}}, {{l|en|wipe the floor with}}
+* {{sense|express one’s anger at}} {{l|en|kill}}
+
+====Derived terms====
+* {{l|en|murder one's darlings}}
+
+====Translations====
+{{trans-see|to murder someone|remove}}
+
+{{trans-top|deliberately kill}}
+* Arabic: {{t+|ar|قَتَلَ}}
+* Armenian: {{t+|hy|սպանել}}
+* Belarusian: {{t|be|забіва́ць|impf|sc=Cyrl}}, {{t|be|забі́ць|pf|sc=Cyrl}}
+* Catalan: {{t+|ca|assassinar}}
+* Chinese:
+*: Cantonese: {{t|yue|殺害|sc=Hani}}, {{t|yue|杀害|tr=saat3 hoi6|sc=Hani}}, {{t|yue|謀殺|sc=Hani}}, {{t|yue|谋杀|tr=mau4 saat3|sc=Hani}}, {{t|yue|殺人|sc=Hani}}, {{t|yue|杀人|tr=saat3 jan4|sc=Hani}}
+*: Mandarin: {{t+|cmn|殺害|sc=Hani}}, {{t+|cmn|杀害|tr=shāhài|sc=Hani}}, {{t+|cmn|謀殺|sc=Hani}}, {{t+|cmn|谋杀|tr=móushā|sc=Hani}}, {{t+|cmn|殺人|sc=Hani}}, {{t+|cmn|杀人|tr=shārén|sc=Hani}}
+*: Min Nan: {{t|nan|殺害|sc=Hani}}, {{t|nan|杀害|tr=sat-hāi|sc=Hani}}, {{t+|nan|謀殺|sc=Hani}}, {{t|nan|谋杀|tr=bô͘-sat|sc=Hani}}, {{t+|nan|殺人|sc=Hani}}, {{t|nan|杀人|tr=sat-jîn, sat-lîn|sc=Hani}}, {{t|nan|刣人|tr=thâi lâng|sc=Hani}}
+* Czech: {{t+|cs|zavraždit}}
+* Danish: {{t+|da|myrde}}
+* Dutch: {{t+|nl|vermoorden}} {{qualifier|transitive}}, {{t+|nl|moorden}} {{qualifier|intransitive}}
+* Estonian: {{t|et|tapma}}, {{t+|et|mõrvama}}, {{t|et|roimama}}
+* Finnish: {{t+|fi|murhata}}
+* German: {{t+|de|ermorden}}
+* Greek: {{t+|el|δολοφονώ}}, {{t+|el|σκοτώνω}}, {{t+|el|φονεύω}}
+* Hebrew: {{t+|he|רצח|tr=ratzákh}}
+* Hindi: {{t+|hi|हत्या|tr=hatya}}
+* Hungarian: {{t+|hu|meggyilkol}}
+* Icelandic: {{t+|is|myrða}}
+* Irish: {{t|ga|dúnmharaigh}}
+* Italian: {{t+|it|assassinare}}
+* Japanese: {{t+|ja|殺す|tr=ころす, korosu}}, {{t|ja|殺害する|tr=さつがいする, satsugai-suru}}
+* Khmer: {{t+|km|សម្លាប់|tr=somləp|sc=Khmr}}
+* Kurdish:
+*: Sorani: {{t|ckb|کوشت|sc=ku-Arab}}
+{{trans-mid}}
+* Latin: {{t|la|occidere}}
+* Latvian: {{t|lv|noslepkavot}}, {{t|lv|slepkavot}}
+* Maori: {{t|mi|kōhuru}}, {{t|mi|whakatoke}}
+* Norman: {{t|nrf|assâsinner}}
+* Norwegian: {{t|no|myrde}}
+* Novial: {{t|nov|asasina}}
+* Old English: {{t|ang|mansléan}}
+* Polish: {{t+|pl|zabić}}, {{t+|pl|zamordować}}
+* Portuguese: {{t+|pt|assassinar}}
+* Russian: {{t+|ru|убива́ть|impf}}, {{t+|ru|уби́ть|pf}}
+* Scottish Gaelic: {{t|gd|mort}}, {{t|gd|murt}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|убити|sc=Cyrl}}, {{t|sh|умо̀рити|sc=Cyrl}}
+*: Roman: {{t+|sh|ùbiti}}, {{t+|sh|umòriti}}
+* Slovak: {{t|sk|vraždiť}}, {{t|sk|zavraždiť}}
+* Slovene: {{t+|sl|umoriti}}
+* Spanish: {{t+|es|asesinar}}
+* Swedish: {{t+|sv|mörda}}
+* Tok Pisin: {{t|tpi|kilim}}
+* Turkish: {{t+|tr|öldürmek}}, {{t+|tr|katletmek}}
+* Vietnamese: {{t+|vi|giết}}, {{t+|vi|ám sát}}, {{t+|vi|tàn sát}}
+* Welsh: {{t+|cy|lladd}}, {{t+|cy|llofruddio}}
+* Wiradhuri: {{t|wrh|baluubuunil}}
+{{trans-bottom}}
+
+{{trans-top|defeat decisively}}
+* Czech: {{t|cs|zničit}}
+* Danish: {{t+|da|smadre}}
+* Dutch: {{t|nl|de grond in boren}}
+* Hebrew: {{t|he|הביס|tr=hevís}}
+* Icelandic: {{t|is|rústa}}
+{{trans-mid}}
+* Italian: {{t+|it|massacrare}}
+* Norwegian: {{t|no|ta knekken på}}
+* Portuguese: {{t|pt|detonar}}, {{t+|pt|massacrar}}, {{t+|pt|destroçar}}, {{t|pt|[[acabar]] [[com]]}}, {{t+|pt|destruir}}
+* Russian: {{t+|ru|разгроми́ть}}
+* Serbo-Croatian: {{t+|sh|ùbiti}}
+{{trans-bottom}}
+
+{{trans-top|express one’s anger at}}
+* Czech: {{t+|cs|zabít}}
+* Danish: {{t+|da|myrde}}, {{t|da|slå ihjel}}
+* Dutch: {{t+|nl|vermoorden}}
+* German: {{t+|de|umbringen}}
+* Hebrew: {{t|he|הביע כעס|tr=hibía` ká`as}}, {{t+|he|זעם|tr=za`ám}}
+* Japanese: {{t+|ja|殺す|tr=korosu|sc=Jpan}}
+{{trans-mid}}
+* Lithuanian: {{t|lt|užmušti}}
+* Norwegian: {{t+|no|drepe}}
+* Russian: {{t+|ru|убива́ть}}
+* Serbo-Croatian: {{t+|sh|ubiti}}, {{t+|sh|zgromiti}}
+* Swedish: {{t+|sv|döda}}
+{{trans-bottom}}
+
+{{trans-top|devour}}
+* Czech: {{t|cs|sprovodit ze světa}}
+* Danish: {{t+|da|kvæle}}
+* Dutch: {{t+|nl|vermoorden}}
+* Hebrew: {{t|he|טרף|tr=taráf}}
+{{trans-mid}}
+* Italian: {{t+|it|distruggere}}
+* Portuguese: {{t+|pt|devorar}}
+* Spanish: {{t+|es|devorar}}
+* Swedish: {{t+|sv|sluka}}
+{{trans-bottom}}
+
+===Anagrams===
+* {{l|en|redrum}}
+
+[[Category:en:Crime]]
+[[Category:en:Death]]</text>
+      <sha1>9aw2ymfjh4t10i9b54cyno07hlj33gv</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>dazzle</title>
+    <ns>0</ns>
+    <id>80141</id>
+    <revision>
+      <id>44281956</id>
+      <parentid>42781702</parentid>
+      <timestamp>2017-05-25T01:01:47Z</timestamp>
+      <contributor>
+        <username>NadandoBot</username>
+        <id>394541</id>
+      </contributor>
+      <minor />
+      <comment>Lang section formatting (wrong order, missing dividers, remove interwikis, category placement)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">==English==
+
+===Etymology===
+[[frequentative|Frequentative]] of ''[[daze]]''.
+
+===Pronunciation===
+* {{IPA|/ˈdæzəl/|lang=en}}
+* {{rhymes|æzəl|lang=en}}
+
+===Verb===
+{{en-verb|dazzl}}
+
+# {{lb|en|transitive}} To confuse the [[sight]] of by means of excessive brightness.
+#: '''''Dazzled''' by the headlights of the lorry, the deer stopped in the middle of the street.''
+#* Milton
+#*: Those heavenly shapes / Will '''dazzle''' now the earthly, with their blaze / Insufferably bright.
+#* Sir H. Taylor
+#*: An unreflected light did never yet / '''Dazzle''' the vision feminine.
+# {{lb|en|transitive|figuratively}} To [[render]] [[incapable]] of thinking clearly; to overwhelm with showiness or brilliance.
+#: ''The delegates were '''dazzled''' by the originality of his arguments.''
+# {{lb|en|intransitive}} To be overpowered by light; to be confused by excess of brightness.
+#* Francis Bacon
+#*: An overlight maketh the eyes '''dazzle'''.
+#* Dryden
+#*: I dare not trust these eyes; / They dance in mists, and '''dazzle''' with surprise.
+
+====Derived terms====
+* {{l|en|dazzler}}
+* {{l|en|dazzlement}}
+
+====Translations====
+{{trans-top|confuse the sight}}
+* Arabic:
+*: Moroccan Arabic: {{t|ary|عمى|tr=ʕma|alt=عْمى}}
+* Bulgarian: {{t+|bg|заслепявам}}
+* Catalan: {{t+|ca|enlluernar}}
+* Chinese:
+*: Mandarin: {{t+|cmn|目眩|tr=shǐ mùxuàn|alt=使目眩|sc=Hani}}
+* Czech: {{t+|cs|oslnit}}
+* Dutch: {{t+|nl|verblinden}}, {{t|nl|blenden}}
+* Finnish: {{t+|fi|sokaista}}, {{t|fi|häikäistä}}
+* French: {{t+|fr|éblouir}}
+* Gallurese: {{t|sdn|abbaglià}}
+* German: {{t+|de|blenden}}
+* Hebrew: {{t+|he|סנוור|tr=sinvér}}
+* Ido: {{t+|io|dazlar}}
+* Italian: {{t+|it|abbagliare}}
+{{trans-mid}}
+* Japanese: {{t|ja|目を眩ませる|tr=めをくらませる, me o kuramaseru|sc=Jpan}}, {{t|ja|眩惑|tr=げんわくさせる, genwaku saseru|alt=眩惑させる|sc=Jpan}}
+* Latvian: {{t|lv|apžilbināt}}
+* Maori: {{t|mi|kōrekoreko }}, {{t|mi|whakakōpura }}
+* Ngazidja Comorian: {{t|zdj|uzusa}}
+* Norwegian: {{t|no|blende}}, {{t+|no|blinde}}
+* Portuguese: {{t+|pt|ofuscar}}
+* Russian: {{t+|ru|ослепля́ть|impf}}, {{t+|ru|ослепи́ть|pf}}
+* Sardinian:
+*: Campidanese: {{t|sc|alluinai}}
+*: Logudorese: {{t|sc|illughinare}}
+* Sassarese: {{t|sdc|abbaglià}},
+* Spanish: {{t+|es|deslumbrar}}, {{t+|es|obnubilar}}, {{t+|es|encandilar}}
+* Swedish: {{t+|sv|blända}}
+* Walloon: {{t+|wa|asblawi}}
+* Welsh: {{t+|cy|dallu}}
+{{trans-bottom}}
+
+{{trans-top|figuratively}}
+* Bulgarian: {{t+|bg|смайвам}}, {{t+|bg|поразявам}}
+* Catalan: {{t+|ca|enlluernar}}
+* Chinese:
+*: Mandarin: {{t+|cmn|驚奇|alt=使驚奇|sc=Hani}}, {{t+|cmn|惊奇|tr=shǐ jīngqí|alt=使惊奇|sc=Hani}}
+* Czech: {{t+|cs|oslnit}}
+* Finnish: {{t+|fi|sokaista}}
+* French: {{t+|fr|éblouir}}
+* German: {{t+|de|verblüffen}}
+* Ido: {{t+|io|blindigar}}
+{{trans-mid}}
+* Italian: {{t+|it|impressionare}}
+* Japanese: {{t+|ja|夢中|tr=むちゅうにさせる, muchū ni saseru|alt=夢中にさせる|sc=Jpan}}
+* Latvian: {{t|lv|apžilbināt}}
+* Norwegian: {{t|no|blende}}
+* Portuguese: {{t+|pt|ofuscar}}
+* Russian: {{t+|ru|поража́ть|impf}}, {{t+|ru|порази́ть|pf}}, {{t+|ru|изумля́ть|impf}}, {{t+|ru|изуми́ть|pf}}
+* Spanish: {{t|es|empaparotar}}, {{t+|es|apabullar}}, {{t+|es|obnubilar}}
+* Walloon: {{t+|wa|asblawi}}, {{t+|wa|esblawter}}
+* Welsh: {{t+|cy|syfrdanu}}
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# A light of dazzling brilliancy.
+# {{lb|en|figurative}} Showy brilliance that may stop a person from thinking clearly.
+# {{lb|en|uncommon}} A [[herd]] of zebra.
+#* '''1958''', Laurens Van der Post, ''The lost world of the Kalahari: with the great and the little memory'' ('''1998''' David Coulson edition):
+#*: We were trying to stalk a '''dazzle''' of zebra which flashed in and out of a long strip of green and yellow fever trees, with an ostrich, its feathers flared like a ballet skirt around its dancing legs, on their flank, when suddenly {{...}}
+#* {{quote-text|year=2009|author=Darren Paul Shearer|title=In You God Trusts|page=176|passage=Zebras move in herds which are known as &quot;dazzles.&quot; When a lion approaches a '''dazzle''' of zebras during its hunt, {{...}}}}
+#* {{quote-text|year=2010|author=Douglas Rogers|title=The Last Resort: A Memoir of Mischief and Mayhem on a Family Farm in Africa|page=22|passage=I reached the lodge as a '''dazzle''' of zebras trotted across the dirt road into thorny scrub by the game fence, and a lone kudu gazed up at me from the short grass near the swimming pool.}}
+
+====Translations====
+{{trans-top|a very bright light}}
+* Maori: {{t|mi|kōnakonako }}
+{{trans-mid}}
+* Russian: {{t|ru|искря́щийся свет|tr=iskryaschiysya svet}}
+{{trans-bottom}}
+
+====Synonyms====
+* {{sense|group of zebras}} {{l|en|herd}}, {{l|en|zeal}}.</text>
+      <sha1>finhux9ljiodcbyr9rctngjjq3wx8sh</sha1>
+    </revision>
+  </page>
+</mediawiki>
