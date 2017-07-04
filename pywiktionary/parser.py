@@ -56,7 +56,7 @@ class Parser(object):
     def expand_template(self, text):
         """Expand IPA Template through Wiktionary API.
 
-        Used to expand {{*-IPA}} template in parser and return IPA list.
+        Used to expand ``{{*-IPA}}`` template in parser and return IPA list.
 
         Parameters
         ----------
