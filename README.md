@@ -32,16 +32,52 @@ Usage
 
 ##### Extract pronunciation from Wiktionary XML dump
 
-To be improved.
-
-Please refer to [expr.py](expr.py) for examples at present.
+First, create an instance of `Wiktionary` class:
+```py
+>>> from pywiktionary import Wiktionary
+>>> wikt = Wiktionary(XSAMPA=True)
+```
+Use the example XML dump in [[pywiktionary/data]](pywiktionary/data):
+```py
+>>> dump_file = "pywiktionary/data/enwiktionary-test-pages-articles-multistream.xml"
+>>> pron = wikt.extract_IPA(dump_file)
+```
+Here's the extracted result:
+```py
+>>> from pprint import pprint
+>>> pprint(pron)
+[{'id': 16,
+  'pronunciation': {'English': [{'IPA': '/ˈdɪkʃ(ə)n(ə)ɹɪ/',
+                                 'X-SAMPA': '/"dIkS(@)n(@)r\\I/',
+                                 'lang': 'en'},
+                                {'IPA': '/ˈdɪkʃənɛɹi/',
+                                 'X-SAMPA': '/"dIkS@nEr\\i/',
+                                 'lang': 'en'}]},
+  'title': 'dictionary'},
+ {'id': 65195,
+  'pronunciation': {'English': 'IPA not found.'},
+  'title': 'battleship'},
+ {'id': 39478,
+  'pronunciation': {'English': [{'IPA': '/ˈmɜːdə(ɹ)/',
+                                 'X-SAMPA': '/"m3:d@(r\\)/',
+                                 'lang': 'en'},
+                                {'IPA': '/ˈmɝ.dɚ/',
+                                 'X-SAMPA': '/"m3`.d@`/',
+                                 'lang': 'en'}]},
+  'title': 'murder'},
+ {'id': 80141,
+  'pronunciation': {'English': [{'IPA': '/ˈdæzəl/',
+                                 'X-SAMPA': '/"d{z@l/',
+                                 'lang': 'en'}]},
+  'title': 'dazzle'}]
+```
 
 ##### Lookup pronunciation for a word
 
 First, create an instance of `Wiktionary` class:
 ```py
 >>> from pywiktionary import Wiktionary
->>> wikt = Wiktionary(x_sampa=True)
+>>> wikt = Wiktionary(XSAMPA=True)
 ```
 Lookup a word using `lookup` method:
 ```py
@@ -66,7 +102,7 @@ The entry of word "present" is at https://en.wiktionary.org/wiki/present, and he
 
 To lookup a word in a certain language, specify the `lang` parameter:
 ```py
->>> wikt = Wiktionary(lang="English", x_sampa=True)
+>>> wikt = Wiktionary(lang="English", XSAMPA=True)
 >>> word = wikt.lookup("read")
 >>> pprint(word)
 [{'IPA': '/ɹiːd/', 'X-SAMPA': '/r\\i:d/', 'lang': 'en'},

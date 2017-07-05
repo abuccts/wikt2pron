@@ -3,9 +3,50 @@ Usage
 
 1. **Extract pronunciation from Wiktionary XML dump**
 
-    To be improved.
+    First, create an instance of :class:`Wiktionary` class:
+    
+    ::
 
-    Please refer to [expr.py](expr.py) for examples at present.
+        >>> from pywiktionary import Wiktionary
+        >>> wikt = Wiktionary(XSAMPA=True)
+
+    Use the example XML dump in ``pywiktionary/data``:
+    
+    ::
+
+        >>> dump_file = "pywiktionary/data/enwiktionary-test-pages-articles-multistream.xml"
+        >>> pron = wikt.extract_IPA(dump_file)
+
+    Here's the extracted result:
+    
+    ::
+
+        >>> from pprint import pprint
+        >>> pprint(pron)
+        [{'id': 16,
+          'pronunciation': {'English': [{'IPA': '/ˈdɪkʃ(ə)n(ə)ɹɪ/',
+                                         'X-SAMPA': '/"dIkS(@)n(@)r\\I/',
+                                         'lang': 'en'},
+                                        {'IPA': '/ˈdɪkʃənɛɹi/',
+                                         'X-SAMPA': '/"dIkS@nEr\\i/',
+                                         'lang': 'en'}]},
+          'title': 'dictionary'},
+         {'id': 65195,
+          'pronunciation': {'English': 'IPA not found.'},
+          'title': 'battleship'},
+         {'id': 39478,
+          'pronunciation': {'English': [{'IPA': '/ˈmɜːdə(ɹ)/',
+                                         'X-SAMPA': '/"m3:d@(r\\)/',
+                                         'lang': 'en'},
+                                        {'IPA': '/ˈmɝ.dɚ/',
+                                         'X-SAMPA': '/"m3`.d@`/',
+                                         'lang': 'en'}]},
+          'title': 'murder'},
+         {'id': 80141,
+          'pronunciation': {'English': [{'IPA': '/ˈdæzəl/',
+                                         'X-SAMPA': '/"d{z@l/',
+                                         'lang': 'en'}]},
+          'title': 'dazzle'}]
 
 
 2. **Lookup pronunciation for a word in Wiktionary**
