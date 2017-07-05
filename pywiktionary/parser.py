@@ -21,10 +21,10 @@ from .IPA import IPA
 class Parser(object):
     """Wiktionary parser to extract IPA text from pronunciation section.
 
-    To extraction IPA for a certain language, specify `lang` parameter,
+    To extraction IPA for a certain language, specify ``lang`` parameter,
     default is extracting IPA for all available languages.
 
-    To convert IPA text to X-SAMPA text, use `XSAMPA` parameter.
+    To convert IPA text to X-SAMPA text, use ``XSAMPA`` parameter.
 
     Parameters
     ----------
@@ -136,7 +136,7 @@ class Parser(object):
         -------
         list of dict
             List of extracted IPA text in
-            {"IPA": "", "X-SAMPA": "", "lang": ""} format.
+            ``{"IPA": "", "X-SAMPA": "", "lang": ""}`` format.
         """
         parse_result = []
         detail_lst = self.regex["h" + str(depth)].findall(wiki_text)
@@ -173,7 +173,7 @@ class Parser(object):
         -------
         list of dict
             List of extracted IPA text in
-            {"IPA": "", "X-SAMPA": "", "lang": ""} format.
+            ``{"IPA": "", "X-SAMPA": "", "lang": ""}`` format.
         """
         parse_result = []
         pronun_lst = self.regex["pronun"].findall(wiki_text)

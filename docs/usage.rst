@@ -5,21 +5,21 @@ Usage
 
     First, create an instance of :class:`Wiktionary` class:
     
-    ::
+    .. code-block:: python
 
         >>> from pywiktionary import Wiktionary
         >>> wikt = Wiktionary(XSAMPA=True)
 
     Use the example XML dump in ``pywiktionary/data``:
     
-    ::
+    .. code-block:: python
 
         >>> dump_file = "pywiktionary/data/enwiktionary-test-pages-articles-multistream.xml"
         >>> pron = wikt.extract_IPA(dump_file)
 
     Here's the extracted result:
     
-    ::
+    .. code-block:: python
 
         >>> from pprint import pprint
         >>> pprint(pron)
@@ -53,20 +53,20 @@ Usage
 
     First, create an instance of :class:`Wiktionary` class:
 
-    ::
+    .. code-block:: python
 
         >>> from pywiktionary import Wiktionary
-        >>> wikt = Wiktionary(x_sampa=True)
+        >>> wikt = Wiktionary(XSAMPA=True)
 
     Lookup a word using ``lookup`` method:
 
-    ::
+    .. code-block:: python
 
         >>> word = wikt.lookup("present")
 
     The entry of word "present" is at https://en.wiktionary.org/wiki/present, and here is the lookup result:
 
-    ::
+    .. code-block:: python
 
         >>> from pprint import pprint
         >>> pprint(word)
@@ -84,9 +84,9 @@ Usage
 
     To lookup a word in a certain language, specify the ``lang`` parameter:
 
-    ::
+    .. code-block:: python
 
-        >>> wikt = Wiktionary(lang="English", x_sampa=True)
+        >>> wikt = Wiktionary(lang="English", XSAMPA=True)
         >>> word = wikt.lookup("read")
         >>> pprint(word)
         [{'IPA': '/ɹiːd/', 'X-SAMPA': '/r\\i:d/', 'lang': 'en'},
@@ -95,7 +95,7 @@ Usage
 
 3. **IPA -> X-SAMPA conversion**
 
-    ::
+    .. code-block:: python
 
         >>> from pywiktionary import IPA
         >>> IPA_text = "/t͡ʃeɪnd͡ʒ/" # en: [[change]]

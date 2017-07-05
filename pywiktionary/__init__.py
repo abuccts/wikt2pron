@@ -1,7 +1,10 @@
 """`Wiktionary pronunciation collector`
 
 A Python toolkit converting pronunciation in enwiktionary xml dump
-to cmudict format. Support IPA and X-SAMPA format at present.
+to cmudict format. Support `IPA`_ and `X-SAMPA`_ format at present.
+
+.. _IPA: https://en.wikipedia.org/wiki/International_Phonetic_Alphabet
+.. _X-SAMPA: https://en.wikipedia.org/wiki/X-SAMPA
 """
 
 from .wiktionary import Wiktionary

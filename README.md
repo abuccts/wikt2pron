@@ -6,7 +6,11 @@ enwiktionary2cmudict
 [![Join the chat at https://gitter.im/enwiktionary2cmudict/Lobby](https://badges.gitter.im/enwiktionary2cmudict/Lobby.svg)](https://gitter.im/enwiktionary2cmudict/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![BSD licensed](https://img.shields.io/badge/License-BSD-blue.svg)](LICENSE)
 
-A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict format. Support IPA and X-SAMPA format at present.
+_Wiktionary pronunciation collector_
+
+A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict format. Support [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) and [X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA) format at present.
+
+This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/) with [CMU Sphinx](https://cmusphinx.github.io/).
 
 Requirements
 ------------

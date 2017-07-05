@@ -28,7 +28,10 @@ for XSAMPA_symbol, IPA_data in m_XSAMPA.items():
 def IPA_to_XSAMPA(text):
     """Convert IPA to X-SAMPA.
 
-    Use IPA and X-SAMPA symbol sets used in Wiktionary.
+    Use `IPA`_ and `X-SAMPA`_ symbol sets used in Wiktionary.
+
+    .. _IPA: https://en.wiktionary.org/wiki/Module:IPA/data/symbols
+    .. _X-SAMPA: https://en.wiktionary.org/wiki/Module:IPA/data/X-SAMPA
 
     Parameters
     ----------
@@ -39,6 +42,13 @@ def IPA_to_XSAMPA(text):
     -------
     string
         Converted X-SAMPA text.
+
+    Notes
+    -----
+    - Use ``_j`` for palatalized instead of ``'``
+    - Use ``=`` for syllabic instead of ``_=``
+    - Use ``~`` for nasalization instead of ``_~``
+    - Please refer to :doc:`sym` for more details.
 
     Examples
     --------

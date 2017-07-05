@@ -21,6 +21,11 @@ enwiktionary2cmudict's documentation
 
 .. automodule:: pywiktionary
 
+This project is developed in `GSoC 2017`_ with `CMU Sphinx`_.
+
+.. _GSoC 2017: https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/
+.. _CMU Sphinx: https://cmusphinx.github.io/
+
 
 Contents
 --------
@@ -31,6 +36,11 @@ Contents
    intro
    usage
    api
+
+.. toctree::
+   :hidden:
+
+   sym
 
 
 Authors

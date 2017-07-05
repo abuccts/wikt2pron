@@ -9,19 +9,19 @@ The library provides classes which are usable by third party tools.
    :local:
 
 
-.. `Wiktionary` Class
+.. ``Wiktionary`` Class
 
-:class:`Wiktionary` Class
--------------------------
+``Wiktionary`` Class
+--------------------
 
 .. autoclass:: Wiktionary
     :members:
 
 
-.. `Parser` Class
+.. ``Parser`` Class
 
-:class:`Parser` Class
----------------------
+``Parser`` Class
+----------------
 
 .. autoclass:: Parser
     :members:
@@ -30,6 +30,7 @@ The library provides classes which are usable by third party tools.
 Utilities
 ---------
 
-.. autofunction:: IPA.IPA.IPA_to_XSAMPA
+.. automodule:: IPA.IPA
+    :members:
 
 

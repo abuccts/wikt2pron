@@ -19,10 +19,10 @@ from .parser import Parser
 class Wiktionary(object):
     """Wiktionary class for IPA extraction from XML dump or MediaWiki API.
 
-    To extraction IPA for a certain language, specify `lang` parameter,
+    To extraction IPA for a certain language, specify ``lang`` parameter,
     default is extracting IPA for all available languages.
 
-    To convert IPA text to X-SAMPA text, use `XSAMPA` parameter.
+    To convert IPA text to X-SAMPA text, use ``XSAMPA`` parameter.
 
     Parameters
     ----------
@@ -70,7 +70,7 @@ class Wiktionary(object):
     def set_parser(self):
         """Set parser for Wiktionary.
 
-        Use the Wiktionary `lang` and `XSAMPA` parameters.
+        Use the Wiktionary ``lang`` and ``XSAMPA`` parameters.
         """
         self.parser = Parser(
             lang=self.lang,
@@ -107,7 +107,7 @@ class Wiktionary(object):
         -------
         list
             List of extracted IPA results in
-            {"id": "", "title": "", "pronunciation": ""} format.
+            ``{"id": "", "title": "", "pronunciation": ""}`` format.
         """
         dump = mwxml.Dump.from_file((open(dump_file, "rb")))
         lst = []
