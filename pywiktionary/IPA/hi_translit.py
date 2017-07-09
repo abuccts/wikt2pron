@@ -115,7 +115,7 @@ def transliterate(text):
             return succ + nasal_assim[succ] + prev
         return succ + "n" + prev
     def repl4(match):
-        k = match.group()
+        k = match.group(1)
         if k in conv.keys():
             return conv[k]
         return k
