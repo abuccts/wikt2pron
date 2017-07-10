@@ -1,3 +1,5 @@
+# pylint: disable=anomalous-backslash-in-string
+# pylint: disable=line-too-long, invalid-name
 """Transliteration for Hindi.
 Modifiled from https://en.wiktionary.org/wiki/Module:hi-translit Lua module partially.
 """
@@ -25,8 +27,8 @@ conv = {
     # "ज्ञ": "gy",
 
     # vowel diacritics
-    "ि": "i", "ु": "u", "े": "e", "ो": "o", 
-    "ा": "ā", "ी": "ī", "ू": "ū", 
+    "ि": "i", "ु": "u", "े": "e", "ो": "o",
+    "ा": "ā", "ी": "ī", "ू": "ū",
     "ृ": "ŕ",
     "ै": "ai", "ौ": "au",
     "ॉ": "ŏ",
@@ -34,9 +36,9 @@ conv = {
 
     # vowel signs
     "अ": "a", "इ": "i", "उ": "u", "ए": "e", "ओ": "o",
-    "आ": "ā", "ई": "ī", "ऊ": "ū", 
-    "ऋ": "ŕ", 
-    "ऐ": "ai", "औ": "au", 
+    "आ": "ā", "ई": "ī", "ऊ": "ū",
+    "ऋ": "ŕ",
+    "ऐ": "ai", "औ": "au",
     "ऑ": "ŏ",
     "ऍ": "ĕ",
 

@@ -1,3 +1,5 @@
+# pylint: disable=anomalous-backslash-in-string
+# pylint: disable=line-too-long, invalid-name
 """Hindi IPA pronunciation module. Implements template {{hi-IPA}}.
 Modifiled from https://en.wiktionary.org/wiki/Module:hi-IPA Lua module partially.
 """
@@ -12,7 +14,7 @@ from .hi_translit import transliterate
 
 
 correspondences = {
-    "ṅ": "ŋ", "g": "ɡ", 
+    "ṅ": "ŋ", "g": "ɡ",
     "c": "t͡ʃ", "j": "d͡ʒ", "ñ": "ɲ",
     "ṭ": "ʈ", "ḍ": "ɖ", "ṇ": "ɳ",
     "t": "t̪", "d": "d̪",
@@ -25,7 +27,7 @@ correspondences = {
     "ī": "iː", "o": "oː", "e": "eː", "ŕ": "ɾɪ",
     "u": "ʊ", "ū": "uː", "ŏ": "ɔ", "ĕ": "æː",
 
-    "ũ": "ʊ̃", "õ": "õː", "ã": "ə̃", "ā̃": "ɑ̃ː", 
+    "ũ": "ʊ̃", "õ": "õː", "ã": "ə̃", "ā̃": "ɑ̃ː",
 
     "ॐ": "oːm", "ḥ": "ʰ",
     # get rid of spaces
@@ -33,8 +35,8 @@ correspondences = {
 }
 
 identical = "knlsfzθ"
-for ch in identical:
-    correspondences[ch] = ch
+for char in identical:
+    correspondences[char] = char
 
 vowels = "aāiīuūoɔɛeæ"
 weak_h = "([gjdḍbṛnmaãāā̃eẽiĩīī̃uũūū̃oõː])h"
@@ -55,7 +57,7 @@ def syllabify(text):
             c, b = b, ""
         return a + b + "." + c + d
 
-    for count in range(2):
+    for _ in range(2):
         text = re.sub(syllabify_pattern, repl, text)
     return text
 
