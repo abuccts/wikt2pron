@@ -28,7 +28,7 @@ setup(
     
     keywords="wiktionary cmudict IPA parser",
     packages=find_packages(exclude=["contrib", "docs", "tests", "mwxml"]),
-    install_requires=["mwxml", "beautifulsoup4", "six"],
+    install_requires=["regex", "mwxml", "beautifulsoup4", "six"],
     tests_require = ["nose", "pylint"],
     test_suite="nose.collector",
 

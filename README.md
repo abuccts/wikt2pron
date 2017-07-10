@@ -16,6 +16,7 @@ Requirements
 ------------
 enwiktionary2cmudict requires:
 * Python 3
+* [regex](https://pypi.python.org/pypi/regex/)
 * [python-mwxml](https://github.com/mediawiki-utilities/python-mwxml)
 * [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/)
 

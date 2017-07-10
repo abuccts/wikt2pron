@@ -32,10 +32,13 @@ enwiktionary2cmudict requires:
 
 * Python 3
 
+* `regex`_
+
 * `python-mwxml`_
 
 * `beautifulsoup4`_
 
+.. _regex: https://pypi.python.org/pypi/regex/
 .. _python-mwxml: https://github.com/mediawiki-utilities/python-mwxml
 .. _beautifulsoup4: https://www.crummy.com/software/BeautifulSoup/
 
