@@ -8,6 +8,8 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import unicodedata
+
 import regex as re
 
 
@@ -267,9 +269,9 @@ def pinyin_transform(text):
 
     return unicodedata.normalize("NFC", text)
 
-def to_IPA(text):
+def to_IPA(text, IPA_tone=True):
     def repl1(match):
-        k = match.group(1)
+        k = match.group()
         if k in pinyin_detone.keys():
             return pinyin_detone[k]
         return k
@@ -290,23 +292,24 @@ def to_IPA(text):
     text = re.sub("[,.]", "", pinyin_transform(text))
     text = re.sub(" +", " ", text)
     p = text.split(" ")
+
     for i in range(len(p)):
-        tone_cat[p[i]] = tone_determ(p[i])
+        tone_cat[i] = tone_determ(p[i])
         p[i] = re.sub(".[̄́̌̀]?", repl1, p[i])
 
         if p[i] == "一":
             if tone_determ(p[i+1]) == "4":
-                tone_cat[p[i]] = "1-2"
+                tone_cat[i] = "1-2"
             else:
-                tone_cat[p[i]] = "1-4"
+                tone_cat[i] = "1-4"
         elif p[i] == "不":
             if tone_determ(p[i+1]) == "4":
-                tone_cat[p[i]] = "4-2"
+                tone_cat[i] = "4-2"
             else:
-                tone_cat[p[i]] = "4"
+                tone_cat[i] = "4"
             p[i] = "bu"
 
-    for  i in range(len(p)):
+    for i in range(len(p)):
         if p[i] in ipa_null.keys() and ipa_null[p[i]]:
             p[i] = "ˀ" + p[i]
         p[i] = re.sub("([jqx])u", r"\1ü", p[i])
@@ -321,29 +324,32 @@ def to_IPA(text):
         p[i] = re.sub("ˀu̯ɔ", "ˀ̯ɔ", p[i])
         p[i] = re.sub("ʐʐ̩", "ʐ̩", p[i])
 
-        if tone_cat[p[i]] == "5":
+        if tone_cat[i] == "5":
             p[i] = re.sub("^([ptk])([^͡ʰ])", repl3, p[i])
             p[i] = re.sub("^([tʈ]͡[sɕʂ])([^ʰ])", repl4, p[i])
             p[i] = re.sub("ɤ$", "ə", p[i])
-            if i > 0 and tone_cat[p[i-1]] in ipa_tl_ts.keys():
-                tone[p[i]] = ipa_tl_ts[tone_cat[p[i-1]]]
+            if i > 0 and tone_cat[i-1] in ipa_tl_ts.keys():
+                tone[i] = ipa_tl_ts[tone_cat[i-1]]
             else:
-                tone[p[i]] = ""
-        elif tone_cat[p[i]] == "3":
+                tone[i] = ""
+        elif tone_cat[i] == "3":
             if i == len(tone_cat) - 1:
                 if i == 0:
-                    tone[p[i]] = "²¹⁴"
+                    tone[i] = "²¹⁴"
                 else:
-                    tone[p[i]] = "²¹⁴⁻²¹⁽⁴⁾"
+                    tone[i] = "²¹⁴⁻²¹⁽⁴⁾"
             else:
-                tone[p[i]] = ipa_third_t_ts[tone_cat[p[i+1]]]
-        elif i < len(p) - 1 and tone_cat[p[i]] == "4" and tone_cat[p[i+1]] == "4":
-            tone[p[i]] = "⁵¹⁻⁵³"
-        elif i < len(p) - 1 and tone_cat[p[i]] == "4" and tone_cat[p[i+1]] == "1-4":
-            tone[p[i]] = "⁵¹⁻⁵³"
-        elif i < len(p) - 1 and tone_cat[p[i]] == "1-4" and tone_cat[p[i+1]] == "4":
-            tone[p[i]] = "⁵⁵⁻⁵³"
+                tone[i] = ipa_third_t_ts[tone_cat[i+1]]
+        elif i < len(p) - 1 and tone_cat[i] == "4" and tone_cat[i+1] == "4":
+            tone[i] = "⁵¹⁻⁵³"
+        elif i < len(p) - 1 and tone_cat[i] == "4" and tone_cat[i+1] == "1-4":
+            tone[i] = "⁵¹⁻⁵³"
+        elif i < len(p) - 1 and tone_cat[i] == "1-4" and tone_cat[i+1] == "4":
+            tone[i] = "⁵⁵⁻⁵³"
         else:
-            tone[p[i]] = ipa_t_values[tone_cat[p[i]]]
-        p[i] = p[i] + tone[p[i]]
+            tone[i] = ipa_t_values[tone_cat[i]]
+
+        if IPA_tone:
+            p[i] += tone[i]
+
     return " ".join(p)

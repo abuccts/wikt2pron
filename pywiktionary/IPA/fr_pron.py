@@ -97,7 +97,7 @@ front_vowel = "eiéèêĕėəɛæœy" # should not include capital E, used in c�
 front_vowel_c = "[" + front_vowel + "]"
 
 
-def to_IPA(text, pos):
+def to_IPA(text, pos=""):
     def repl1(match):
         vow = match.group(1)
         if vow in remove_diaeresis_from_vowel.keys():
@@ -122,7 +122,7 @@ def to_IPA(text, pos):
                 return v1 + nasaltab[v2] + c
         return v1 + v2 + mn + c
     def repl3(match):
-        k = match.group(1)
+        k = match.group()
         if k in remove_diaeresis_from_vowel.keys():
             return remove_diaeresis_from_vowel[k]
         return k
