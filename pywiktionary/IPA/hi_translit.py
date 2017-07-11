@@ -8,8 +8,9 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-import re
 import unicodedata
+
+import regex as re
 
 
 conv = {
@@ -103,17 +104,17 @@ def transliterate(text):
             match.group(1), match.group(2), match.group(3), match.group(4)
         if (re.match("[" + special_cons + "]", first) and \
             re.match("्", second) and \
-            not perm_cl[first + second + third]) or \
+            (first + second + third) not in perm_cl.keys()) or \
             re.match("य[ीेै]", first + second):
             return "a" + opt + first + second + third
         return "" + opt + first + second + third
     def repl3(match):
         succ, prev = match.group(1), match.group(2)
-        if succ == "a":
+        if succ + prev == "a":
             return succ + "्म" + prev
-        if succ == "":
-            if re.match("[" + vowel + "]", prev):
-                return succ + "" + prev
+        if succ == "" and re.match("[" + vowel + "]", prev):
+            return succ + "̃" + prev
+        if succ in nasal_assim.keys():
             return succ + nasal_assim[succ] + prev
         return succ + "n" + prev
     def repl4(match):
@@ -125,13 +126,13 @@ def transliterate(text):
     text = re.sub("([" + all_cons + "]़?)([" + vowel + "्]?)", repl1, text)
 
     for word in re.findall("[ऀ-ॿa]+", text):
-        orig_word = word
-        word = word[::-1]
-        word = re.sub("^a(़?)([" + all_cons + "])(.)(.?)", repl2, word)
-        while re.match(syncope_pattern, word):
-            word = re.sub(syncope_pattern, r"\1\2\3\4", word)
-        word = re.sub("(.?)ं(.)", repl3, word)
-        text = re.sub(orig_word, word[::-1], text)
+        orig_word = str(word)
+        rev_word = word[::-1]
+        rev_word = re.sub("^a(़?)([" + all_cons + "])(.)(.?)", repl2, rev_word)
+        while re.match(syncope_pattern, rev_word):
+            rev_word = re.sub(syncope_pattern, r"\1\2\3\4", rev_word)
+        rev_word = re.sub("(.?)ं(.)", repl3, rev_word)
+        text = re.sub(orig_word, rev_word[::-1], text)
 
     text = re.sub(".़?", repl4, text)
     text = re.sub("a([iu])̃", r"a͠\1", text)
