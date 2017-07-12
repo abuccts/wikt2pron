@@ -9,7 +9,7 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-import re
+import regex as re
 
 
 # apply sub() repeatedly until no change
@@ -317,7 +317,7 @@ def to_IPA(text, pos=""):
     # double consonants: eCC treated specially, then CC -> C; do after
     # x -> ks so we handle exciter correctly
     text = re.sub(r"⁀e([mn])\1(" + vowel_c + ")", r"⁀en_\1\2", text) # emmener, ennui
-    text = re.sub("⁀(h?)[eæ](" + cons_c + r")\2", "⁀\1é\2", text) # effacer, essui, errer, henné
+    text = re.sub("⁀(h?)[eæ](" + cons_c + r")\2", r"⁀\1é\2", text) # effacer, essui, errer, henné
     text = re.sub("[eæ](" + cons_c + r")\1", r"è\1", text) # mett(r)ons, etc.
     text = re.sub("(" + cons_c + r")\1", r"\1", text) # TO BE FIXED
 
