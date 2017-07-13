@@ -1,6 +1,6 @@
-.. enwiktionary2cmudict documentation file
+.. wikt2pron documentation file
 
-enwiktionary2cmudict's documentation
+wikt2pron's documentation
 ====================================
 
 .. image:: https://travis-ci.org/abuccts/enwiktionary2cmudict.svg?branch=master
@@ -16,7 +16,7 @@ enwiktionary2cmudict's documentation
    :alt: Join the Gitter Chat
 
 .. image:: https://img.shields.io/badge/License-BSD-blue.svg
-   :target: https://github.com/abuccts/enwiktionary2cmudict/blob/master/LICENSE
+   :target: https://github.com/abuccts/wikt2pron/blob/master/LICENSE
    :alt: BSD licensed
 
 .. automodule:: pywiktionary

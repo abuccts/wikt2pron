@@ -1,7 +1,7 @@
 Introduction
 ============
 
-enwiktionary2cmudict is a Python toolkit converting pronunciation in
+wikt2pron is a Python toolkit converting pronunciation in
 enwiktionary xml dump to cmudict format.
 Support `IPA`_ and `X-SAMPA`_ format at present.
 
@@ -28,7 +28,7 @@ Features
 Requirements
 ------------
 
-enwiktionary2cmudict requires:
+wikt2pron requires:
 
 * Python 3
 
@@ -49,7 +49,7 @@ Installation
 .. code-block:: shell
 
     # download the latest version
-    $ git clone https://github.com/abuccts/enwiktionary2cmudict.git
+    $ git clone https://github.com/abuccts/wikt2pron.git
     $ cd enwiktionary
     
     # install and run test

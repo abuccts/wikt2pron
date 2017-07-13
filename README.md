@@ -1,5 +1,5 @@
-enwiktionary2cmudict
-====================
+wikt2pron
+=========
 
 [![Build Status](https://travis-ci.org/abuccts/enwiktionary2cmudict.svg?branch=master)](https://travis-ci.org/abuccts/enwiktionary2cmudict)
 [![Documentation Status](https://readthedocs.org/projects/enwiktionary2cmudict/badge/?version=latest)](http://enwiktionary2cmudict.readthedocs.io/en/latest/?badge=latest)
@@ -14,7 +14,7 @@ This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/das
 
 Requirements
 ------------
-enwiktionary2cmudict requires:
+wikt2pron requires:
 * Python 3
 * [regex](https://pypi.python.org/pypi/regex/)
 * [python-mwxml](https://github.com/mediawiki-utilities/python-mwxml)
@@ -24,7 +24,7 @@ Installation
 ------------
 ```sh
 # download the latest version
-$ git clone https://github.com/abuccts/enwiktionary2cmudict.git
+$ git clone https://github.com/abuccts/wikt2pron.git
 $ cd enwiktionary
 
 # install and run test

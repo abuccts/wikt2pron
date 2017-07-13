@@ -19,7 +19,7 @@ setup(
     description="Toolkit converting pronunciation in enwiktionary xml dump to cmudict format",
     long_description=long_description,
 
-    url="https://github.com/abuccts/enwiktionary2cmudict",
+    url="https://github.com/abuccts/wikt2pron",
 
     author="Yifan Xiong",
     author_email="abuccts@gmail.com",
