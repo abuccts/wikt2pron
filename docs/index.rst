@@ -3,12 +3,12 @@
 wikt2pron's documentation
 ====================================
 
-.. image:: https://travis-ci.org/abuccts/enwiktionary2cmudict.svg?branch=master
-   :target: https://travis-ci.org/abuccts/enwiktionary2cmudict
+.. image:: https://travis-ci.org/abuccts/wikt2pron.svg?branch=master
+   :target: https://travis-ci.org/abuccts/wikt2pron
    :alt: Build Status
 
-.. image:: https://readthedocs.org/projects/enwiktionary2cmudict/badge/?version=latest
-   :target: http://enwiktionary2cmudict.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/wikt2pron/badge/?version=latest
+   :target: http://wikt2pron.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
 .. image:: https://badges.gitter.im/enwiktionary2cmudict/Lobby.svg
