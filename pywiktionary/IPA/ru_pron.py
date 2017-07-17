@@ -190,9 +190,9 @@ def list_to_set(lst):
         res[each] = True
     return res
 
-local format_escapes = {
-    ["op"] = "{",
-    ["cl"] = "}",
+format_escapes = {
+    "op": "{",
+    "cl": "}",
 }
 
 # Reimplementation of mw.ustring.split() that includes any capturing
@@ -236,7 +236,7 @@ def capturing_split(pattern, str):
             del captures[0]
             start = newstart
         # Insert any captures from the splitting pattern.
-        for x in captures do
+        for x in captures:
             ret.append(x)
 
 remove_grave_accents_from_phonetic_respelling = True # Anatoli's desired value
@@ -607,8 +607,8 @@ pos_properties = {
     # Imperatives like other verbs except that final -ться is palatalized
     "imp": {"softpaired": "e", "tsjapal": "y"},
     "impv": "imp",
-    "pro": {"oe": "i", "ve": "i"}, "#FIXME, "not sure about ваше, "сколькие, "какие-, "кое-
-    "num": "mid", "# FIXME, "not sure about обе
+    "pro": {"oe": "i", "ve": "i"}, # FIXME, not sure about ваше, сколькие, какие-, кое-
+    "num": "mid", # FIXME, not sure about обе
     "pref": "high",
     # forced values
     "high": {"oe": "i", "ve": "i", "je": "i", "softpaired": "i", "hardsib": "y", "softsib": "i"},
@@ -765,11 +765,11 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 2 < i < len(word) - 1 and word[i] in accentless["post"].keys() and word[i+1] != "-" or \
                 # 1d. in the "posthyphen" class preceded by a hyphen and another word
                 #     (and not followed by a hyphen, see 1c);
-                2 < i < len(word) - 1 and word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and word[i+1] != "-") and \
+                2 < i < len(word) - 1 and word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and word[i+1] != "-") and ( \
         # 2. must be one syllable;
-            len(re.sub("[^" + vow + "]", "", word[i])) == 1 and \
+            len(re.sub("[^" + vow + "]", "", word[i])) == 1) and ( \
         # 3. must not have any accents (including dot-above, forcing reduction);
-            not re.search(accents, word[i]) and \
+            not re.search(accents, word[i])) and ( \
         # 4. must not be a prefix or suffix, identified by a preceding or trailing hyphen, i.e. one of the following:
         #         4a. utterance-initial preceded by a hyphen, or
             not (i == 2 and word[1] == "-" and word[0] == "" or \
@@ -778,7 +778,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 # 4c. utterance-final followed by a hyphen, or
                 i == len(word) - 3 and word[i+1] == "-" and word[i+2] == "" or \
                 # 4d. non-utterance-final followed by a hyphen;
-                i <= len(word) - 2 and word[i+1] == "- "):
+                i <= len(word) - 2 and word[i+1] == "- ")):
 
         # OK, we have a stressable single-syllable word; either add primary
         # or tertiary stress:
@@ -999,10 +999,10 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             # make geminates optional, except for ɕӂ, also ignore left paren
             # in (ː) sequence
             pron = re.sub("([^ɕӂ\(\)])[ːˑ]", r"\1(ː)", pron)
-        elif thisgem == "n" then
+        elif thisgem == "n":
             # remove gemination, except for ɕӂ
             pron = re.sub("([^ɕӂ\(\)])[ːˑ]", r"\1", pron)
-        else
+        else:
             # degeminate l's
             pron = re.sub("(l)ː", r"\1", pron)
             # preserve gemination between vowels immediately after the stress,
