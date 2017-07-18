@@ -179,8 +179,8 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import regex as re
-import ru_common as com
-import ru_translit
+from . import ru_common as com
+from . import ru_translit
 
 
 def list_to_set(lst):
@@ -276,7 +276,7 @@ acc = AC + GR + CFLEX + DOTABOVE + DOTBELOW
 accents = "[" + acc + "]"
 stress_accents = "[" + AC + GR + "]"
 
-perm_syl_onset = ulist_to_set([
+perm_syl_onset = list_to_set([
     "spr", "str", "skr", "spl", "skl",
     # FIXME, do we want sc?
     "sp", "st", "sk", "sf", "sx", "sc",
@@ -304,19 +304,19 @@ translit_conv_j = {
 }
 
 allophones = {
-    "a": {"a", "ɐ", "ə"},
-    "e": {"e", "ɪ", "ɪ"},
-    "i": {"i", "ɪ", "ɪ"},
-    "o": {"o", "ɐ", "ə"},
-    "u": {"u", "ʊ", "ʊ"},
-    "y": {"ɨ", "ɨ", "ɨ"},
-    "ɛ": {"ɛ", "ɨ", "ɨ"},
-    "ä": {"a", "ɪ", "ɪ"},
-    "ạ": {"a", "ɐ", "ə"},
-    "ë": {"e", "ɪ", "ɪ"},
-    "ö": {"ɵ", "ɪ", "ɪ"},
-    "ü": {"u", "ʊ", "ʊ"},
-    "ə": {"ə", "ə", "ə"},
+    "a": ("a", "ɐ", "ə"),
+    "e": ("e", "ɪ", "ɪ"),
+    "i": ("i", "ɪ", "ɪ"),
+    "o": ("o", "ɐ", "ə"),
+    "u": ("u", "ʊ", "ʊ"),
+    "y": ("ɨ", "ɨ", "ɨ"),
+    "ɛ": ("ɛ", "ɨ", "ɨ"),
+    "ä": ("a", "ɪ", "ɪ"),
+    "ạ": ("a", "ɐ", "ə"),
+    "ë": ("e", "ɪ", "ɪ"),
+    "ö": ("ɵ", "ɪ", "ɪ"),
+    "ü": ("u", "ʊ", "ʊ"),
+    "ə": ("ə", "ə", "ə"),
 }
 
 devoicing = {
@@ -392,7 +392,8 @@ sztab = {
     "s": "cs",
     "z": "ĵz",
 }
-def ot_pod_sz(pre, sz):
+def ot_pod_sz(match):
+    pre, sz = match.group(1), match.group(2)
     return pre + sztab[sz]
 
 phonetic_subs = [
@@ -807,7 +808,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # preceding word; in the process, fix up number of elements in gem/pos
     # tables so there's a single element for the combined word
     real_word_index = 0
-    for i in range(word):
+    for i in range(len(word)):
         if i % 2 == 0 and word[i] != "":
             real_word_index += 1
         if i < len(word) - 2 and (word[i] in accentless["pre"].keys() or word[i] in accentless["prespace"].keys() and word[i+1] == " "):
@@ -889,7 +890,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
         chart = pos_properties[thispos]
         while isinstance(chart, str): # handle aliases
             chart = pos_properties[chart]
-        assert(isinstance(chart, list))
+        assert(isinstance(chart, dict))
         if ending in chart.keys():
             sub = chart[ending]
         else:
@@ -952,7 +953,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
         text = new_text
 
     #re-notate orthographic geminate consonants
-    text = re.sub("([^" + vow + ".\-_])" + r"\1", "\1ː", text)
+    text = re.sub("([^" + vow + ".\-_])" + r"\1", r"\1ː", text)
     text = re.sub("([^" + vow + ".\-_])" + r"\(\1\)", r"\1(ː)", text)
 
     #rewrite iotated vowels
@@ -1019,7 +1020,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             # 2. remaining geminate n after the stress between vowels
             pron = sub_repeatedly("(" + stress_accents + ".-" + vowels + accents + "?n)ː(" + vowels + ")", r"\1(ː)\2", pron)
             # 3. remaining ž and n between vowels
-            pron = re.sub_repeatedly("(" + vowels + accents + "?[žn])ː(" + vowels + ")", r"\1ˑ\2", pron)
+            pron = sub_repeatedly("(" + vowels + accents + "?[žn])ː(" + vowels + ")", r"\1ˑ\2", pron)
             # 4. ssk (and zsk, already normalized) immediately after the stress
             pron = re.sub("(" + vowels + stress_accents + "[^" + vow + "]*s)ː(k)", r"\1ˑ\2", pron)
             # 5. eliminate remaining gemination, except for ɕː and ӂː
@@ -1080,8 +1081,10 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             elif re.search("[cĵšžĉĝ]", ch):
                 ty = "hardsib"
             elif re.search("[čǰɕӂ]", ch):
+                ty = "softsib"
+            else:
                 ty = "softpaired"
-            return ch +mod + fetch_e_sub(ty) + "⁀"
+            return ch + mod + fetch_e_sub(ty) + "⁀"
         if new_final_e_code:
             # handle substitutions in two parts, one for vowel+j+e sequences
             # and the other for cons+e sequences
@@ -1180,7 +1183,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
         #create set of 1-based syllable indexes of stressed syllables
         #(acute, grave, circumflex)
         stress = {}
-        for j in len(syllable):
+        for j in range(len(syllable)):
             if re.search(stress_accents, syllable[j]):
                 stress[j] = "real"
             elif re.search(CFLEX, syllable[j]):
@@ -1189,8 +1192,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 stress[j] = ""
 
         # iterate syllable by syllable to handle stress marks, vowel allophony
-        syl_conv = {}
-        for j in len(syllable):
+        syl_conv = []
+        for j in range(len(syllable)):
             syl = syllable[j]
 
             alnum = None
@@ -1213,7 +1216,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 lambda x: allophones[x.group(1)][alnum] if x.group(1) != "" else x.group(),
                 syl
             )
-            syl_conv[j] = syl
+            syl_conv.append(syl)
 
         pron = "".join(syl_conv)
 
@@ -1308,7 +1311,11 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
 
     # convert special symbols to IPA
     text = re.sub("[cĵ]ʲ", lambda x: translit_conv_j[x.group()], text)
-    text = re.sub("[cčgĉĝĵǰšžɕӂ]", lambda x: translit_conv[x.group()], text)
+    text = re.sub(
+        "[cčgĉĝĵǰšžɕӂ]",
+        lambda x: translit_conv[x.group()] if x.group() in translit_conv.keys() else x.group(),
+        text
+    )
 
     # Assimilation involving hiatus of ɐ and ə
     text = re.sub("ə([‿⁀]*)[ɐə]", r"ɐ\1ɐ", text)
