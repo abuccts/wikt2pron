@@ -105,113 +105,116 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
     # Latin e or je
     text = re.sub("[ѐЀѝЍ]", lambda x: decompose_grave_map[x.group()], text)
 
-    origtext = text
+    origtext = str(text)
+    print(text)
     # the second half of the if-statement below is an optimization; see above.
     if not noadj and "го" in text:
         if not forceadj:
             # handle много
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Мм]но[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Мм]но[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
+            print(text)
             # handle немного, намного
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Нн][еа]мно[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Нн][еа]мно[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle до́рого [short form of дорогой, adverb]
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Дд]о[́̀]?ро)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Дд]о[́̀]?ро)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle недо́рого [short form of недорогой, adverb]
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Нн]едо[́̀]?ро)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Нн]едо[́̀]?ро)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle стро́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Сс]тро[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Сс]тро[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle нестро́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Нн]естро[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Нн]естро[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle убо́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Уу]бо[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Уу]бо[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle поло́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Пп]оло[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Пп]оло[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle длинноно́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Дд]линноно[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Дд]линноно[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle коротконо́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Кк]оротконо[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Кк]оротконо[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle кривоно́го
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Кк]ривоно[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Кк]ривоно[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle пе́го [short form of пе́гий "piebald"]
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Пп]е[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Пп]е[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle лого, сого, ого
             text = re.sub(
-                "(?<=\p{L}|́|̀)([лсЛС]?[Оо][́̀]?)г(о[́̀]?)(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([лсЛС]?[Оо][́̀]?)г(о[́̀]?)(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + r"\2",
                 "\0" + text + "\0"
             )[1:-1]
             # handle Того, То́го (but not того or Того́, which have /v/)
             text = re.sub(
-                "(?<=\p{L}|́|̀)(То́?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)(То́?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle лего
             text = re.sub(
-                "(?<=\p{L}|́|̀)([Лл]е[́̀]?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([Лл]е[́̀]?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
             # handle игого, огого; note, we substitute TEMP_G for both г's
             # because otherwise the ого- at the beginning gets converted to ово
             text = re.sub(
-                "(?<=\p{L}|́|̀)([ИиОо])гог(о[́̀]?)(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)([ИиОо])гог(о[́̀]?)(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о" + TEMP_G + r"\2",
                 "\0" + text + "\0"
             )[1:-1]
             # handle Диего
             text = re.sub(
-                "(?<=\p{L}|́|̀)(Дие́?)го(?!\p{L}|́|̀)",
+                "(?<!\p{L}|́|̀)(Дие́?)го(?!\p{L}|́|̀)",
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
+        print(text)
         #handle genitive/accusative endings, which are spelled -ого/-его/-аго
         # (-ogo/-ego/-ago) but transliterated -ovo/-evo/-avo; only for adjectives
         # and pronouns, excluding words like много, ого (-аго occurs in
@@ -232,43 +235,47 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
         )[1:-1]
         # handle сегодня
         text = re.sub(
-            "(?<=\p{L}|́|̀)([Сс]е)г(о[́̀]?дня)(?!\p{L}|́|̀)",
+            "(?<!\p{L}|́|̀)([Сс]е)г(о[́̀]?дня)(?!\p{L}|́|̀)",
             r"\1в\2",
             "\0" + text + "\0"
         )[1:-1]
         # handle сегодняшн-
         text = re.sub(
-            "(?<=\p{L}|́|̀)([Сс]е)г(о[́̀]?дняшн)",
+            "(?<!\p{L}|́|̀)([Сс]е)г(о[́̀]?дняшн)",
             r"\1в\2",
             "\0" + text + "\0"
         )[1:-1]
+        print(text)
         # replace TEMP_G with g; must be done after the -go -> -vo changes
         text = re.sub(TEMP_G, "г", text)
+
+    print(text)
 
     # the second half of the if-statement below is an optimization; see above.
     if not noshto and "то" in text:
         ch2sh = {"ч": "ш", "Ч": "Ш"}
         # Handle что
         text = re.sub(
-            "(?<=\p{L}|́|̀)([Чч])(то[́̀]?)(?!\p{L}|́|̀)",
+            "(?<!\p{L}|́|̀)([Чч])(то[́̀]?)(?!\p{L}|́|̀)",
             lambda x: ch2sh[x.group(1)] + x.group(2),
             "\0" + text + "\0"
         )[1:-1]
         # Handle чтобы, чтоб
         text = re.sub(
-            "(?<=\p{L}|́|̀)([Чч])(то[́̀]?бы?)(?!\p{L}|́|̀)",
+            "(?<!\p{L}|́|̀)([Чч])(то[́̀]?бы?)(?!\p{L}|́|̀)",
             lambda x: ch2sh[x.group(1)] + x.group(2),
             "\0" + text + "\0"
         )[1:-1]
         # Handle ничто
         text = re.sub(
-            "(?<=\p{L}|́|̀)([Нн]и)ч(то[́̀]?)(?!\p{L}|́|̀)",
+            "(?<!\p{L}|́|̀)([Нн]и)ч(то[́̀]?)(?!\p{L}|́|̀)",
             r"\1ш\2",
             "\0" + text + "\0"
         )[1:-1]
 
     text = re.sub("([МмЛл][яеё][́̀]?)г([кч])", r"\1х\2", text)
 
+    print(text)
     return origtext, text
 
 # Transliterate after the pronunciation-related transformations of
@@ -278,7 +285,7 @@ def tr_after_fixes(text, include_monosyllabic_jo_accent=""):
     # Remove word-final hard sign, either utterance-finally or followed by
     # a non-letter character such as space, comma, period, hyphen, etc.
     text = re.sub("[Ъъ]$", "", text)
-    text = re.sub("[Ъъ]([%A])", r"\1", text)
+    text = re.sub("[Ъъ]([^\p{L}])", r"\1", text)
 
     # the if-statement below isn't necessary but may speed things up,
     # particularly when include_monosyllabic_jo_accent isn't set, in that
@@ -354,7 +361,7 @@ def tr_sub(text, include_monosyllabic_jo_accent="", noadj="", noshto="", sub="",
     if sub:
         subs = sub.split(",")
         for subpair in subs:
-            subsplit = subpairsplit("/")
+            subsplit = subpair.split("/")
             text = re.sub(subsplit[0], subsplit[1], text)
 
     return tr(text, None, None, include_monosyllabic_jo_accent, noadj, noshto, forceadj)

@@ -190,11 +190,6 @@ def list_to_set(lst):
         res[each] = True
     return res
 
-format_escapes = {
-    "op": "{",
-    "cl": "}",
-}
-
 # Reimplementation of mw.ustring.split() that includes any capturing
 # groups in the splitting pattern. This works like Python's re.split()
 # function, except that it has Lua's behavior when the split pattern
@@ -204,7 +199,7 @@ def capturing_split(pattern, str):
     ret = []
     # (.-) corresponds to (.*?) in Python or Perl; () captures the
     # current position after matching.
-    pattern = "(.-)" + pattern + "()"
+    pattern = "(.*?)" + pattern + "()"
     start = 0
     while True:
         # Did we reach the end of the string?
@@ -218,6 +213,7 @@ def capturing_split(pattern, str):
         if len(captures) == 0:
             ret.append(str[start:])
             return ret
+        print("@@@@@@@", captures)
         newstart = captures[-1]
         del captures[-1]
         # Special case: If we don't advance by any characters, then advance
@@ -230,7 +226,7 @@ def capturing_split(pattern, str):
             del captures[0]
             start += 1
             if start > len(str) - 1:
-            	return ret
+                return ret
         else:
             ret.append(captures[0])
             del captures[0]
@@ -430,8 +426,8 @@ phonetic_subs = [
     ("[dt]s", "c"),
     ("[dt]z", "ĵ"),
     # 6. тш, дж always use long variants (FIXME, may change)
-    ("[dtč](ʹ?[ %-‿⁀/]*)š", r"ĉ\1š"),
-    ("[dtč](ʹ?[ %-‿⁀/]*)ž", r"ĝ\1ž"),
+    ("[dtč](ʹ?[ \-‿⁀/]*)š", r"ĉ\1š"),
+    ("[dtč](ʹ?[ \-‿⁀/]*)ž", r"ĝ\1ž"),
     # 7. soften palatalized hard hushing affricates resulting from the previous
     ("ĉʹ", "č"),
     ("ĝʹ", "ǰ"),
@@ -523,7 +519,7 @@ accentless = {
         "za", "iz", "iz-pod", "iz-za", "izo", "k", "ko", "mež",
         "na", "nad", "nado", "ne", "ni", "ob", "obo", "ot", "oto",
         "pered", "peredo", "po", "pod", "podo", "pred", "predo", "pri", "pro",
-        "s", "so", "u", "čerez"
+        "s", "so", "u", "čerez",
     ]),
     # class "prespace": particles that join with a following word, but only
     #   if a space (not a hyphen) separates them; hyphens are used here
@@ -640,8 +636,11 @@ def phon_respelling(text, remove_grave):
 # has already been passed through m_ru_translit.apply_tr_fixes(); otherwise,
 # this will be done.
 def to_IPA(text, adj="", gem="", bracket="", pos=""):
+    print(text)
     origtext, transformed_text = ru_translit.apply_tr_fixes(text)
     text = transformed_text
+
+    print(text)
 
     if not gem:
         gem = ""
@@ -703,7 +702,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     text = re.sub("``", DUBGR, text)
     text = re.sub("`", GR, text)
     text = re.sub("@", DOTABOVE, text)
-    text = re.sub("%^", CFLEX, text)
+    text = re.sub("\^", CFLEX, text)
     text = re.sub(DUBGR, CFLEX, text)
 
     # translit doesn't always convert э to ɛ (depends on whether a consonant
@@ -736,6 +735,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # canonicalize multiple spaces
     text = re.sub("\s+", " ", text)
 
+    print(text)
+
     # Add primary stress to single-syllable words preceded or followed by
     # unstressed particle or preposition. Add "tertiary" stress to remaining
     # single-syllable words that aren't a particle, preposition, prefix or
@@ -751,7 +752,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # spelled letters о and а, which should not be reduced); and (3) we
     # recognize hyphens for the purpose of marking unstressed prefixes and
     # suffixes.
-    word = capturing_split("([ \-]+)", text)
+    word = re.split("([ \-]+)", text) # capturing_split("([ \-]+)", text)
     for i in range(len(word)):
         # check for single-syllable words that need a stress; they must meet
         # the following conditions:
@@ -779,7 +780,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 # 4c. utterance-final followed by a hyphen, or
                 i == len(word) - 3 and word[i+1] == "-" and word[i+2] == "" or \
                 # 4d. non-utterance-final followed by a hyphen;
-                i <= len(word) - 2 and word[i+1] == "- ")):
+                i <= len(word) - 3 and word[i+1] == "- ")):
 
         # OK, we have a stressable single-syllable word; either add primary
         # or tertiary stress:
@@ -830,6 +831,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 del gem[real_word_index-1]
             if isinstance(pos, list) and 1 < real_word_index < len(pos):
                 del pos[real_word_index-2]
+
+    print(text)
 
     # rejoin words, convert hyphens to spaces and eliminate stray spaces
     # resulting from this
@@ -969,6 +972,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     #split by word and process each word
     word = text.split(" ")
 
+    print(text)
+
     for i in range(len(word)):
         pron = word[i]
 
@@ -978,7 +983,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
         # certain sequences at the beginning of a word, but make sure that
         # the original spelling is appropriate as well (see comment above
         # for geminate_pref).
-        if "ː" in pron:
+        if re.search("ː", pron):
             orig_pron = orig_word[i]
             deac = re.sub(accents, "", pron)
             orig_deac = re.sub(accents, "", orig_pron)
@@ -1018,7 +1023,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             # 1. immediately after the stress
             pron = sub_repeatedly("(" + vowels + stress_accents + "[^ɕӂ\(\)])ː(" + vowels + ")", r"\1ˑ\2", pron)
             # 2. remaining geminate n after the stress between vowels
-            pron = sub_repeatedly("(" + stress_accents + ".-" + vowels + accents + "?n)ː(" + vowels + ")", r"\1(ː)\2", pron)
+            pron = sub_repeatedly("(" + stress_accents + ".*?" + vowels + accents + "?n)ː(" + vowels + ")", r"\1(ː)\2", pron)
             # 3. remaining ž and n between vowels
             pron = sub_repeatedly("(" + vowels + accents + "?[žn])ː(" + vowels + ")", r"\1ˑ\2", pron)
             # 4. ssk (and zsk, already normalized) immediately after the stress
@@ -1088,7 +1093,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
         if new_final_e_code:
             # handle substitutions in two parts, one for vowel+j+e sequences
             # and the other for cons+e sequences
-            pron = re.sub( vowels_c + "(" + accents + "?j)ë⁀", repl1, pron)
+            pron = re.sub(vowels_c + "(" + accents + "?j)ë⁀", repl1, pron)
             # consonant may palatalized, geminated or optional-geminated
             pron = re.sub("(.)(ʲ?[ː()]*)[eë]⁀", repl2, pron)
             if final_e_non_pausal:
@@ -1226,7 +1231,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
 
         def repl5(match):
             a, b, c = match.group(1), match.group(2), match.group(3)
-            if a == "":
+            if not a:
                 return a + b + "ʲ" + c
             else:
                 return a + b + "⁽ʲ⁾" + c
@@ -1277,6 +1282,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     if bracket:
         text = "[" + text + "]"
 
+    print(text)
+
     # Front a and u between soft consonants. If between a soft and
     # optionally soft consonant (should only occur in that order, shouldn't
     # ever have a or u preceded by optionally soft consonant),
@@ -1323,5 +1330,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # eliminate ⁀ symbol at word boundaries
     # eliminate _ symbol that prevents assimilations
     text = re.sub("[⁀_]", "", text)
+
+    print(text)
 
     return text
