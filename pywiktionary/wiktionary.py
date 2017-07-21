@@ -77,13 +77,15 @@ class Wiktionary(object):
             XSAMPA=self.XSAMPA,
         )
 
-    def get_entry_pronunciation(self, wiki_text):
+    def get_entry_pronunciation(self, wiki_text, title=None):
         """Extraction IPA for entry in Wiktionary XML dump.
 
         Parameters
         ----------
         wiki_text : string
             String of XML entry wiki text.
+        title: string
+            String of wiki entry title.
 
         Returns
         -------
@@ -92,8 +94,8 @@ class Wiktionary(object):
             Key: language name; Value: list of IPA text.
         """
         if self.lang:
-            return self.parser.parse(wiki_text)[self.lang]
-        return self.parser.parse(wiki_text)
+            return self.parser.parse(wiki_text, title=title)[self.lang]
+        return self.parser.parse(wiki_text, title=title)
 
     def extract_IPA(self, dump_file):
         """Extraction IPA list from Wiktionary XML dump.
@@ -114,8 +116,10 @@ class Wiktionary(object):
         for page in dump:
             for revision in page:
                 if revision.page.namespace == 0:
-                    pronunciation = \
-                        self.get_entry_pronunciation(revision.text)
+                    pronunciation = self.get_entry_pronunciation(
+                        revision.text,
+                        title=revision.page.title,
+                    )
                     lst.append({
                         "id": revision.page.id,
                         "title": revision.page.title,
@@ -146,4 +150,4 @@ class Wiktionary(object):
             wiki_text = val[0]["revisions"][0]["*"]
         except (KeyError, IndexError):
             return "Word not found."
-        return self.get_entry_pronunciation(wiki_text)
+        return self.get_entry_pronunciation(wiki_text, title=word)

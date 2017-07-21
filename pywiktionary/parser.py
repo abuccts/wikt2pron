@@ -91,7 +91,7 @@ class Parser(object):
         span = soup.find_all("span", {"class": "IPA"})
         return list(map(lambda x: x.text, span))
 
-    def parse(self, wiki_text):
+    def parse(self, wiki_text, title=None):
         """Parse Wiktionary wiki text.
 
         Split Wiktionary wiki text into different langugaes and return
@@ -101,6 +101,8 @@ class Parser(object):
         ----------
         wiki_text : string
             String of Wiktionary wiki text, from XML dump or Wiktionary API.
+        title: string
+            String of wiki entry title.
 
         Returns
         -------
@@ -108,6 +110,7 @@ class Parser(object):
             Dict of parsed IPA results.
             Key: language name; Value: list of IPA text.
         """
+        self.title = title
         parse_result = {}
         h2_lst = self.regex["h2"].findall(wiki_text)
         if self.lang and self.lang not in h2_lst:
@@ -213,6 +216,8 @@ class Parser(object):
                             pos = pos[0] if pos else ""
                             node = re.sub("\|pos=([^\|]+)", "", node)
                             node_detail = node[1:].split("|")
+                            if not node_detail and self.title:
+                                node_detail.append(self.title)
                             for each_ipa in node_detail:
                                 parse_result.append({
                                     "IPA": fr_pron.to_IPA(
@@ -242,6 +247,8 @@ class Parser(object):
                             bracket = bracket[0] if bracket else ""
                             node = re.sub("\|bracket=([^\|]+)", "", node)
                             node_detail = node[1:].split("|")
+                            if not node_detail and self.title:
+                                node_detail.append(self.title)
                             for each_ipa in node_detail:
                                 parse_result.append({
                                     "IPA": to_IPA(
@@ -256,6 +263,8 @@ class Parser(object):
                         elif tag == "hi-IPA":
                             lang = "hi"
                             node_detail = node[1:].split("|")
+                            if not node_detail and self.title:
+                                node_detail.append(self.title)
                             for each_ipa in node_detail:
                                 parse_result.append({
                                     "IPA": hi_pron.to_IPA(each_ipa),
