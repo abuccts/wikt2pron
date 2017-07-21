@@ -16,6 +16,10 @@ except ImportError:
 import regex as re
 from bs4 import BeautifulSoup
 from .IPA import IPA
+from .IPA import fr_pron
+from .IPA import ru_pron
+from .IPA import hi_pron
+from .IPA import cmn_pron
 
 
 class Parser(object):
@@ -47,7 +51,7 @@ class Parser(object):
             "lang": re.compile("\|lang=([^\|]+)"), #re.compile("^lang="),
             # "node": re.compile("{{([^}]+)}}"),
             "node": re.compile("(?<brackets>{{(?:[^{}]+|(?&brackets))*}})"),
-            "IPA-node": re.compile("^([\w]+\-)?(IPA|pron)\|"),
+            "IPA-node": re.compile("^(([\w]+\-)?(IPA|pron))(?=\|)"),
             "pronun": re.compile("\* ([^\n]+)\n"),
             "h2": re.compile("(?:\A|\n)={2}([a-zA-Z0-9 -]+)={2}\n"),
             "h3": re.compile("\n={3}([a-zA-Z0-9 -]+)={3}\n"),
@@ -184,21 +188,99 @@ class Parser(object):
             for node in node_lst:
                 node = node[2:-2]
                 tag = re.findall(self.regex["IPA-node"], node)
-                if not tag:
-                    tag = tag[0][1]
-                    if tag == "IPA":
-                            node_detail = node.split("|")
+                if tag:
+                    tag = tag[0][0]
+                    if tag in [
+                        "IPA", "fr-IPA", "ru-IPA", "hi-IPA", "zh-pron"
+                    ]:
+                        node = re.sub(self.regex["IPA-node"], "", node)
+                        node = re.sub(self.regex["node"], "", node) #FIXME
+                        lang = re.findall(self.regex["lang"], node)
+                        lang = lang[0] if lang else "Unknown"
+                        node = re.sub(self.regex["lang"], "", node)
+                        node = re.sub("\|qual\d?=[^\|]*", "", node)
+                        node = re.sub("\|n\d?=[^\|]*", "", node)
+                        if tag == "IPA":
+                            node_detail = node[1:].split("|")
                             for each_ipa in node_detail:
                                 parse_result.append({
                                     "IPA": each_ipa,
                                     "lang": lang,
                                 })
+                        elif tag == "fr-IPA":
+                            lang = "fr"
+                            pos = re.findall("\|pos=([^\|]+)", node)
+                            pos = pos[0] if pos else ""
+                            node = re.sub("\|pos=([^\|]+)", "", node)
+                            node_detail = node[1:].split("|")
+                            for each_ipa in node_detail:
+                                parse_result.append({
+                                    "IPA": fr_pron.to_IPA(
+                                        each_ipa,
+                                        pos=pos
+                                    ),
+                                    "lang": lang,
+                                })
+                        elif tag == "ru-IPA":
+                            lang = "ru"
+                            node = re.sub("\|phon=", "", node)
+                            noadj = re.findall("\|noadj=([^\|]+)", node)
+                            noadj = noadj[0] if noadj else ""
+                            node = re.sub("\|noadj=([^\|]+)", "", node)
+                            noshto = re.findall("\|noshto=([^\|]+)", node)
+                            noshto = noshto[0] if noshto else ""
+                            node = re.sub("\|noshto=([^\|]+)", "", node)
+                            gem = re.findall("\|gem=([^\|]+)", node)
+                            gem = gem[0] if gem else ""
+                            node = re.sub("\|gem=([^\|]+)", "", node)
+                            pos = re.findall("\|pos=([^\|]+)", node)
+                            pos = pos[0] if pos else ""
+                            node = re.sub("\|pos=([^\|]+)", "", node)
+                            node = re.sub("\|raw=([^\|]+)", "", node)
+                            node = re.sub("\|ann=([^\|]+)", "", node)
+                            bracket = re.findall("\|bracket=([^\|]+)", node)
+                            bracket = bracket[0] if bracket else ""
+                            node = re.sub("\|bracket=([^\|]+)", "", node)
+                            node_detail = node[1:].split("|")
+                            for each_ipa in node_detail:
+                                parse_result.append({
+                                    "IPA": to_IPA(
+                                        each_ipa,
+                                        adj=noadj,
+                                        gem=gem,
+                                        bracket=bracket,
+                                        pos=pos
+                                    ),
+                                    "lang": lang,
+                                })
+                        elif tag == "hi-IPA":
+                            lang = "hi"
+                            node_detail = node[1:].split("|")
+                            for each_ipa in node_detail:
+                                parse_result.append({
+                                    "IPA": hi_pron.to_IPA(each_ipa),
+                                    "lang": lang,
+                                })
+                        elif tag == "zh-pron":
+                            lang = "zh"
+                            node = re.findall("\|m=([^\|]+)", node)
+                            node = node[0] if node else ""
+                            node_detail = node.split(",")
+                            for each_ipa in node_detail:
+                                if "=" in each_ipa:
+                                    continue
+                                parse_result.append({
+                                    "IPA": cmn_pron.to_IPA(each_ipa),
+                                    "lang": lang,
+                                })
                     else:
                         extend_lst = self.expand_template("{{%s}}" % node)
+                        lang = tag.split("-")
+                        lang = lang[0] if lang else "Unknown"
                         for each_ipa in extend_lst:
                             parse_result.append({
                                 "IPA": each_ipa,
-                                "lang": tag.split("-")[0],
+                                "lang": lang,
                             })
         if self.XSAMPA:
             for item in parse_result:
