@@ -6,7 +6,6 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-import re
 import json
 try:
     from urllib import urlencode, urlopen
@@ -14,6 +13,7 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.request import urlopen
 
+import regex as re
 from bs4 import BeautifulSoup
 from .IPA import IPA
 
@@ -44,8 +44,10 @@ class Parser(object):
             "format": "json"
         }
         self.regex = {
-            "lang": re.compile("^lang="),
-            "node": re.compile("{{([^}]+)}}"),
+            "lang": re.compile("\|lang=([^\|]+)"), #re.compile("^lang="),
+            # "node": re.compile("{{([^}]+)}}"),
+            "node": re.compile("(?<brackets>{{(?:[^{}]+|(?&brackets))*}})"),
+            "IPA-node": re.compile("^([\w]+\-)?(IPA|pron)\|"),
             "pronun": re.compile("\* ([^\n]+)\n"),
             "h2": re.compile("(?:\A|\n)={2}([a-zA-Z0-9 -]+)={2}\n"),
             "h3": re.compile("\n={3}([a-zA-Z0-9 -]+)={3}\n"),
@@ -180,28 +182,23 @@ class Parser(object):
         for each in pronun_lst:
             node_lst = self.regex["node"].findall(each)
             for node in node_lst:
-                node_detail = node.split("|")
-                if "IPA" in node_detail[0]:
-                    if node_detail[0] == "IPA":
-                        lang = re.sub(self.regex["lang"], "", node_detail[-1])
-                        for each_ipa in node_detail[1:-1]:
-                            parse_result.append({
-                                "IPA": each_ipa,
-                                "lang": lang,
-                            })
-                    else:
-                        ipa_key = node_detail[0].split("-")
-                        if len(ipa_key) == 2 and ipa_key[1] == "IPA":
-                            extend_lst = self.expand_template("{{%s}}" % node)
-                            for each_ipa in extend_lst:
+                node = node[2:-2]
+                tag = re.findall(self.regex["IPA-node"], node)
+                if not tag:
+                    tag = tag[0][1]
+                    if tag == "IPA":
+                            node_detail = node.split("|")
+                            for each_ipa in node_detail:
                                 parse_result.append({
                                     "IPA": each_ipa,
-                                    "lang": ipa_key[0],
+                                    "lang": lang,
                                 })
-                        else:
+                    else:
+                        extend_lst = self.expand_template("{{%s}}" % node)
+                        for each_ipa in extend_lst:
                             parse_result.append({
-                                "IPA": "Unknown IPA.",
-                                "lang": "null",
+                                "IPA": each_ipa,
+                                "lang": tag.split("-")[0],
                             })
         if self.XSAMPA:
             for item in parse_result:
