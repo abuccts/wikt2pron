@@ -106,7 +106,7 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
     text = re.sub("[ѐЀѝЍ]", lambda x: decompose_grave_map[x.group()], text)
 
     origtext = str(text)
-    print(text)
+    #print(text)
     # the second half of the if-statement below is an optimization; see above.
     if not noadj and "го" in text:
         if not forceadj:
@@ -116,7 +116,7 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
-            print(text)
+            #print(text)
             # handle немного, намного
             text = re.sub(
                 "(?<!\p{L}|́|̀)([Нн][еа]мно[́̀]?)го(?!\p{L}|́|̀)",
@@ -214,7 +214,7 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
                 r"\1" + TEMP_G + "о",
                 "\0" + text + "\0"
             )[1:-1]
-        print(text)
+        #print(text)
         #handle genitive/accusative endings, which are spelled -ого/-его/-аго
         # (-ogo/-ego/-ago) but transliterated -ovo/-evo/-avo; only for adjectives
         # and pronouns, excluding words like много, ого (-аго occurs in
@@ -245,11 +245,11 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
             r"\1в\2",
             "\0" + text + "\0"
         )[1:-1]
-        print(text)
+        #print(text)
         # replace TEMP_G with g; must be done after the -go -> -vo changes
         text = re.sub(TEMP_G, "г", text)
 
-    print(text)
+    #print(text)
 
     # the second half of the if-statement below is an optimization; see above.
     if not noshto and "то" in text:
@@ -275,7 +275,7 @@ def apply_tr_fixes(text, noadj="", noshto="", forceadj=""):
 
     text = re.sub("([МмЛл][яеё][́̀]?)г([кч])", r"\1х\2", text)
 
-    print(text)
+    #print(text)
     return origtext, text
 
 # Transliterate after the pronunciation-related transformations of

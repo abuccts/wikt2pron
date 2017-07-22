@@ -51,11 +51,11 @@ class Parser(object):
             "lang": re.compile("\|lang=([^\|]+)"), #re.compile("^lang="),
             # "node": re.compile("{{([^}]+)}}"),
             "node": re.compile("(?<brackets>{{(?:[^{}]+|(?&brackets))*}})"),
-            "IPA-node": re.compile("^(([\w]+\-)?(IPA|pron))(?=\|)"),
+            "IPA-node": re.compile("^(([\w]+\-)?(IPA|pron))(?=\||\Z)"),
             "pronun": re.compile("\* ([^\n]+)\n"),
-            "h2": re.compile("(?:\A|\n)={2}([a-zA-Z0-9 -]+)={2}\n"),
-            "h3": re.compile("\n={3}([a-zA-Z0-9 -]+)={3}\n"),
-            "h4": re.compile("\n={4}([a-zA-Z0-9 -]+)={4}\n"),
+            "h2": re.compile("(?:\A|\n)={2}([\p{L}0-9 -]+)={2}\n"),
+            "h3": re.compile("\n={3}([\p{L}0-9 -]+)={3}\n"),
+            "h4": re.compile("\n={4}([\p{L}0-9 -]+)={4}\n"),
             "IPA": re.compile("<span[^>]*>([^<]+)<\/span>")
         }
 
@@ -204,8 +204,11 @@ class Parser(object):
                         node = re.sub("\|qual\d?=[^\|]*", "", node)
                         node = re.sub("\|n\d?=[^\|]*", "", node)
                         if tag == "IPA":
-                            node_detail = node[1:].split("|")
+                            node = node[1:]
+                            node_detail = node.split("|")
                             for each_ipa in node_detail:
+                                if not each_ipa:
+                                    continue
                                 parse_result.append({
                                     "IPA": each_ipa,
                                     "lang": lang,
@@ -215,10 +218,13 @@ class Parser(object):
                             pos = re.findall("\|pos=([^\|]+)", node)
                             pos = pos[0] if pos else ""
                             node = re.sub("\|pos=([^\|]+)", "", node)
-                            node_detail = node[1:].split("|")
-                            if not node_detail and self.title:
-                                node_detail.append(self.title)
+                            node = node[1:]
+                            if not node and self.title:
+                                node = self.title
+                            node_detail = node.split("|")
                             for each_ipa in node_detail:
+                                if not each_ipa:
+                                    continue
                                 parse_result.append({
                                     "IPA": fr_pron.to_IPA(
                                         each_ipa,
@@ -246,12 +252,15 @@ class Parser(object):
                             bracket = re.findall("\|bracket=([^\|]+)", node)
                             bracket = bracket[0] if bracket else ""
                             node = re.sub("\|bracket=([^\|]+)", "", node)
-                            node_detail = node[1:].split("|")
-                            if not node_detail and self.title:
-                                node_detail.append(self.title)
+                            node = node[1:]
+                            if not node and self.title:
+                                node = self.title
+                            node_detail = node.split("|")
                             for each_ipa in node_detail:
+                                if not each_ipa:
+                                    continue
                                 parse_result.append({
-                                    "IPA": to_IPA(
+                                    "IPA": ru_pron.to_IPA(
                                         each_ipa,
                                         adj=noadj,
                                         gem=gem,
@@ -262,10 +271,13 @@ class Parser(object):
                                 })
                         elif tag == "hi-IPA":
                             lang = "hi"
-                            node_detail = node[1:].split("|")
-                            if not node_detail and self.title:
-                                node_detail.append(self.title)
+                            node = node[1:]
+                            if not node and self.title:
+                                node = self.title
+                            node_detail = node.split("|")
                             for each_ipa in node_detail:
+                                if not each_ipa:
+                                    continue
                                 parse_result.append({
                                     "IPA": hi_pron.to_IPA(each_ipa),
                                     "lang": lang,
@@ -276,7 +288,7 @@ class Parser(object):
                             node = node[0] if node else ""
                             node_detail = node.split(",")
                             for each_ipa in node_detail:
-                                if "=" in each_ipa:
+                                if not each_ipa or "=" in each_ipa:
                                     continue
                                 parse_result.append({
                                     "IPA": cmn_pron.to_IPA(each_ipa),
