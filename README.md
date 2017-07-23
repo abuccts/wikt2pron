@@ -12,6 +12,8 @@ A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict fo
 
 This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/) with [CMU Sphinx](https://cmusphinx.github.io/).
 
+Collected pronunciation dictionaries can be downloaded at [Dropbox](https://www.dropbox.com/sh/1anleakrnm5ednt/AAAXeSY0abHxFLcXOr4OkVJ9a?dl=0).
+
 Requirements
 ------------
 wikt2pron requires:
