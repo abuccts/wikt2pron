@@ -19,6 +19,7 @@ from .IPA import IPA
 from .IPA import fr_pron
 from .IPA import ru_pron
 from .IPA import hi_pron
+from .IPA import es_pron
 from .IPA import cmn_pron
 
 
@@ -277,6 +278,19 @@ class Parser(object):
                                 continue
                             parse_result.append({
                                 "IPA": hi_pron.to_IPA(each_ipa),
+                                "lang": lang,
+                            })
+                    elif tag == "es-IPA":
+                        lang = "es"
+                        node = node[1:]
+                        if not node and self.title:
+                            node = self.title
+                        node_detail = node.split("|")
+                        for each_ipa in node_detail:
+                            if not each_ipa:
+                                continue
+                            parse_result.append({
+                                "IPA": es_pron.to_IPA(each_ipa),
                                 "lang": lang,
                             })
                     elif tag == "zh-pron":
