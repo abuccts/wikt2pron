@@ -11,9 +11,9 @@ from __future__ import unicode_literals
 import regex as re
 
 
-def to_IPA(word, LatinAmerica=False, phonetic=False):
+def to_IPA(word, LatinAmerica=False, phonetic=True):
     word = word.lower()
-    word = ew.sub("[^abcdefghijklmnopqrstuvwxyzáéíóúüñ.]", "", word)
+    word = re.sub("[^abcdefghijklmnopqrstuvwxyzáéíóúüñ.]", "", word)
 	
     # determining whether "y" is a consonant or a vowel + diphthongs, "-mente" suffix
     word = re.sub("y([^aeiouáéíóú])", r"i\1", word)
@@ -163,3 +163,5 @@ def to_IPA(word, LatinAmerica=False, phonetic=False):
     word = re.sub("ʃ", "t͡ʃ", word) # fake "ch" to real "ch"
     word = re.sub("ɟ", "ɟ͡ʝ", word) # fake "y" to real "y"
     word = re.sub("ï", "i", word) # fake "y$" to real "y$"
+
+    return word
