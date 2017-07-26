@@ -142,7 +142,5 @@ def IPA_to_CMUBET(text):
             i += 1
         elif text[i] in i2c_lookup.keys():
             CMUBET_lst.append(i2c_lookup[text[i]])
-        else:
-            continue
         i += 1
     return " ".join(CMUBET_lst)
