@@ -32,10 +32,13 @@ m_CMUBET = CMUBET.data
 
 # IPA <-> CMUBET lookup tables
 # IPA symbols not in CMUBET are included from Arpabet
-# Refer to https://en.wikipedia.org/wiki/Arpabet for details
 i2c_lookup = {
+    # Modified in CMUBET
     "tʃ": "CH",
+    "i:": "IY",
+    "i": "IY",
     "ɪ": "IH",
+    # from https://en.wikipedia.org/wiki/Arpabet
     "ə": "AX",
     "aɪ": "AY",
     "aʊ": "AW",
@@ -44,16 +47,16 @@ i2c_lookup = {
     "dʒ": "JH",
     "m̩": "EM",
     "n̩": "EN",
-    "ŋ̍": "ENG",
+    "ŋ̍": "EN", #"ENG",
     "ɫ": "L",
-    "ɫ̩": "EL",
+    "ɫ̩": "L", #"EL",
     "r": "R",
     "ɾ": "DX",
-    "ɾ̃": "NX",
+    "ɾ̃": "DX", #"NX",
     "ʔ": "Q",
     # from http://courses.csail.mit.edu/6.345//notes/IPA/
     "e": "EY",
-    "ɦ": "HV",
+    "ɦ": "HH", #"HV",
     "o": "OW",
     "ɨ": "IX",
     # add to nearest phoneme
@@ -134,6 +137,7 @@ def IPA_to_CMUBET(text):
     """
     text = re.sub("ːː", ":", text)
     text = text.lstrip("/[").rstrip("]/")
+    text = text.strip("'-!$")
     text += " "
     CMUBET_lst = []
     i = 0
