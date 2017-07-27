@@ -34,6 +34,7 @@ m_CMUBET = CMUBET.data
 # IPA symbols not in CMUBET are included from Arpabet
 # Refer to https://en.wikipedia.org/wiki/Arpabet for details
 i2c_lookup = {
+    "tʃ": "CH",
     "ɪ": "IH",
     "ə": "AX",
     "aɪ": "AY",
