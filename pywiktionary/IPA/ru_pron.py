@@ -635,11 +635,11 @@ def phon_respelling(text, remove_grave):
 # has already been passed through m_ru_translit.apply_tr_fixes(); otherwise,
 # this will be done.
 def to_IPA(text, adj="", gem="", bracket="", pos=""):
-    #print(text)
+    print(text)
     origtext, transformed_text = ru_translit.apply_tr_fixes(text)
     text = transformed_text
 
-    #print(text)
+    print(text)
 
     if not gem:
         gem = ""
@@ -734,7 +734,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # canonicalize multiple spaces
     text = re.sub("\s+", " ", text)
 
-    #print(text)
+    print(text)
 
     # Add primary stress to single-syllable words preceded or followed by
     # unstressed particle or preposition. Add "tertiary" stress to remaining
@@ -831,7 +831,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             if isinstance(pos, list) and 1 < real_word_index < len(pos):
                 del pos[real_word_index-2]
 
-    #print(text)
+    print(text)
 
     # rejoin words, convert hyphens to spaces and eliminate stray spaces
     # resulting from this
@@ -971,7 +971,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     #split by word and process each word
     word = text.split(" ")
 
-    #print(text)
+    print(text)
 
     for i in range(len(word)):
         pron = word[i]
@@ -1281,7 +1281,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     if bracket:
         text = "[" + text + "]"
 
-    #print(text)
+    print(text)
 
     # Front a and u between soft consonants. If between a soft and
     # optionally soft consonant (should only occur in that order, shouldn't
@@ -1330,6 +1330,6 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # eliminate _ symbol that prevents assimilations
     text = re.sub("[⁀_]", "", text)
 
-    #print(text)
+    print(text)
 
     return text
