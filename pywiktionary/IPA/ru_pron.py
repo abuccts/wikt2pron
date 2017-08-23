@@ -752,6 +752,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # recognize hyphens for the purpose of marking unstressed prefixes and
     # suffixes.
     word = re.split("([ \-]+)", text) # capturing_split("([ \-]+)", text)
+    print(word)
     for i in range(len(word)):
         # check for single-syllable words that need a stress; they must meet
         # the following conditions:
@@ -831,7 +832,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
             if isinstance(pos, list) and 1 < real_word_index < len(pos):
                 del pos[real_word_index-2]
 
-    print(text)
+    print(word)
 
     # rejoin words, convert hyphens to spaces and eliminate stray spaces
     # resulting from this

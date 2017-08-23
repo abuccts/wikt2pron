@@ -50,10 +50,12 @@ tab = {
 # any Cyrillic or Latin vowel, including ёЁ and composed Cyrillic vowels with grave accent;
 # not including accented Latin vowels except ě (FIXME, might want to change this)
 vowels = "аеиоуяэыюіѣѵүАЕИОУЯЭЫЮІѢѴҮѐЀѝЍёЁAEIOUYĚƐaeiouyěɛ"
+# FIXME! Bypass some cases
+consonants_fix = "éо̀"
 
 # FIXME! Doesn't work with ɣ, which gets included in this character set
-non_consonants = "[" + vowels + "ЪЬъьʹʺ]"
-consonants = "[^" + vowels + "ЪЬъьʹʺ]"
+non_consonants = "[" + vowels + consonants_fix + "ЪЬъьʹʺ]"
+consonants = "[^" + vowels + consonants_fix + "ЪЬъьʹʺ]"
 
 map_to_plain_e_map = {
     "Е": "E", "е": "e",
@@ -69,7 +71,8 @@ map_to_je_map = {
     "Ѣ": "Jě", "ѣ": "jě",
     "Э": "E", "э": "e",
 }
-def map_to_je(pre, e):
+def map_to_je(match):
+    pre, e = match.group(1), match.group(2)
     if not e:
         e = pre
         pre = ""
@@ -320,12 +323,13 @@ def tr_after_fixes(text, include_monosyllabic_jo_accent=""):
 
         # This is now the default
         # е after a vowel or at the beginning of a word becomes je, and э becomes e
-        # text = re.sub(text, "^([ЕеѢѣЭэ])", map_to_je)
-        # text = re.sub(text, "(" + non_consonants + ")([ЕеѢѣЭэ])", map_to_je)
+        # text = re.sub("^([ЕеѢѣЭэ])", map_to_je, text)
+        # text = re.sub("(" + non_consonants + ")([ЕеѢѣЭэ])", map_to_je, text)
         # # need to do it twice in case of sequences of such vowels
-        # text = re.sub(text, "^([ЕеѢѣЭэ])", map_to_je)
-        # text = re.sub(text, "(" + non_consonants + ")([ЕеѢѣЭэ])", map_to_je)
+        # text = re.sub("^([ЕеѢѣЭэ])", map_to_je, text)
+        # text = re.sub("(" + non_consonants + ")([ЕеѢѣЭэ])", map_to_je, text)
 
+    text = re.sub("о́", "ó", text) # FIXME
     def repl_tab(match):
         k = match.group()
         if k in tab.keys():
