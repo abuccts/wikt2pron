@@ -190,50 +190,6 @@ def list_to_set(lst):
         res[each] = True
     return res
 
-# Reimplementation of mw.ustring.split() that includes any capturing
-# groups in the splitting pattern. This works like Python's re.split()
-# function, except that it has Lua's behavior when the split pattern
-# is empty (i.e. advancing by one character at a time; Python returns the
-# whole remainder of the string).
-def capturing_split(pattern, str):
-    ret = []
-    # (.-) corresponds to (.*?) in Python or Perl; () captures the
-    # current position after matching.
-    pattern = "(.*?)" + pattern + "()"
-    start = 0
-    while True:
-        # Did we reach the end of the string?
-        if start > len(str) - 1:
-            ret.append("")
-            return ret
-        # match() returns all captures as multiple return values;
-        # we need to insert into a table to get them all.
-        captures = re.findall(pattern, str[start:])
-        # If no match, add the remainder of the string.
-        if len(captures) == 0:
-            ret.append(str[start:])
-            return ret
-        newstart = captures[-1]
-        del captures[-1]
-        # Special case: If we don't advance by any characters, then advance
-        # by one character; this avoids an infinite loop, and makes splitting
-        # by an empty string work the way mw.ustring.split() does. If we
-        # reach the end of the string this way, return immediately, so we
-        # don't get a final empty string.
-        if newstart == start:
-            ret.append(str[start])
-            del captures[0]
-            start += 1
-            if start > len(str) - 1:
-                return ret
-        else:
-            ret.append(captures[0])
-            del captures[0]
-            start = newstart
-        # Insert any captures from the splitting pattern.
-        for x in captures:
-            ret.append(x)
-
 remove_grave_accents_from_phonetic_respelling = True # Anatoli's desired value
 
 def sub_repeatedly(pattern, repl, term):
@@ -635,11 +591,8 @@ def phon_respelling(text, remove_grave):
 # has already been passed through m_ru_translit.apply_tr_fixes(); otherwise,
 # this will be done.
 def to_IPA(text, adj="", gem="", bracket="", pos=""):
-    print(text)
     origtext, transformed_text = ru_translit.apply_tr_fixes(text)
     text = transformed_text
-
-    print(text)
 
     if not gem:
         gem = ""
@@ -734,8 +687,6 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # canonicalize multiple spaces
     text = re.sub("\s+", " ", text)
 
-    print(text)
-
     # Add primary stress to single-syllable words preceded or followed by
     # unstressed particle or preposition. Add "tertiary" stress to remaining
     # single-syllable words that aren't a particle, preposition, prefix or
@@ -751,8 +702,7 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # spelled letters о and а, which should not be reduced); and (3) we
     # recognize hyphens for the purpose of marking unstressed prefixes and
     # suffixes.
-    word = re.split("([ \-]+)", text) # capturing_split("([ \-]+)", text)
-    print(word)
+    word = re.split("([ \-]+)", text)
     for i in range(len(word)):
         # check for single-syllable words that need a stress; they must meet
         # the following conditions:
@@ -764,10 +714,10 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 # 1c. in the "post" class if preceded by another word and
                 #     not followed by a hyphen (this is because words like
                 #     ка and же are also used for spelling initialisms), or
-                2 < i < len(word) - 1 and word[i] in accentless["post"].keys() and word[i+1] != "-" or \
+                i > 1 and word[i] in accentless["post"].keys() and (i+1 >= len(word) or word[i+1] != "-") or \
                 # 1d. in the "posthyphen" class preceded by a hyphen and another word
                 #     (and not followed by a hyphen, see 1c);
-                2 < i < len(word) - 1 and word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and word[i+1] != "-") and ( \
+                i > 1 and word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and (i+1 >= len(word) or word[i+1] != "-")) and ( \
         # 2. must be one syllable;
             len(re.sub("[^" + vow + "]", "", word[i])) == 1) and ( \
         # 3. must not have any accents (including dot-above, forcing reduction);
@@ -818,8 +768,8 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 del gem[real_word_index-1]
             if isinstance(pos, list) and real_word_index <= len(pos):
                 del pos[real_word_index-1]
-        elif i > 1 and (word[i] in accentless["post"].keys() and word[i+1] != "-" or \
-                word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and word[i+1] != "-"):
+        elif i > 1 and (word[i] in accentless["post"].keys() and (i+1 >= len(word) or word[i+1] != "-") or \
+                word[i] in accentless["posthyphen"].keys() and word[i-1] == "-" and (i+1 >= len(word) or word[i+1] != "-")):
             word[i-1] = "‿"
             # for unaccented words that liaise with the preceding word,
             # remove the gemination spec corresponding to the unaccented word
@@ -831,8 +781,6 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
                 del gem[real_word_index-1]
             if isinstance(pos, list) and 1 < real_word_index < len(pos):
                 del pos[real_word_index-2]
-
-    print(word)
 
     # rejoin words, convert hyphens to spaces and eliminate stray spaces
     # resulting from this
@@ -971,8 +919,6 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
 
     #split by word and process each word
     word = text.split(" ")
-
-    print(text)
 
     for i in range(len(word)):
         pron = word[i]
@@ -1282,8 +1228,6 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     if bracket:
         text = "[" + text + "]"
 
-    print(text)
-
     # Front a and u between soft consonants. If between a soft and
     # optionally soft consonant (should only occur in that order, shouldn't
     # ever have a or u preceded by optionally soft consonant),
@@ -1330,7 +1274,5 @@ def to_IPA(text, adj="", gem="", bracket="", pos=""):
     # eliminate ⁀ symbol at word boundaries
     # eliminate _ symbol that prevents assimilations
     text = re.sub("[⁀_]", "", text)
-
-    print(text)
 
     return text

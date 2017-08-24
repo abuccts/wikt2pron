@@ -329,7 +329,6 @@ def tr_after_fixes(text, include_monosyllabic_jo_accent=""):
         # text = re.sub("^([ЕеѢѣЭэ])", map_to_je, text)
         # text = re.sub("(" + non_consonants + ")([ЕеѢѣЭэ])", map_to_je, text)
 
-    text = re.sub("о́", "ó", text) # FIXME
     def repl_tab(match):
         k = match.group()
         if k in tab.keys():
