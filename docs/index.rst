@@ -23,10 +23,13 @@ wikt2pron's documentation
 
 This project is developed in `GSoC 2017`_ with `CMU Sphinx`_.
 
-Collected pronunciation dictionaries can be downloaded at `Dropbox`_.
+Blogs for this project can be found at my `Blogspot`_.
+
+Collected pronunciation dictionaries and related example models can be downloaded at `Dropbox`_.
 
 .. _GSoC 2017: https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/
 .. _CMU Sphinx: https://cmusphinx.github.io/
+.. _Blogspot: https://abuccts.blogspot.com/search/label/GSoC
 .. _Dropbox: https://www.dropbox.com/sh/1anleakrnm5ednt/AAAXeSY0abHxFLcXOr4OkVJ9a?dl=0
 
 

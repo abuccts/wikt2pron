@@ -1,7 +1,8 @@
 Usage
 =====
 
-1. **Extract pronunciation from Wiktionary XML dump**
+Extract pronunciation from Wiktionary XML dump
+----------------------------------------------
 
     First, create an instance of :class:`Wiktionary` class:
     
@@ -49,7 +50,8 @@ Usage
           'title': 'dazzle'}]
 
 
-2. **Lookup pronunciation for a word in Wiktionary**
+Lookup pronunciation for a word in Wiktionary
+---------------------------------------------
 
     First, create an instance of :class:`Wiktionary` class:
 
@@ -93,7 +95,8 @@ Usage
          {'IPA': '/ɹɛd/', 'X-SAMPA': '/r\\Ed/', 'lang': 'en'}]
 
 
-3. **IPA -> X-SAMPA conversion**
+IPA -> X-SAMPA conversion
+-------------------------
 
     .. code-block:: python
 
@@ -102,4 +105,20 @@ Usage
         >>> XSAMPA_text = IPA.IPA_to_XSAMPA(IPA_text)
         >>> XSAMPA_text
         "/t__SeInd__Z/"
+
+
+Using the collected dictionaries
+--------------------------------
+
+    To use the collected dictionaries training G2P models or acoustic models, please refer to these blogs for details:
+
+    1. `Grapheme to Phoneme Conversion`_
+
+    2. `Training Acoustic Model on Voxforge Dataset`_
+
+    3. `Training Acoustic Model on LibriSpeech`_
+
+    .. _Grapheme to Phoneme Conversion: https://abuccts.blogspot.com/2017/07/gsoc-2017-with-cmusphinx-post-8.html
+    .. _Training Acoustic Model on Voxforge Dataset: https://abuccts.blogspot.com/2017/08/gsoc-2017-with-cmusphinx-post-9-10.html
+    .. _Training Acoustic Model on LibriSpeech: https://abuccts.blogspot.com/2017/08/gsoc-2017-with-cmusphinx-post-11.html
 

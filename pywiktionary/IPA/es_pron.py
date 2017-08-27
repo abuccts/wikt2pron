@@ -1,7 +1,7 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=line-too-long, invalid-name
 """Generates Spanish IPA from spelling. Implements template {{es-IPA}}.
-Modifiled from https://en.wiktionary.org/wiki/Module:es-pronunc Lua module partially.
+Modified from https://en.wiktionary.org/wiki/Module:es-pronunc Lua module partially.
 """
 
 from __future__ import print_function
@@ -12,6 +12,43 @@ import regex as re
 
 
 def to_IPA(word, LatinAmerica=False, phonetic=True):
+    """Generates Spanish IPA from spelling.
+
+    Implements template `{{es-IPA}}`_.
+
+    .. _{{es-IPA}}: https://en.wiktionary.org/wiki/Template:es-IPA
+
+    Parameters
+    ----------
+    word : string
+        String of es-IPA text parsed in `{{es-IPA}}`_ from Wiktionary.
+
+    LatinAmerica : bool
+        Value of ``|LatinAmerica=`` parameter parsed in `{{es-IPA}}`_.
+
+    phonetic : bool
+        Value of ``|phonetic=`` parameter parsed in `{{es-IPA}}`_.
+
+    Returns
+    -------
+    string
+        Converted Spanish IPA.
+
+    Notes
+    -----
+    - Modified from `Wiktioanry es-pronunc Lua module`_ partially.
+    - Testcases are modified from `Wiktionary es-pronunc/testcases`_.
+
+    .. _Wiktioanry es-pronunc Lua module: https://en.wiktionary.org/wiki/Module:es-pronunc
+    .. _Wiktionary es-pronunc/testcases: https://en.wiktionary.org/wiki/Module:es-pronunc/testcases
+
+    Examples
+    --------
+    >>> es_text = "baca" # es: [[baca]]
+    >>> es_IPA = es_pron.to_IPA(es_text)
+    >>> es_IPA
+    "ˈbaka"
+    """
     word = word.lower()
     word = re.sub("[^abcdefghijklmnopqrstuvwxyzáéíóúüñ.]", "", word)
 	

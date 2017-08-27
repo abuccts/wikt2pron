@@ -33,4 +33,18 @@ Utilities
 .. automodule:: IPA.IPA
     :members:
 
+    
+Convert spelling text in ``{{*-IPA}}`` to IPA pronunciation.
+
+Most are modified from Wiktionary Lua Module.
+
+.. autofunction:: IPA.fr_pron.to_IPA
+
+.. autofunction:: IPA.ru_pron.to_IPA
+
+.. autofunction:: IPA.hi_pron.to_IPA
+
+.. autofunction:: IPA.es_pron.to_IPA
+
+.. autofunction:: IPA.cmn_pron.to_IPA
 

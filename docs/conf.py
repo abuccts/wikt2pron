@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'enwiktionary2cmudict'
+project = 'wikt2pron'
 copyright = '2017, Yifan Xiong'
 author = pywiktionary.__author__
 
@@ -143,7 +143,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'enwiktionary2cmudict.tex', 'enwiktionary2cmudict Documentation',
+    (master_doc, 'wikt2pron.tex', 'wikt2pron Documentation',
      'Yifan Xiong', 'manual'),
 ]
 
@@ -153,7 +153,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'enwiktionary2cmudict', 'enwiktionary2cmudict Documentation',
+    (master_doc, 'wikt2pron', 'wikt2pron Documentation',
      [author], 1)
 ]
 
@@ -164,7 +164,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'enwiktionary2cmudict', 'enwiktionary2cmudict Documentation',
-     author, 'enwiktionary2cmudict', 'One line description of project.',
+    (master_doc, 'wikt2pron', 'wikt2pron Documentation',
+     author, 'wikt2pron', 'One line description of project.',
      'Miscellaneous'),
 ]

@@ -1,7 +1,7 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=line-too-long, invalid-name
 """Generates French IPA from spelling. Implements template {{fr-IPA}}.
-Modifiled from https://en.wiktionary.org/wiki/Module:fr-pron Lua module partially.
+Modified from https://en.wiktionary.org/wiki/Module:fr-pron Lua module partially.
 Rewritten from rewritten by Benwing and original by Kc kennylau.
 """
 
@@ -98,6 +98,41 @@ front_vowel_c = "[" + front_vowel + "]"
 
 
 def to_IPA(text, pos=""):
+    """Generates French IPA from spelling.
+    
+    Implements template `{{fr-IPA}}`_.
+
+    .. _{{fr-IPA}}: https://en.wiktionary.org/wiki/Template:fr-IPA
+
+    Parameters
+    ----------
+    text : string
+        String of fr-IPA text parsed in `{{fr-IPA}}`_ from Wiktionary.
+
+    pos : string
+        String of ``|pos=`` parameter parsed in `{{fr-IPA}}`_.
+
+    Returns
+    -------
+    string
+        Converted French IPA.
+
+    Notes
+    -----
+    - Modified from `Wiktioanry fr-pron Lua module`_ partially.
+    - Rewritten from rewritten by *Benwing* and original by *Kc kennylau*.
+    - Testcases are modified from `Wiktionary fr-pron/testcases`_.
+    
+    .. _Wiktioanry fr-pron Lua module: https://en.wiktionary.org/wiki/Module:fr-pron
+    .. _Wiktionary fr-pron/testcases: https://en.wiktionary.org/wiki/Module:fr-pron/testcases
+
+    Examples
+    --------
+    >>> fr_text = "hæmorrhagie" # fr: [[hæmorrhagie]]
+    >>> fr_IPA = fr_pron.to_IPA(fr_text)
+    >>> fr_IPA
+    "e.mɔ.ʁa.ʒi"
+    """
     def repl1(match):
         vow = match.group(1)
         if vow in remove_diaeresis_from_vowel.keys():

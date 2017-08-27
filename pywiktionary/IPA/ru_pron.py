@@ -1,7 +1,7 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=line-too-long, invalid-name
 """Implements the template {{ru-IPA}}.
-Modifiled from https://en.wiktionary.org/wiki/Module:ru-pron Lua module partially.
+Modified from https://en.wiktionary.org/wiki/Module:ru-pron Lua module partially.
 Rewritten from Author: Originally Wyang; rewritten by Benwing;
 additional contributions from Atitarev and a bit from others
 
@@ -591,6 +591,51 @@ def phon_respelling(text, remove_grave):
 # has already been passed through m_ru_translit.apply_tr_fixes(); otherwise,
 # this will be done.
 def to_IPA(text, adj="", gem="", bracket="", pos=""):
+    """Generates Russian IPA from spelling.
+
+    Implements template `{{ru-IPA}}`_.
+
+    .. _{{ru-IPA}}: https://en.wiktionary.org/wiki/Template:ru-IPA
+
+    Parameters
+    ----------
+    text : string
+        String of ru-IPA text parsed in `{{ru-IPA}}`_ from Wiktionary.
+
+    adj : string
+        String of ``|noadj=`` parameter parsed in `{{ru-IPA}}`_.
+
+    gem : string
+        String of ``|gem=`` parameter parsed in `{{ru-IPA}}`_.
+
+    bracket : string
+        String of ``|bracket=`` parameter parsed in `{{ru-IPA}}`_.
+
+    pos : string
+        String of ``|pos=`` parameter parsed in `{{ru-IPA}}`_.
+
+    Returns
+    -------
+    string
+        Converted Russian IPA.
+
+    Notes
+    -----
+    - Modified from `Wiktioanry ru-pron Lua module`_ partially.
+    - Rewritten from Author: Originally *Wyang*; rewritten by *Benwing*;
+      additional contributions from *Atitarev* and a bit from others.
+    - Testcases are modified from `Wiktionary ru-pron/testcases`_.
+
+    .. _Wiktioanry ru-pron Lua module: https://en.wiktionary.org/wiki/Module:ru-pron
+    .. _Wiktionary ru-pron/testcases: https://en.wiktionary.org/wiki/Module:ru-pron/testcases
+
+    Examples
+    --------
+    >>> ru_text = "счастли́вый" # ru: [[счастли́вый]]
+    >>> ru_IPA = ru_pron.to_IPA(ru_text)
+    >>> ru_IPA
+    "ɕːɪs⁽ʲ⁾ˈlʲivɨj"
+    """
     origtext, transformed_text = ru_translit.apply_tr_fixes(text)
     text = transformed_text
 

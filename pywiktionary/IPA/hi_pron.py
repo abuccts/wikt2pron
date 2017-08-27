@@ -1,7 +1,7 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=line-too-long, invalid-name
 """Hindi IPA pronunciation module. Implements template {{hi-IPA}}.
-Modifiled from https://en.wiktionary.org/wiki/Module:hi-IPA Lua module partially.
+Modified from https://en.wiktionary.org/wiki/Module:hi-IPA Lua module partially.
 """
 
 from __future__ import print_function
@@ -61,6 +61,37 @@ def syllabify(text):
     return text
 
 def to_IPA(text):
+    """Generates Hindi IPA from spelling.
+
+    Implements template `{{hi-IPA}}`_.
+
+    .. _{{hi-IPA}}: https://en.wiktionary.org/wiki/Template:hi-IPA
+
+    Parameters
+    ----------
+    text : string
+        String of hi-IPA text parsed in `{{hi-IPA}}`_ from Wiktionary.
+
+    Returns
+    -------
+    string
+        Converted Hindi IPA.
+
+    Notes
+    -----
+    - Modified from `Wiktioanry hi-IPA Lua module`_ partially.
+    - Testcases are modified from `Wiktionary hi-IPA/testcases`_.
+
+    .. _Wiktioanry hi-IPA Lua module: https://en.wiktionary.org/wiki/Module:hi-IPA
+    .. _Wiktionary hi-IPA/testcases: https://en.wiktionary.org/wiki/Module:hi-IPA/testcases
+
+    Examples
+    --------
+    >>> hi_text = "मैं" # hi: [[मैं]]
+    >>> hi_IPA = hi_pron.to_IPA(hi_text)
+    >>> hi_IPA
+    "mɛ̃ː"
+    """
     translit = transliterate(text)
     if not translit:
         return ""

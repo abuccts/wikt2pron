@@ -1,7 +1,7 @@
 # pylint: disable=anomalous-backslash-in-string
 # pylint: disable=line-too-long, invalid-name
 """Mandarin in zh-pron module. Implements "|m=" parameter for template {{zh-pron}}.
-Modifiled from https://en.wiktionary.org/wiki/Module:cmn-pron Lua module partially.
+Modified from https://en.wiktionary.org/wiki/Module:cmn-pron Lua module partially.
 """
 
 from __future__ import print_function
@@ -270,6 +270,38 @@ def pinyin_transform(text):
     return unicodedata.normalize("NFC", text)
 
 def to_IPA(text, IPA_tone=True):
+    """Generates Mandarin IPA from Pinyin.
+
+    Implements ``|m=`` parameter for template `{{zh-pron}}`_.
+
+    .. _{{zh-pron}}: https://en.wiktionary.org/wiki/Template:zh-pron
+
+    Parameters
+    ----------
+    text : string
+        String of ``|m=`` parameter parsed in `{{zh-pron}}`_ from Wiktionary.
+
+    IPA_tone : bool
+        Whether add IPA tone in result.
+
+    Returns
+    -------
+    string
+        Converted Mandarin IPA.
+
+    Notes
+    -----
+    - Modified from `Wiktioanry cmn-pron Lua module`_ partially.
+
+    .. _Wiktioanry cmn-pron Lua module: https://en.wiktionary.org/wiki/Module:cmn-pron
+
+    Examples
+    --------
+    >>> cmn_text = "pīnyīn" # zh: [[拼音]]
+    >>> cmn_IPA = cmn_pron.to_IPA(cmn_text)
+    >>> cmn_IPA
+    "pʰin⁵⁵ in⁵⁵"
+    """
     def repl1(match):
         k = match.group()
         if k in pinyin_detone.keys():
