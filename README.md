@@ -12,7 +12,7 @@ A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict fo
 
 This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/) with [CMU Sphinx](https://cmusphinx.github.io/).
 
-Collected pronunciation dictionaries can be downloaded at [Dropbox](https://www.dropbox.com/sh/1anleakrnm5ednt/AAAXeSY0abHxFLcXOr4OkVJ9a?dl=0).
+Collected pronunciation dictionaries and related example models can be downloaded at [Dropbox](https://www.dropbox.com/sh/1anleakrnm5ednt/AAAXeSY0abHxFLcXOr4OkVJ9a?dl=0).
 
 Requirements
 ------------
@@ -32,6 +32,9 @@ $ cd wikt2pron
 # install and run test
 $ python setup.py install
 $ python setup.py -q test
+
+# make documents
+$ make -C docs html
 ```
 
 Usage

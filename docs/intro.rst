@@ -51,9 +51,11 @@ Installation
     # download the latest version
     $ git clone https://github.com/abuccts/wikt2pron.git
     $ cd enwiktionary
-    
+
     # install and run test
     $ python setup.py install
     $ python setup.py -q test
 
+    # make documents
+    $ make -C docs html
 
