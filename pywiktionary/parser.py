@@ -306,6 +306,8 @@ class Parser(object):
                                 "lang": lang,
                             })
                 else:
+                    if "|" not in node:
+                        node = "{}|{}".format(node, self.title)
                     extend_lst = self.expand_template("{{%s}}" % node)
                     lang = tag.split("-")
                     lang = lang[0] if lang else "Unknown"
