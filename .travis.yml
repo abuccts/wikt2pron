@@ -1,18 +1,16 @@
 language: python
-os:
-  - linux
-  - windows
+dist: xenial
 python:
-  - "3.3"
-  - "3.4"
   - "3.5"
   - "3.5-dev"
   - "3.6"
   - "3.6-dev"
+  - "3.7"
   - "3.7-dev"
+  - "3.8-dev"
   - "nightly"
 install:
-  - pip install nose pylint
+  - pip install --upgrade pip nose pylint
   - python setup.py install
 script:
   - nosetests && pylint --errors-only pywiktionary

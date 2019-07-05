@@ -14,9 +14,9 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="pywiktionary",
-    version="0.0.2",
+    version="0.0.3",
 
-    description="Toolkit converting pronunciation in enwiktionary xml dump to cmudict format",
+    description="A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict format",
     long_description=long_description,
 
     url="https://github.com/abuccts/wikt2pron",
@@ -25,7 +25,7 @@ setup(
     author_email="abuccts@gmail.com",
 
     license="BSD-2-Clause",
-    
+
     keywords="wiktionary cmudict IPA parser",
     packages=find_packages(exclude=["contrib", "docs", "tests", "mwxml"]),
     install_requires=["regex", "mwxml", "beautifulsoup4", "six"],
@@ -33,16 +33,16 @@ setup(
     test_suite="nose.collector",
 
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Topic :: Multimedia :: Sound/Audio :: Speech",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3 :: Only",
     ],
 )
