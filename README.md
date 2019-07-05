@@ -1,21 +1,22 @@
 wikt2pron
 =========
 
+__A Wiktionary Pronunciation Collector__
+
 [![Build Status](https://travis-ci.org/abuccts/wikt2pron.svg?branch=master)](https://travis-ci.org/abuccts/wikt2pron)
 [![Documentation Status](https://readthedocs.org/projects/wikt2pron/badge/?version=latest)](http://wikt2pron.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/enwiktionary2cmudict/Lobby](https://badges.gitter.im/enwiktionary2cmudict/Lobby.svg)](https://gitter.im/enwiktionary2cmudict/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![BSD licensed](https://img.shields.io/badge/License-BSD-blue.svg)](LICENSE)
 
-_Wiktionary pronunciation collector_
-
-A Python toolkit converting pronunciation in enwiktionary xml dump to cmudict format. Support [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) and [X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA) format at present.
-
-This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/) with [CMU Sphinx](https://cmusphinx.github.io/).
+Wikt2pron is a Python toolkit converting pronunciation in enwiktionary xml dump to cmudict format.
+It supports [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) and [X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA) format at present.
+This project is developed in [GSoC 2017](https://summerofcode.withgoogle.com/dashboard/student/proposal/5169382905872384/) with [CMU Sphinx](https://cmusphinx.github.io/) community.
 
 Collected pronunciation dictionaries and related example models can be downloaded at [Dropbox](https://www.dropbox.com/sh/1anleakrnm5ednt/AAAXeSY0abHxFLcXOr4OkVJ9a?dl=0).
 
 Requirements
 ------------
+
 wikt2pron requires:
 * Python 3
 * [regex](https://pypi.python.org/pypi/regex/)
@@ -24,6 +25,7 @@ wikt2pron requires:
 
 Installation
 ------------
+
 ```sh
 # download the latest version
 $ git clone https://github.com/abuccts/wikt2pron.git
@@ -120,10 +122,24 @@ To lookup a word in a certain language, specify the `lang` parameter:
 ```
 
 ##### IPA -> X-SAMPA conversion
+
 ```py
 >>> from pywiktionary import IPA
 >>> IPA_text = "/t͡ʃeɪnd͡ʒ/" # en: [[change]]
 >>> XSAMPA_text = IPA.IPA_to_XSAMPA(IPA_text)
 >>> XSAMPA_text
 "/t__SeInd__Z/"
+```
+
+Citation
+--------
+
+If you use wikt2pron in your research and want to cite it, please use the following BibTeX:
+```tex
+@misc{xiong2017wikt2pron,
+  title={Wikt2pron: A Wiktionary Pronunciation Collector},
+  author={Xiong, Yifan},
+  howpublished={\url{https://github.com/abuccts/wikt2pron}},
+  year={2017}
+}
 ```
